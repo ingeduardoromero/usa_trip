@@ -1,0 +1,74 @@
+[
+    {
+        "id": "gates-center",
+        "category": "pit",
+        "title": "Gates-Hillman Center",
+        "subtitle": "Pittsburgh • S3D/SCS",
+        "description": "The iconic masterpiece of the School of Computer Science (SCS) at Carnegie Mellon.",
+        "image": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1080&q=80",
+        "thumbnail": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+        "id": "cmu-fence",
+        "category": "pit",
+        "title": "The Fence & The Cut",
+        "subtitle": "Pittsburgh • Traditions",
+        "description": "One of the most storied traditions on campus. Students paint it overnight to celebrate milestones.",
+        "image": "https://images.unsplash.com/photo-1592280771190-3e2e4d571952?auto=format&fit=crop&w=1080&q=80",
+        "thumbnail": "https://images.unsplash.com/photo-1592280771190-3e2e4d571952?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+        "id": "phipps",
+        "category": "pit",
+        "title": "Phipps Conservatory",
+        "subtitle": "Pittsburgh • Romance",
+        "description": "Located just steps from campus, this Victorian glasshouse is one of the most beautiful botanical gardens in the world.",
+        "image": "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=1080&q=80",
+        "thumbnail": "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+        "id": "mt-washington",
+        "category": "pit",
+        "title": "Grandview Overlook",
+        "subtitle": "Pittsburgh • The View",
+        "description": "The ultimate celebratory view. Take the incline up to see where the three rivers meet.",
+        "image": "https://images.unsplash.com/photo-1517595208681-37f26d36e788?auto=format&fit=crop&w=1080&q=80",
+        "thumbnail": "https://images.unsplash.com/photo-1517595208681-37f26d36e788?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+        "id": "national-mall",
+        "category": "dc",
+        "title": "The National Mall",
+        "subtitle": "DC • History",
+        "description": "The historic heart of DC. Walk between the Washington Monument and the Lincoln Memorial.",
+        "image": "https://images.unsplash.com/photo-1501466044931-62695aada8e9?auto=format&fit=crop&w=1080&q=80",
+        "thumbnail": "https://images.unsplash.com/photo-1501466044931-62695aada8e9?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+        "id": "georgetown",
+        "category": "dc",
+        "title": "Historic Georgetown",
+        "subtitle": "DC • Atmosphere",
+        "description": "Cobblestone streets, colorful townhouses, and upscale dining by the Potomac River.",
+        "image": "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1080&q=80",
+        "thumbnail": "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+        "id": "high-line",
+        "category": "nyc",
+        "title": "The High Line Park",
+        "subtitle": "NYC • Modern Life",
+        "description": "A vibrant elevated park built on a historic rail line.",
+        "image": "https://images.unsplash.com/photo-1513624285461-4ce8105fb901?auto=format&fit=crop&w=1080&q=80",
+        "thumbnail": "https://images.unsplash.com/photo-1513624285461-4ce8105fb901?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+        "id": "central-park",
+        "category": "nyc",
+        "title": "Central Park Oasis",
+        "subtitle": "NYC • Romance",
+        "description": "The most romantic spot in NYC. A beautiful cast-iron bridge.",
+        "image": "https://images.unsplash.com/photo-1522083165195-3424ed129620?auto=format&fit=crop&w=1080&q=80",
+        "thumbnail": "https://images.unsplash.com/photo-1522083165195-3424ed129620?auto=format&fit=crop&w=800&q=80"
+    }
+]

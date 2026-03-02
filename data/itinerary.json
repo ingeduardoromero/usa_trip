@@ -1,0 +1,383 @@
+[
+    {
+        "city": "pit",
+        "cityName": "Pittsburgh",
+        "dates": "May 7-10",
+        "days": [
+            {
+                "date": "Thursday, May 7",
+                "label": "Arrival & Prep",
+                "events": [
+                    {
+                        "time": "08:00 - 16:00",
+                        "title": "Flight MEX to PIT",
+                        "description": "Aim for an early morning departure via DFW or IAH.",
+                        "image": "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1080&q=80",
+                        "thumbnail": "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=300&q=80"
+                    },
+                    {
+                        "time": "17:00 - 18:00",
+                        "title": "Hotel check-in near CMU",
+                        "description": "Stay at The Oaklander or Wyndham (Oakland).",
+                        "image": "https://images.unsplash.com/photo-1566073171639-4d38a0b16260?auto=format&fit=crop&w=1080&q=80",
+                        "thumbnail": "https://images.unsplash.com/photo-1566073171639-4d38a0b16260?auto=format&fit=crop&w=300&q=80"
+                    },
+                    {
+                        "time": "18:30 - 21:00",
+                        "title": "Quick campus walk & Dinner",
+                        "description": "Confirm Friday routes, casual dinner at The Porch.",
+                        "image": "https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1080&q=80",
+                        "thumbnail": "https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=300&q=80"
+                    }
+                ]
+            },
+            {
+                "date": "Friday, May 8",
+                "label": "Graduation Ceremony",
+                "events": [
+                    {
+                        "time": "09:00 - 10:30",
+                        "title": "S3D/MSE Breakfast",
+                        "description": "TCS Hall (4665 Forbes Ave).",
+                        "image": "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=1080&q=80",
+                        "thumbnail": "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=300&q=80"
+                    },
+                    {
+                        "time": "11:00 - 13:00",
+                        "title": "SCS Master's Ceremony",
+                        "description": "Soldiers & Sailors Memorial Hall.",
+                        "image": "https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=1080&q=80",
+                        "thumbnail": "https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=300&q=80"
+                    },
+                    {
+                        "time": "13:30 - 15:30",
+                        "title": "Post-Ceremony Lunch",
+                        "description": "Lucca Ristorante (Elegant Italian).",
+                        "image": "https://images.unsplash.com/photo-1498579150354-9794b3e4eeae?auto=format&fit=crop&w=1080&q=80",
+                        "thumbnail": "https://images.unsplash.com/photo-1498579150354-9794b3e4eeae?auto=format&fit=crop&w=300&q=80"
+                    },
+                    {
+                        "time": "19:30 - 22:00",
+                        "title": "The Graduation Dinner at Altius",
+                        "description": "Best skyline view (Take Duquesne Incline up).",
+                        "image": "https://images.unsplash.com/photo-1517595208681-37f26d36e788?auto=format&fit=crop&w=1080&q=80",
+                        "thumbnail": "https://images.unsplash.com/photo-1517595208681-37f26d36e788?auto=format&fit=crop&w=300&q=80"
+                    }
+                ]
+            },
+            {
+                "date": "Saturday, May 9",
+                "label": "Explore Pittsburgh",
+                "events": [
+                    {
+                        "time": "09:00 - 11:00",
+                        "title": "Campus Photoshoot",
+                        "description": "The Fence, Cathedral of Learning.",
+                        "image": "https://images.unsplash.com/photo-1581012733301-f99133bc9c50?auto=format&fit=crop&w=1080&q=80",
+                        "thumbnail": "https://images.unsplash.com/photo-1581012733301-f99133bc9c50?auto=format&fit=crop&w=300&q=80"
+                    },
+                    {
+                        "time": "11:30 - 14:30",
+                        "title": "Strip District brunch",
+                        "description": "Local vibe, great coffee & souvenirs.",
+                        "image": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1080&q=80",
+                        "thumbnail": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=300&q=80"
+                    },
+                    {
+                        "time": "15:00 - 17:30",
+                        "title": "Phipps Conservatory",
+                        "description": "Indoor botanical gardens near campus.",
+                        "image": "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=1080&q=80",
+                        "thumbnail": "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=300&q=80"
+                    },
+                    {
+                        "time": "19:00 - 21:30",
+                        "title": "Casual Dinner in Lawrenceville",
+                        "description": "Pusadee's Garden (highly recommended).",
+                        "image": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1080&q=80",
+                        "thumbnail": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=300&q=80"
+                    }
+                ]
+            },
+            {
+                "date": "Sunday, May 10",
+                "label": "Main Commencement",
+                "events": [
+                    {
+                        "time": "08:30 - 09:30",
+                        "title": "Arrive & seat for Commencement",
+                        "description": "Pack compact umbrellas.",
+                        "image": "https://images.unsplash.com/photo-1546410531-bea518040066?auto=format&fit=crop&w=1080&q=80",
+                        "thumbnail": "https://images.unsplash.com/photo-1546410531-bea518040066?auto=format&fit=crop&w=300&q=80"
+                    },
+                    {
+                        "time": "10:00 - 13:00",
+                        "title": "Main CMU Commencement",
+                        "description": "Gesling Stadium.",
+                        "image": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1080&q=80",
+                        "thumbnail": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=300&q=80"
+                    },
+                    {
+                        "time": "13:30 - 15:30",
+                        "title": "Farewell Lunch",
+                        "description": "Celebrate with classmates.",
+                        "image": "https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1080&q=80",
+                        "thumbnail": "https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=300&q=80"
+                    },
+                    {
+                        "time": "16:00 - 19:00",
+                        "title": "Pack and prep for Honeymoon",
+                        "description": "Transition from Grad to Vacation mode.",
+                        "image": "https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=1080&q=80",
+                        "thumbnail": "https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=300&q=80"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "city": "dc",
+        "cityName": "Washington D.C.",
+        "dates": "May 11-12",
+        "days": [
+            {
+                "date": "Monday, May 11",
+                "label": "PIT to DC",
+                "events": [
+                    {
+                        "time": "10:00 - 13:00",
+                        "title": "Flight PIT to Washington D.C.",
+                        "description": "Quick 1-hr flight to DCA.",
+                        "image": "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1080&q=80",
+                        "thumbnail": "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=300&q=80"
+                    },
+                    {
+                        "time": "13:30 - 14:30",
+                        "title": "Hotel check-in",
+                        "description": "Penn Quarter or Logan Circle.",
+                        "image": "https://images.unsplash.com/photo-1566073171639-4d38a0b16260?auto=format&fit=crop&w=1080&q=80",
+                        "thumbnail": "https://images.unsplash.com/photo-1566073171639-4d38a0b16260?auto=format&fit=crop&w=300&q=80"
+                    },
+                    {
+                        "time": "15:00 - 18:00",
+                        "title": "National Mall & Monuments",
+                        "description": "Walk past Washington Monument & Lincoln Memorial.",
+                        "image": "https://images.unsplash.com/photo-1501466044931-62695aada8e9?auto=format&fit=crop&w=1080&q=80",
+                        "thumbnail": "https://images.unsplash.com/photo-1501466044931-62695aada8e9?auto=format&fit=crop&w=300&q=80"
+                    },
+                    {
+                        "time": "19:30 - 21:30",
+                        "title": "DC Kickoff Dinner",
+                        "description": "Fiola Mare (Georgetown) or The Wharf.",
+                        "image": "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1080&q=80",
+                        "thumbnail": "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=300&q=80"
+                    }
+                ]
+            },
+            {
+                "date": "Tuesday, May 12",
+                "label": "Museums & History",
+                "events": [
+                    {
+                        "time": "09:30 - 13:00",
+                        "title": "Smithsonian Museums",
+                        "description": "Air & Space or Natural History (Free).",
+                        "image": "https://images.unsplash.com/photo-1566127444979-b3d2b654e3d7?auto=format&fit=crop&w=1080&q=80",
+                        "thumbnail": "https://images.unsplash.com/photo-1566127444979-b3d2b654e3d7?auto=format&fit=crop&w=300&q=80"
+                    },
+                    {
+                        "time": "13:30 - 15:00",
+                        "title": "Lunch at Penn Quarter",
+                        "description": "Zaytinya or Jaleo.",
+                        "image": "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=1080&q=80",
+                        "thumbnail": "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=300&q=80"
+                    },
+                    {
+                        "time": "15:30 - 18:00",
+                        "title": "US Capitol (Exterior) & Library",
+                        "description": "Great architecture photos.",
+                        "image": "https://images.unsplash.com/photo-1582376432754-b63cc6a9b8c3?auto=format&fit=crop&w=1080&q=80",
+                        "thumbnail": "https://images.unsplash.com/photo-1582376432754-b63cc6a9b8c3?auto=format&fit=crop&w=300&q=80"
+                    },
+                    {
+                        "time": "19:00 - 21:30",
+                        "title": "Dinner in Logan Circle",
+                        "description": "Le Diplomate (Book exactly 30 days out).",
+                        "image": "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=300&q=80",
+                        "thumbnail": "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=300&q=80"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "city": "nyc",
+        "cityName": "New York City",
+        "dates": "May 13-17",
+        "days": [
+            {
+                "date": "Wednesday, May 13",
+                "label": "DC to NYC",
+                "events": [
+                    {
+                        "time": "09:00 - 12:30",
+                        "title": "Train DC to NYC",
+                        "description": "Amtrak Acela (City center to city center).",
+                        "image": "https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&w=1080&q=80",
+                        "thumbnail": "https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&w=300&q=80"
+                    },
+                    {
+                        "time": "13:00 - 14:00",
+                        "title": "Hotel check-in Midtown",
+                        "description": "Near Times Square or Bryant Park.",
+                        "image": "https://images.unsplash.com/photo-1566073171639-4d38a0b16260?auto=format&fit=crop&w=1080&q=80",
+                        "thumbnail": "https://images.unsplash.com/photo-1566073171639-4d38a0b16260?auto=format&fit=crop&w=300&q=80"
+                    },
+                    {
+                        "time": "14:30 - 15:30",
+                        "title": "Late Lunch at Hard Rock Cafe",
+                        "description": "High energy kickoff in Times Square.",
+                        "image": "https://images.unsplash.com/photo-1534430480872-3498386e7856?auto=format&fit=crop&w=1080&q=80",
+                        "thumbnail": "https://images.unsplash.com/photo-1534430480872-3498386e7856?auto=format&fit=crop&w=300&q=80"
+                    },
+                    {
+                        "time": "15:30 - 17:30",
+                        "title": "Tour por la Ciudad",
+                        "description": "Hop-On-Hop-Off bus to orient yourselves.",
+                        "image": "https://images.unsplash.com/photo-1534430480872-3498386e7856?auto=format&fit=crop&w=300&q=80",
+                        "thumbnail": "https://images.unsplash.com/photo-1534430480872-3498386e7856?auto=format&fit=crop&w=300&q=80"
+                    },
+                    {
+                        "time": "18:00 - 19:30",
+                        "title": "High Line & Chelsea Market",
+                        "description": "Sunset walk and light snacks.",
+                        "image": "https://images.unsplash.com/photo-1513624285461-4ce8105fb901?auto=format&fit=crop&w=1080&q=80",
+                        "thumbnail": "https://images.unsplash.com/photo-1513624285461-4ce8105fb901?auto=format&fit=crop&w=300&q=80"
+                    },
+                    {
+                        "time": "20:30 - 22:30",
+                        "title": "Rockefeller & Empire State",
+                        "description": "View the iconic buildings at night.",
+                        "image": "https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?auto=format&fit=crop&w=1080&q=80",
+                        "thumbnail": "https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?auto=format&fit=crop&w=300&q=80"
+                    }
+                ]
+            },
+            {
+                "date": "Thursday, May 14",
+                "label": "Icons & Bridge",
+                "events": [
+                    {
+                        "time": "08:30 - 12:00",
+                        "title": "Statue of Liberty & Ellis Island",
+                        "description": "Reserve first ferry slot.",
+                        "image": "https://images.unsplash.com/photo-1605130284535-11dd9eedc58a?auto=format&fit=crop&w=1080&q=80",
+                        "thumbnail": "https://images.unsplash.com/photo-1605130284535-11dd9eedc58a?auto=format&fit=crop&w=300&q=80"
+                    },
+                    {
+                        "time": "13:00 - 15:30",
+                        "title": "Twin Towers Memorial (9/11)",
+                        "description": "Prebook museum tickets.",
+                        "image": "https://images.unsplash.com/photo-1546436836-07a91091f11c?auto=format&fit=crop&w=1080&q=80",
+                        "thumbnail": "https://images.unsplash.com/photo-1546436836-07a91091f11c?auto=format&fit=crop&w=300&q=80"
+                    },
+                    {
+                        "time": "16:00 - 18:30",
+                        "title": "Brooklyn Supreme Court & Bridge",
+                        "description": "Walk past the court, then over the bridge.",
+                        "image": "https://images.unsplash.com/photo-1500039090688-dc78c06282fb?auto=format&fit=crop&w=1080&q=80",
+                        "thumbnail": "https://images.unsplash.com/photo-1500039090688-dc78c06282fb?auto=format&fit=crop&w=300&q=80"
+                    },
+                    {
+                        "time": "19:00 - 21:30",
+                        "title": "Dinner in Brooklyn",
+                        "description": "DUMBO views of the Manhattan skyline.",
+                        "image": "https://images.unsplash.com/photo-1507619579562-f2e10fa14316?auto=format&fit=crop&w=1080&q=80",
+                        "thumbnail": "https://images.unsplash.com/photo-1507619579562-f2e10fa14316?auto=format&fit=crop&w=300&q=80"
+                    }
+                ]
+            },
+            {
+                "date": "Friday, May 15",
+                "label": "Central Park & Broadway",
+                "events": [
+                    {
+                        "time": "09:00 - 11:00",
+                        "title": "Central Park & Met Gala Steps",
+                        "description": "Classic morning stroll and iconic photos.",
+                        "image": "https://images.unsplash.com/photo-1522083165195-3424ed129620?auto=format&fit=crop&w=1080&q=80",
+                        "thumbnail": "https://images.unsplash.com/photo-1522083165195-3424ed129620?auto=format&fit=crop&w=300&q=80"
+                    },
+                    {
+                        "time": "11:30 - 13:30",
+                        "title": "5th Avenue Stroll",
+                        "description": "Window shopping & St. Patrick's Cathedral.",
+                        "image": "https://images.unsplash.com/photo-1604514628550-37477afdf4e3?auto=format&fit=crop&w=1080&q=80",
+                        "thumbnail": "https://images.unsplash.com/photo-1604514628550-37477afdf4e3?auto=format&fit=crop&w=300&q=80"
+                    },
+                    {
+                        "time": "14:00 - 17:00",
+                        "title": "MoMA",
+                        "description": "Museum of Modern Art.",
+                        "image": "https://images.unsplash.com/photo-1518998053901-5348d3961a04?auto=format&fit=crop&w=1080&q=80",
+                        "thumbnail": "https://images.unsplash.com/photo-1518998053901-5348d3961a04?auto=format&fit=crop&w=300&q=80"
+                    },
+                    {
+                        "time": "17:30 - 19:00",
+                        "title": "Pre-theater dinner",
+                        "description": "Hell's Kitchen area.",
+                        "image": "https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1080&q=80",
+                        "thumbnail": "https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=300&q=80"
+                    },
+                    {
+                        "time": "19:00 - 22:00",
+                        "title": "Broadway: MJ The Musical",
+                        "description": "Book tickets as soon as available!",
+                        "image": "https://images.unsplash.com/photo-1583643194519-906969bdfba3?auto=format&fit=crop&w=1080&q=80",
+                        "thumbnail": "https://images.unsplash.com/photo-1583643194519-906969bdfba3?auto=format&fit=crop&w=300&q=80"
+                    }
+                ]
+            },
+            {
+                "date": "Saturday, May 16",
+                "label": "Last Day in NYC",
+                "events": [
+                    {
+                        "time": "10:00 - 12:30",
+                        "title": "Morgan Library (JP Morgan)",
+                        "description": "Stunning architecture & historical texts.",
+                        "image": "https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=1080&q=80",
+                        "thumbnail": "https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=300&q=80"
+                    },
+                    {
+                        "time": "13:00 - 17:00",
+                        "title": "Soho & West Village",
+                        "description": "Free afternoon to explore and shop.",
+                        "image": "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=1080&q=80",
+                        "thumbnail": "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=300&q=80"
+                    },
+                    {
+                        "time": "19:30 - 22:00",
+                        "title": "The Grand Finale Dinner",
+                        "description": "Upscale NYC dining to celebrate it all.",
+                        "image": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1080&q=80",
+                        "thumbnail": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=300&q=80"
+                    }
+                ]
+            },
+            {
+                "date": "Sunday, May 17",
+                "label": "Safe Travels Home",
+                "events": [
+                    {
+                        "time": "10:00 - 15:00",
+                        "title": "Flight NYC to MEX",
+                        "description": "Sleep on the plane, you earned it!",
+                        "image": "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1080&q=80",
+                        "thumbnail": "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=300&q=80"
+                    }
+                ]
+            }
+        ]
+    }
+]
