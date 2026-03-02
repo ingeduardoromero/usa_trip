@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +9,10 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap"
+        rel="stylesheet">
+
     <script>
         tailwind.config = {
             theme: {
@@ -38,43 +41,47 @@
             }
         }
     </script>
-    
+
     <style>
         .scrollbar-hide::-webkit-scrollbar {
             display: none;
         }
+
         .scrollbar-hide {
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
 
-        html { scroll-behavior: smooth; }
-        
+        html {
+            scroll-behavior: smooth;
+        }
+
         .hero-bg {
             background-image: linear-gradient(rgba(26, 42, 58, 0.7), rgba(26, 42, 58, 0.7)), url('https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
         }
-        
-        .tab-active { 
-            border-bottom: 2px solid #D4AF37; 
-            color: #D4AF37 !important; 
+
+        .tab-active {
+            border-bottom: 2px solid #D4AF37;
+            color: #D4AF37 !important;
         }
 
-        /* Replaced Tailwind @apply with standard CSS for components */
         .timeline-item {
             border-left: 2px solid #e5e7eb;
             position: relative;
             padding-left: 1.5rem;
             margin-bottom: 1.5rem;
         }
+
         .timeline-item-last {
             border-left: 2px solid transparent;
             position: relative;
             padding-left: 1.5rem;
             margin-bottom: 0.5rem;
         }
+
         .timeline-dot-custom {
             width: 0.75rem;
             height: 0.75rem;
@@ -84,6 +91,7 @@
             left: -0.4375rem;
             top: 0.375rem;
         }
+
         .day-header {
             font-size: 1.5rem;
             line-height: 2rem;
@@ -102,11 +110,13 @@
             box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
+
         @media (min-width: 768px) {
             .day-header {
                 top: 5rem;
             }
         }
+
         .map-link {
             color: #D4AF37;
             margin-left: 0.5rem;
@@ -116,12 +126,38 @@
             transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
             transition-duration: 150ms;
         }
+
         .map-link:hover {
             color: #1A2A3A;
         }
+
+        /* Interactive click style for events */
+        .event-title {
+            cursor: pointer;
+            transition: color 0.2s;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .event-title:hover {
+            color: #D4AF37;
+        }
+
+        .event-title i.fa-info-circle {
+            opacity: 0;
+            margin-left: 0.5rem;
+            font-size: 0.875rem;
+            color: #D4AF37;
+            transition: opacity 0.2s;
+        }
+
+        .event-title:hover i.fa-info-circle {
+            opacity: 1;
+        }
     </style>
 </head>
-<body class="font-sans text-gray-800 bg-brand-light antialiased pb-20 md:pb-0">
+
+<body class="font-sans text-gray-800 bg-brand-light antialiased pb-20 md:pb-0 relative">
 
     <!-- Top Navigation (Desktop & Mobile Header) -->
     <nav class="fixed w-full z-50 bg-brand-navy/95 backdrop-blur-sm text-white py-4 px-6 shadow-md transition-all">
@@ -133,7 +169,8 @@
                 <a href="#overview" class="hover:text-brand-gold transition-colors">The Vision</a>
                 <a href="#destinations" class="hover:text-brand-gold transition-colors">Destinations</a>
                 <a href="#itinerary" class="hover:text-brand-gold transition-colors">Master Itinerary</a>
-                <button onclick="window.print()" class="text-brand-navy bg-brand-gold hover:bg-white px-4 py-2 rounded transition-colors font-bold">
+                <button onclick="window.print()"
+                    class="text-brand-navy bg-brand-gold hover:bg-white px-4 py-2 rounded transition-colors font-bold">
                     <i class="fas fa-print mr-1"></i> Print
                 </button>
             </div>
@@ -145,7 +182,8 @@
     </nav>
 
     <!-- Bottom Navigation (Mobile Only) -->
-    <div class="md:hidden fixed bottom-0 w-full bg-white border-t border-gray-200 z-50 flex justify-around py-3 pb-safe shadow-[0_-2px_10px_rgba(0,0,0,0.05)]">
+    <div
+        class="md:hidden fixed bottom-0 w-full bg-white border-t border-gray-200 z-50 flex justify-around py-3 pb-safe shadow-[0_-2px_10px_rgba(0,0,0,0.05)]">
         <a href="#overview" class="flex flex-col items-center text-gray-500 hover:text-brand-navy">
             <i class="fas fa-eye text-lg mb-1"></i>
             <span class="text-[10px] uppercase font-bold tracking-widest">Vision</span>
@@ -165,19 +203,29 @@
         <!-- Hero Section -->
         <header class="hero-bg h-[100svh] flex items-center justify-center text-center px-4 pt-16">
             <div class="max-w-4xl text-white">
-                <p class="text-brand-gold tracking-[0.3em] uppercase text-sm md:text-base mb-4 font-semibold">May 7 - May 17, 2026</p>
-                <h1 class="text-5xl md:text-7xl font-serif font-bold mb-6 leading-tight">Eduardo's Graduation <br> <span class="italic font-light">& Honeymoon</span></h1>
-                <p class="text-lg md:text-xl font-light mb-10 max-w-2xl mx-auto">Celebrating a Master's Degree from Carnegie Mellon University, followed by an unforgettable romantic escape through America's greatest cities.</p>
-                <a href="#itinerary" class="inline-block border-2 border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-brand-navy px-8 py-3 uppercase tracking-widest text-sm transition-all duration-300 font-bold">View The Itinerary</a>
+                <p class="text-brand-gold tracking-[0.3em] uppercase text-sm md:text-base mb-4 font-semibold">May 7 -
+                    May 17, 2026</p>
+                <h1 class="text-5xl md:text-7xl font-serif font-bold mb-6 leading-tight">Eduardo's Graduation <br> <span
+                        class="italic font-light">& Honeymoon</span></h1>
+                <p class="text-lg md:text-xl font-light mb-10 max-w-2xl mx-auto">Celebrating a Master's Degree from
+                    Carnegie Mellon University, followed by an unforgettable romantic escape through America's greatest
+                    cities.</p>
+                <a href="#itinerary"
+                    class="inline-block border-2 border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-brand-navy px-8 py-3 uppercase tracking-widest text-sm transition-all duration-300 font-bold">View
+                    The Itinerary</a>
             </div>
         </header>
 
         <!-- The Vision / Overview -->
         <section id="overview" class="py-20 px-6 max-w-5xl mx-auto text-center scroll-mt-16">
-            <h2 class="text-3xl md:text-4xl font-serif font-bold text-brand-navy mb-6">A Journey of Achievement & Romance</h2>
+            <h2 class="text-3xl md:text-4xl font-serif font-bold text-brand-navy mb-6">A Journey of Achievement &
+                Romance</h2>
             <div class="w-24 h-1 bg-brand-gold mx-auto mb-8"></div>
             <p class="text-lg text-gray-600 leading-relaxed mb-10">
-                From the prestigious halls of Carnegie Mellon University in Pittsburgh, to the historic monuments of Washington D.C., and culminating in the vibrant, luxurious energy of New York City. This 11-day masterfully curated itinerary balances the pride of a major life milestone with the relaxation and wonder of a honeymoon.
+                From the prestigious halls of Carnegie Mellon University in Pittsburgh, to the historic monuments of
+                Washington D.C., and culminating in the vibrant, luxurious energy of New York City. This 11-day
+                masterfully curated itinerary balances the pride of a major life milestone with the relaxation and
+                wonder of a honeymoon.
             </p>
         </section>
 
@@ -185,28 +233,44 @@
         <section id="destinations" class="py-10 px-6 max-w-7xl mx-auto scroll-mt-16">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- PIT -->
-                <article class="group relative overflow-hidden rounded-lg shadow-lg h-96">
-                    <img src="https://images.unsplash.com/photo-1579545041188-466d62a4faee?auto=format&fit=crop&w=800&q=80" alt="Pittsburgh" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex flex-col justify-end p-6">
-                        <span class="text-brand-gold uppercase text-xs font-bold tracking-widest mb-1">Part I: The Milestone</span>
+                <article class="group relative overflow-hidden rounded-lg shadow-lg h-96 cursor-pointer"
+                    onclick="openModal('Pittsburgh', 'A city of bridges and innovation. You will celebrate your Master\'s Degree here at Carnegie Mellon University, surrounded by incredible academic history and a surprisingly beautiful downtown skyline.', 'https://plus.unsplash.com/premium_photo-1670430227121-a37b0efb7457?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080')">
+                    <img src="https://plus.unsplash.com/premium_photo-1670430227121-a37b0efb7457?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800"
+                        alt="Pittsburgh" loading="lazy" decoding="async"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex flex-col justify-end p-6">
+                        <span class="text-brand-gold uppercase text-xs font-bold tracking-widest mb-1">Part I: The
+                            Milestone</span>
                         <h3 class="text-3xl font-serif text-white mb-2">Pittsburgh</h3>
-                        <p class="text-gray-200 text-sm">CMU Master's Ceremony, Soldiers & Sailors, & Skyline Dinners.</p>
+                        <p class="text-gray-200 text-sm">CMU Master's Ceremony, Soldiers & Sailors, & Skyline Dinners.
+                        </p>
                     </div>
                 </article>
                 <!-- DC -->
-                <article class="group relative overflow-hidden rounded-lg shadow-lg h-96">
-                    <img src="https://images.unsplash.com/photo-1501466044931-62695aada8e9?auto=format&fit=crop&w=800&q=80" alt="Washington DC" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex flex-col justify-end p-6">
-                        <span class="text-brand-gold uppercase text-xs font-bold tracking-widest mb-1">Part II: The History</span>
+                <article class="group relative overflow-hidden rounded-lg shadow-lg h-96 cursor-pointer"
+                    onclick="openModal('Washington D.C.', 'The nation\'s capital. Prepare to be immersed in history as you walk the National Mall, visit the Smithsonian museums, and explore the classic charm of Georgetown.', 'https://images.unsplash.com/photo-1501466044931-62695aada8e9?auto=format&fit=crop&w=1080&q=80')">
+                    <img src="https://images.unsplash.com/photo-1501466044931-62695aada8e9?auto=format&fit=crop&w=800&q=80"
+                        alt="Washington DC" loading="lazy" decoding="async"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex flex-col justify-end p-6">
+                        <span class="text-brand-gold uppercase text-xs font-bold tracking-widest mb-1">Part II: The
+                            History</span>
                         <h3 class="text-3xl font-serif text-white mb-2">Washington D.C.</h3>
                         <p class="text-gray-200 text-sm">Smithsonian Museums, Monuments by Night, & Georgetown.</p>
                     </div>
                 </article>
                 <!-- NYC -->
-                <article class="group relative overflow-hidden rounded-lg shadow-lg h-96">
-                    <img src="https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?auto=format&fit=crop&w=800&q=80" alt="New York City" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex flex-col justify-end p-6">
-                        <span class="text-brand-gold uppercase text-xs font-bold tracking-widest mb-1">Part III: The Celebration</span>
+                <article class="group relative overflow-hidden rounded-lg shadow-lg h-96 cursor-pointer"
+                    onclick="openModal('New York City', 'The City That Never Sleeps. The grand finale of your trip features Broadway shows, Central Park strolls, the Statue of Liberty, and unforgettable upscale dining.', 'https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?auto=format&fit=crop&w=1080&q=80')">
+                    <img src="https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?auto=format&fit=crop&w=800&q=80"
+                        alt="New York City" loading="lazy" decoding="async"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex flex-col justify-end p-6">
+                        <span class="text-brand-gold uppercase text-xs font-bold tracking-widest mb-1">Part III: The
+                            Celebration</span>
                         <h3 class="text-3xl font-serif text-white mb-2">New York City</h3>
                         <p class="text-gray-200 text-sm">Broadway, The Met Steps, Central Park, & Michelin Dining.</p>
                     </div>
@@ -217,124 +281,192 @@
         <!-- Master Itinerary Interactive Section -->
         <section id="itinerary" class="py-20 bg-white scroll-mt-16">
             <div class="max-w-4xl mx-auto px-4 md:px-6">
-                <h2 class="text-3xl md:text-4xl font-serif font-bold text-brand-navy mb-4 text-center">Your Master Itinerary</h2>
-                <p class="text-center text-gray-500 mb-8">Select a city to view your daily schedule.</p>
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-brand-navy mb-4 text-center">Your Master
+                    Itinerary</h2>
+                <p class="text-center text-gray-500 mb-8">Select a city to view your daily schedule. <br><span
+                        class="text-sm font-semibold text-brand-gold">Click on any event for more details!</span></p>
 
                 <!-- Swipeable Tabs for Mobile -->
-                <div class="flex overflow-x-auto whitespace-nowrap scrollbar-hide border-b border-gray-200 mb-10 pb-1 md:justify-center md:pb-0">
-                    <button onclick="showCity('pit')" id="btn-pit" class="px-6 py-4 font-bold uppercase tracking-wider text-sm tab-active text-brand-navy transition-colors shrink-0">Pittsburgh (May 7-10)</button>
-                    <button onclick="showCity('dc')" id="btn-dc" class="px-6 py-4 font-bold uppercase tracking-wider text-sm text-gray-400 hover:text-brand-navy transition-colors shrink-0">Washington D.C. (May 11-13)</button>
-                    <button onclick="showCity('nyc')" id="btn-nyc" class="px-6 py-4 font-bold uppercase tracking-wider text-sm text-gray-400 hover:text-brand-navy transition-colors shrink-0">New York City (May 13-17)</button>
+                <div
+                    class="flex overflow-x-auto whitespace-nowrap scrollbar-hide border-b border-gray-200 mb-10 pb-1 md:justify-center md:pb-0">
+                    <button onclick="showCity('pit')" id="btn-pit"
+                        class="px-6 py-4 font-bold uppercase tracking-wider text-sm tab-active text-brand-navy transition-colors shrink-0">Pittsburgh
+                        (May 7-10)</button>
+                    <button onclick="showCity('dc')" id="btn-dc"
+                        class="px-6 py-4 font-bold uppercase tracking-wider text-sm text-gray-400 hover:text-brand-navy transition-colors shrink-0">Washington
+                        D.C. (May 11-13)</button>
+                    <button onclick="showCity('nyc')" id="btn-nyc"
+                        class="px-6 py-4 font-bold uppercase tracking-wider text-sm text-gray-400 hover:text-brand-navy transition-colors shrink-0">New
+                        York City (May 13-17)</button>
                 </div>
 
                 <!-- Content: Pittsburgh -->
                 <div id="pit-content" class="city-content animate-fade-in">
                     <!-- Day 1 -->
                     <section class="mb-12">
-                        <h3 class="day-header">Thursday, May 7 <span class="text-sm font-sans text-gray-500 ml-2 font-normal">Arrival & Prep</span></h3>
-                        <img src="https://plus.unsplash.com/premium_photo-1670430227121-a37b0efb7457?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="Pittsburgh City" loading="lazy" decoding="async" class="w-full h-48 md:h-64 object-cover rounded-lg shadow-sm mb-6">
+                        <h3 class="day-header">Thursday, May 7 <span
+                                class="text-sm font-sans text-gray-500 ml-2 font-normal">Arrival & Prep</span></h3>
+                        <img src="https://plus.unsplash.com/premium_photo-1670430227121-a37b0efb7457?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+                            alt="Pittsburgh City" loading="lazy" decoding="async"
+                            class="w-full h-48 md:h-64 object-cover rounded-lg shadow-sm mb-6 cursor-pointer"
+                            onclick="openModal('Welcome to Pittsburgh', 'Your journey begins! Take a deep breath and get ready to celebrate your achievements.', 'https://plus.unsplash.com/premium_photo-1670430227121-a37b0efb7457?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080')">
                         <div class="ml-2 md:ml-4">
                             <div class="timeline-item">
                                 <div class="timeline-dot-custom"></div>
                                 <time class="font-bold text-brand-navy block text-sm mb-1">08:00 - 16:00</time>
-                                <h4 class="text-lg font-bold">Flight MEX to PIT</h4>
-                                <p class="text-gray-600 text-sm mt-1">Aim for early morning departure via DFW or IAH to arrive stress-free.</p>
+                                <h4 class="text-lg font-bold event-title"
+                                    onclick="openModal('Flight MEX to PIT', 'Aim for an early morning departure via DFW (Dallas) or IAH (Houston). The goal is to arrive stress-free with plenty of daylight to settle in.', null)">
+                                    Flight MEX to PIT <i class="fas fa-info-circle"></i></h4>
+                                <p class="text-gray-600 text-sm mt-1">Aim for early morning departure via DFW or IAH to
+                                    arrive stress-free.</p>
                             </div>
                             <div class="timeline-item">
                                 <div class="timeline-dot-custom"></div>
                                 <time class="font-bold text-brand-navy block text-sm mb-1">17:00 - 18:00</time>
-                                <h4 class="text-lg font-bold">Hotel Check-in near CMU <a href="https://maps.google.com/?q=The+Oaklander+Hotel+Pittsburgh" target="_blank" class="map-link" title="Open in Maps"><i class="fas fa-map-marker-alt"></i></a></h4>
-                                <p class="text-gray-600 text-sm mt-1">Settle in at The Oaklander or Wyndham (Oakland basecamp).</p>
+                                <h4 class="text-lg font-bold event-title"
+                                    onclick="openModal('Hotel Check-in', 'We recommend staying near Oakland (like The Oaklander or Wyndham) so you are walking distance to the CMU campus events and avoid Uber surge pricing.', null)">
+                                    Hotel Check-in near CMU <i class="fas fa-info-circle"></i></h4>
+                                <a href="https://maps.google.com/?q=The+Oaklander+Hotel+Pittsburgh" target="_blank"
+                                    class="map-link inline-block mt-1" title="Open in Maps"
+                                    onclick="event.stopPropagation()"><i class="fas fa-map-marker-alt"></i> View on
+                                    Map</a>
+                                <p class="text-gray-600 text-sm mt-1">Settle in at The Oaklander or Wyndham (Oakland
+                                    basecamp).</p>
                             </div>
                             <div class="timeline-item-last">
                                 <div class="timeline-dot-custom"></div>
                                 <time class="font-bold text-brand-navy block text-sm mb-1">18:30 - 21:00</time>
-                                <h4 class="text-lg font-bold">Campus Walk & Welcome Dinner</h4>
-                                <p class="text-gray-600 text-sm mt-1">Confirm walking routes for tomorrow and enjoy a casual dinner at The Porch at Schenley.</p>
+                                <h4 class="text-lg font-bold event-title"
+                                    onclick="openModal('Campus Walk & Dinner', 'Take a relaxing stroll through the beautiful CMU campus to locate TCS Hall and Soldiers & Sailors before the busy day tomorrow. The Porch at Schenley Plaza offers great outdoor dining.', null)">
+                                    Campus Walk & Welcome Dinner <i class="fas fa-info-circle"></i></h4>
+                                <p class="text-gray-600 text-sm mt-1">Confirm walking routes for tomorrow and enjoy a
+                                    casual dinner at The Porch at Schenley.</p>
                             </div>
                         </div>
                     </section>
 
                     <!-- Day 2 -->
                     <section class="mb-12">
-                        <h3 class="day-header">Friday, May 8 <span class="text-sm font-sans text-gray-500 ml-2 font-normal">Degree Day!</span></h3>
-                        <img src="https://plus.unsplash.com/premium_photo-1713296255442-e9338f42aad8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="Graduation" loading="lazy" decoding="async" class="w-full h-48 md:h-64 object-cover rounded-lg shadow-sm mb-6">
+                        <h3 class="day-header">Friday, May 8 <span
+                                class="text-sm font-sans text-gray-500 ml-2 font-normal">Degree Day!</span></h3>
+                        <img src="https://plus.unsplash.com/premium_photo-1713296255442-e9338f42aad8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+                            alt="Graduation" loading="lazy" decoding="async"
+                            class="w-full h-48 md:h-64 object-cover rounded-lg shadow-sm mb-6">
                         <div class="ml-2 md:ml-4">
                             <div class="timeline-item">
                                 <div class="timeline-dot-custom"></div>
-                                <time class="font-bold text-brand-gold block text-sm mb-1"><i class="fas fa-star mr-1"></i>09:00 - 10:30</time>
-                                <h4 class="text-lg font-bold">S3D/MSE Breakfast <a href="https://maps.google.com/?q=TCS+Hall+Carnegie+Mellon" target="_blank" class="map-link"><i class="fas fa-map-marker-alt"></i></a></h4>
-                                <p class="text-gray-600 text-sm mt-1">TCS Hall (4665 Forbes Ave). The official start of the celebrations.</p>
+                                <time class="font-bold text-brand-gold block text-sm mb-1"><i
+                                        class="fas fa-star mr-1"></i>09:00 - 10:30</time>
+                                <h4 class="text-lg font-bold event-title"
+                                    onclick="openModal('S3D/MSE Breakfast', 'The official start of the graduation festivities! Reconnect with your cohort and professors over a nice breakfast in the TCS Hall.', null)">
+                                    S3D/MSE Breakfast <i class="fas fa-info-circle"></i></h4>
+                                <a href="https://maps.google.com/?q=TCS+Hall+Carnegie+Mellon" target="_blank"
+                                    class="map-link block mt-1" onclick="event.stopPropagation()"><i
+                                        class="fas fa-map-marker-alt"></i> TCS Hall (4665 Forbes Ave)</a>
                             </div>
                             <div class="timeline-item">
                                 <div class="timeline-dot-custom"></div>
-                                <time class="font-bold text-brand-gold block text-sm mb-1"><i class="fas fa-graduation-cap mr-1"></i>11:00 - 13:00</time>
-                                <h4 class="text-lg font-bold">SCS Master's Ceremony <a href="https://maps.google.com/?q=Soldiers+and+Sailors+Memorial+Hall+Pittsburgh" target="_blank" class="map-link"><i class="fas fa-map-marker-alt"></i></a></h4>
-                                <p class="text-gray-600 text-sm mt-1">Soldiers & Sailors Memorial Hall. The big moment!</p>
+                                <time class="font-bold text-brand-gold block text-sm mb-1"><i
+                                        class="fas fa-graduation-cap mr-1"></i>11:00 - 13:00</time>
+                                <h4 class="text-lg font-bold event-title"
+                                    onclick="openModal('SCS Master\'s Ceremony', 'This is it! The moment you walk across the stage to receive your Master\'s Degree in Software Engineering inside the stunning and historic Soldiers & Sailors Memorial Hall.', null)">
+                                    SCS Master's Ceremony <i class="fas fa-info-circle"></i></h4>
+                                <a href="https://maps.google.com/?q=Soldiers+and+Sailors+Memorial+Hall+Pittsburgh"
+                                    target="_blank" class="map-link block mt-1" onclick="event.stopPropagation()"><i
+                                        class="fas fa-map-marker-alt"></i> Soldiers & Sailors Memorial</a>
                             </div>
                             <div class="timeline-item">
                                 <div class="timeline-dot-custom"></div>
                                 <time class="font-bold text-brand-navy block text-sm mb-1">13:30 - 15:30</time>
-                                <h4 class="text-lg font-bold">Post-Ceremony Lunch</h4>
+                                <h4 class="text-lg font-bold event-title"
+                                    onclick="openModal('Post-Ceremony Lunch', 'A celebratory Italian lunch at Lucca Ristorante. It\'s just a short walk away from the hall and offers an elegant atmosphere.', null)">
+                                    Post-Ceremony Lunch <i class="fas fa-info-circle"></i></h4>
                                 <p class="text-gray-600 text-sm mt-1">Elegant Italian dining at Lucca Ristorante.</p>
                             </div>
                             <div class="timeline-item-last">
                                 <div class="timeline-dot-custom"></div>
                                 <time class="font-bold text-brand-navy block text-sm mb-1">19:30 - 22:00</time>
-                                <h4 class="text-lg font-bold">The Graduation Dinner at Altius <a href="https://maps.google.com/?q=Altius+Pittsburgh" target="_blank" class="map-link"><i class="fas fa-map-marker-alt"></i></a></h4>
-                                <p class="text-gray-600 text-sm mt-1">Take the Duquesne Incline up Mt. Washington for spectacular skyline views.</p>
+                                <h4 class="text-lg font-bold event-title"
+                                    onclick="openModal('The Graduation Dinner at Altius', 'Take the historic Duquesne Incline up Mount Washington. Altius offers 5-star dining and the absolute best panoramic views of the Pittsburgh skyline where the three rivers meet.', null)">
+                                    The Graduation Dinner at Altius <i class="fas fa-info-circle"></i></h4>
+                                <a href="https://maps.google.com/?q=Altius+Pittsburgh" target="_blank"
+                                    class="map-link block mt-1" onclick="event.stopPropagation()"><i
+                                        class="fas fa-map-marker-alt"></i> Mt. Washington</a>
                             </div>
                         </div>
                     </section>
 
                     <!-- Day 3 -->
                     <section class="mb-12">
-                        <h3 class="day-header">Saturday, May 9 <span class="text-sm font-sans text-gray-500 ml-2 font-normal">Explore Pittsburgh</span></h3>
-                        <img src="https://plus.unsplash.com/premium_photo-1731421965837-c4d336e18827?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="Carnegie Mellon" loading="lazy" decoding="async" class="w-full h-48 md:h-64 object-cover rounded-lg shadow-sm mb-6">
+                        <h3 class="day-header">Saturday, May 9 <span
+                                class="text-sm font-sans text-gray-500 ml-2 font-normal">Explore Pittsburgh</span></h3>
+                        <img src="https://plus.unsplash.com/premium_photo-1731421965837-c4d336e18827?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+                            alt="Carnegie Mellon" loading="lazy" decoding="async"
+                            class="w-full h-48 md:h-64 object-cover rounded-lg shadow-sm mb-6">
                         <div class="ml-2 md:ml-4">
                             <div class="timeline-item">
                                 <div class="timeline-dot-custom"></div>
                                 <time class="font-bold text-brand-navy block text-sm mb-1">09:00 - 11:00</time>
-                                <h4 class="text-lg font-bold">Campus Photoshoot</h4>
-                                <p class="text-gray-600 text-sm mt-1">Photos at The Fence and Cathedral of Learning before the crowds arrive.</p>
+                                <h4 class="text-lg font-bold event-title"
+                                    onclick="openModal('Campus Photoshoot', 'Get to campus early to beat the crowds! Don\'t forget to take photos by The Fence and the towering Cathedral of Learning.', null)">
+                                    Campus Photoshoot <i class="fas fa-info-circle"></i></h4>
+                                <p class="text-gray-600 text-sm mt-1">Photos at The Fence and Cathedral of Learning.</p>
                             </div>
                             <div class="timeline-item">
                                 <div class="timeline-dot-custom"></div>
                                 <time class="font-bold text-brand-navy block text-sm mb-1">11:30 - 14:30</time>
-                                <h4 class="text-lg font-bold">Strip District Brunch</h4>
-                                <p class="text-gray-600 text-sm mt-1">Local vibe, great coffee, and souvenir shopping.</p>
+                                <h4 class="text-lg font-bold event-title"
+                                    onclick="openModal('Strip District Brunch', 'The Strip District is the cultural heart of Pittsburgh. Grab coffee at La Prima, try a famous Primanti Bros sandwich, and shop for local souvenirs.', null)">
+                                    Strip District Brunch <i class="fas fa-info-circle"></i></h4>
+                                <p class="text-gray-600 text-sm mt-1">Local vibe, great coffee, and souvenir shopping.
+                                </p>
                             </div>
                             <div class="timeline-item">
                                 <div class="timeline-dot-custom"></div>
                                 <time class="font-bold text-brand-navy block text-sm mb-1">15:00 - 17:30</time>
-                                <h4 class="text-lg font-bold">Phipps Conservatory</h4>
-                                <p class="text-gray-600 text-sm mt-1">Beautiful indoor botanical gardens near campus.</p>
+                                <h4 class="text-lg font-bold event-title"
+                                    onclick="openModal('Phipps Conservatory', 'A stunning Victorian greenhouse and botanical garden right next to CMU. It is incredible inside and perfect for romantic photos.', null)">
+                                    Phipps Conservatory <i class="fas fa-info-circle"></i></h4>
+                                <p class="text-gray-600 text-sm mt-1">Beautiful indoor botanical gardens near campus.
+                                </p>
                             </div>
                             <div class="timeline-item-last">
                                 <div class="timeline-dot-custom"></div>
                                 <time class="font-bold text-brand-navy block text-sm mb-1">19:00 - 21:30</time>
-                                <h4 class="text-lg font-bold">Dinner in Lawrenceville</h4>
-                                <p class="text-gray-600 text-sm mt-1">Highly recommended casual dinner at Pusadee's Garden.</p>
+                                <h4 class="text-lg font-bold event-title"
+                                    onclick="openModal('Dinner in Lawrenceville', 'Pusadee\'s Garden in Lawrenceville is known as one of the best restaurants in the city. It offers incredible Thai food in a beautiful garden courtyard setting.', null)">
+                                    Dinner in Lawrenceville <i class="fas fa-info-circle"></i></h4>
+                                <p class="text-gray-600 text-sm mt-1">Highly recommended casual dinner at Pusadee's
+                                    Garden.</p>
                             </div>
                         </div>
                     </section>
-                    
+
                     <!-- Day 4 -->
                     <section>
-                        <h3 class="day-header">Sunday, May 10 <span class="text-sm font-sans text-gray-500 ml-2 font-normal">Main Commencement</span></h3>
-                        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=800&q=80" alt="Commencement" loading="lazy" decoding="async" class="w-full h-48 md:h-64 object-cover rounded-lg shadow-sm mb-6">
+                        <h3 class="day-header">Sunday, May 10 <span
+                                class="text-sm font-sans text-gray-500 ml-2 font-normal">Main Commencement</span></h3>
+                        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=800&q=80"
+                            alt="Commencement" loading="lazy" decoding="async"
+                            class="w-full h-48 md:h-64 object-cover rounded-lg shadow-sm mb-6">
                         <div class="ml-2 md:ml-4">
                             <div class="timeline-item">
                                 <div class="timeline-dot-custom"></div>
-                                <time class="font-bold text-brand-gold block text-sm mb-1"><i class="fas fa-university mr-1"></i>10:00 - 13:00</time>
-                                <h4 class="text-lg font-bold">Main CMU Commencement</h4>
+                                <time class="font-bold text-brand-gold block text-sm mb-1"><i
+                                        class="fas fa-university mr-1"></i>10:00 - 13:00</time>
+                                <h4 class="text-lg font-bold event-title"
+                                    onclick="openModal('Main CMU Commencement', 'The massive university-wide celebration at Gesling Stadium. It\'s an incredible atmosphere. Be sure to check the weather and pack an umbrella just in case!', null)">
+                                    Main CMU Commencement <i class="fas fa-info-circle"></i></h4>
                                 <p class="text-gray-600 text-sm mt-1">Gesling Stadium. Pack umbrellas just in case!</p>
                             </div>
                             <div class="timeline-item-last">
                                 <div class="timeline-dot-custom"></div>
                                 <time class="font-bold text-brand-navy block text-sm mb-1">16:00 - 19:00</time>
-                                <h4 class="text-lg font-bold">Transition to Honeymoon Mode</h4>
-                                <p class="text-gray-600 text-sm mt-1">Pack bags and prepare to trade the graduation cap for vacation wear!</p>
+                                <h4 class="text-lg font-bold event-title"
+                                    onclick="openModal('Transition to Honeymoon', 'You did it! Now it is time to pack away the graduation regalia and shift fully into vacation and honeymoon mode as we prepare for Washington D.C.', null)">
+                                    Transition to Honeymoon Mode <i class="fas fa-info-circle"></i></h4>
+                                <p class="text-gray-600 text-sm mt-1">Pack bags and prepare to trade the graduation cap
+                                    for vacation wear!</p>
                             </div>
                         </div>
                     </section>
@@ -344,52 +476,76 @@
                 <div id="dc-content" class="city-content hidden animate-fade-in">
                     <!-- Day 5 -->
                     <section class="mb-12">
-                        <h3 class="day-header">Monday, May 11 <span class="text-sm font-sans text-gray-500 ml-2 font-normal">Hello, Capital</span></h3>
-                        <img src="https://plus.unsplash.com/premium_photo-1694475309861-c5d754d6690d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="Washington DC" loading="lazy" decoding="async" class="w-full h-48 md:h-64 object-cover rounded-lg shadow-sm mb-6">
+                        <h3 class="day-header">Monday, May 11 <span
+                                class="text-sm font-sans text-gray-500 ml-2 font-normal">Hello, Capital</span></h3>
+                        <img src="https://plus.unsplash.com/premium_photo-1694475309861-c5d754d6690d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+                            alt="Washington DC" loading="lazy" decoding="async"
+                            class="w-full h-48 md:h-64 object-cover rounded-lg shadow-sm mb-6">
                         <div class="ml-2 md:ml-4">
                             <div class="timeline-item">
                                 <div class="timeline-dot-custom"></div>
                                 <time class="font-bold text-brand-navy block text-sm mb-1">10:00 - 13:00</time>
-                                <h4 class="text-lg font-bold">Flight PIT to Washington D.C.</h4>
-                                <p class="text-gray-600 text-sm mt-1">Quick 1-hour flight to DCA to maximize sightseeing time.</p>
+                                <h4 class="text-lg font-bold event-title"
+                                    onclick="openModal('Flight to D.C.', 'A very quick and easy 1-hour flight. Try to fly into Reagan National (DCA) as it is just minutes away from downtown D.C.', null)">
+                                    Flight PIT to Washington D.C. <i class="fas fa-info-circle"></i></h4>
+                                <p class="text-gray-600 text-sm mt-1">Quick 1-hour flight to DCA to maximize sightseeing
+                                    time.</p>
                             </div>
                             <div class="timeline-item">
                                 <div class="timeline-dot-custom"></div>
                                 <time class="font-bold text-brand-navy block text-sm mb-1">15:00 - 18:00</time>
-                                <h4 class="text-lg font-bold">National Mall Intro <a href="https://maps.google.com/?q=Washington+Monument" target="_blank" class="map-link"><i class="fas fa-map-marker-alt"></i></a></h4>
-                                <p class="text-gray-600 text-sm mt-1">A grand walk past the Washington Monument & Lincoln Memorial.</p>
+                                <h4 class="text-lg font-bold event-title"
+                                    onclick="openModal('National Mall Intro', 'Take an awe-inspiring walk starting at the Washington Monument, strolling alongside the Reflecting Pool, and ending at the magnificent Lincoln Memorial at sunset.', null)">
+                                    National Mall Intro <i class="fas fa-info-circle"></i></h4>
+                                <a href="https://maps.google.com/?q=Washington+Monument" target="_blank"
+                                    class="map-link block mt-1" onclick="event.stopPropagation()"><i
+                                        class="fas fa-map-marker-alt"></i> Washington Monument</a>
                             </div>
                             <div class="timeline-item-last">
                                 <div class="timeline-dot-custom"></div>
                                 <time class="font-bold text-brand-navy block text-sm mb-1">19:30 - 21:30</time>
-                                <h4 class="text-lg font-bold">DC Kickoff Dinner</h4>
-                                <p class="text-gray-600 text-sm mt-1">Upscale seafood at Fiola Mare (Georgetown) or The Wharf.</p>
+                                <h4 class="text-lg font-bold event-title"
+                                    onclick="openModal('DC Kickoff Dinner', 'Head to the waterfront! Fiola Mare in historic Georgetown offers incredible Italian seafood, or explore the vibrant restaurants down at The Wharf.', null)">
+                                    DC Kickoff Dinner <i class="fas fa-info-circle"></i></h4>
+                                <p class="text-gray-600 text-sm mt-1">Upscale seafood at Fiola Mare (Georgetown) or The
+                                    Wharf.</p>
                             </div>
                         </div>
                     </section>
-                    
+
                     <!-- Day 6 -->
                     <section>
-                        <h3 class="day-header">Tuesday, May 12 <span class="text-sm font-sans text-gray-500 ml-2 font-normal">Museums & Monuments</span></h3>
-                        <img src="https://plus.unsplash.com/premium_photo-1694475364874-7ddc62f534ac?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="Smithsonian" loading="lazy" decoding="async" class="w-full h-48 md:h-64 object-cover rounded-lg shadow-sm mb-6">
+                        <h3 class="day-header">Tuesday, May 12 <span
+                                class="text-sm font-sans text-gray-500 ml-2 font-normal">Museums & Monuments</span></h3>
+                        <img src="https://plus.unsplash.com/premium_photo-1694475364874-7ddc62f534ac?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+                            alt="Smithsonian" loading="lazy" decoding="async"
+                            class="w-full h-48 md:h-64 object-cover rounded-lg shadow-sm mb-6">
                         <div class="ml-2 md:ml-4">
                             <div class="timeline-item">
                                 <div class="timeline-dot-custom"></div>
                                 <time class="font-bold text-brand-navy block text-sm mb-1">09:30 - 13:00</time>
-                                <h4 class="text-lg font-bold">Smithsonian Museums</h4>
+                                <h4 class="text-lg font-bold event-title"
+                                    onclick="openModal('Smithsonian Museums', 'They are all free! We highly recommend the National Museum of Natural History or the Air and Space Museum. You could spend days in just one of these.', null)">
+                                    Smithsonian Museums <i class="fas fa-info-circle"></i></h4>
                                 <p class="text-gray-600 text-sm mt-1">Choose between Air & Space or Natural History.</p>
                             </div>
                             <div class="timeline-item">
                                 <div class="timeline-dot-custom"></div>
                                 <time class="font-bold text-brand-navy block text-sm mb-1">15:30 - 18:00</time>
-                                <h4 class="text-lg font-bold">US Capitol & Library <a href="https://maps.google.com/?q=Library+of+Congress" target="_blank" class="map-link"><i class="fas fa-map-marker-alt"></i></a></h4>
-                                <p class="text-gray-600 text-sm mt-1">Exterior photos of the Capitol Building and the stunning Library of Congress.</p>
+                                <h4 class="text-lg font-bold event-title"
+                                    onclick="openModal('US Capitol & Library', 'Walk up Capitol Hill. The Library of Congress is arguably the most beautiful building interior in Washington D.C.', null)">
+                                    US Capitol & Library <i class="fas fa-info-circle"></i></h4>
+                                <a href="https://maps.google.com/?q=Library+of+Congress" target="_blank"
+                                    class="map-link block mt-1" onclick="event.stopPropagation()"><i
+                                        class="fas fa-map-marker-alt"></i> Library of Congress</a>
                             </div>
                             <div class="timeline-item-last">
                                 <div class="timeline-dot-custom"></div>
                                 <time class="font-bold text-brand-navy block text-sm mb-1">19:00 - 21:30</time>
-                                <h4 class="text-lg font-bold">Dinner in Logan Circle</h4>
-                                <p class="text-gray-600 text-sm mt-1">Classic French fare at Le Diplomate (Book exactly 30 days out).</p>
+                                <h4 class="text-lg font-bold event-title"
+                                    onclick="openModal('Dinner at Le Diplomate', 'Located in the trendy Logan Circle neighborhood, Le Diplomate offers an unforgettable Parisian brasserie experience. You must book this exactly 30 days in advance!', null)">
+                                    Dinner in Logan Circle <i class="fas fa-info-circle"></i></h4>
+                                <p class="text-gray-600 text-sm mt-1">Classic French fare at Le Diplomate.</p>
                             </div>
                         </div>
                     </section>
@@ -399,31 +555,47 @@
                 <div id="nyc-content" class="city-content hidden animate-fade-in">
                     <!-- Day 7 -->
                     <section class="mb-12">
-                        <h3 class="day-header">Wednesday, May 13 <span class="text-sm font-sans text-gray-500 ml-2 font-normal">Acela to the Big Apple</span></h3>
-                        <img src="https://plus.unsplash.com/premium_photo-1679985958305-1677b87face0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="Train Travel" loading="lazy" decoding="async" class="w-full h-48 md:h-64 object-cover rounded-lg shadow-sm mb-6">
+                        <h3 class="day-header">Wednesday, May 13 <span
+                                class="text-sm font-sans text-gray-500 ml-2 font-normal">Acela to the Big Apple</span>
+                        </h3>
+                        <img src="https://plus.unsplash.com/premium_photo-1679985958305-1677b87face0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+                            alt="Train Travel" loading="lazy" decoding="async"
+                            class="w-full h-48 md:h-64 object-cover rounded-lg shadow-sm mb-6">
                         <div class="ml-2 md:ml-4">
                             <div class="timeline-item">
                                 <div class="timeline-dot-custom"></div>
-                                <time class="font-bold text-brand-navy block text-sm mb-1"><i class="fas fa-train mr-1 text-brand-gold"></i>09:00 - 12:30</time>
-                                <h4 class="text-lg font-bold">High-Speed Train: DC to NYC</h4>
-                                <p class="text-gray-600 text-sm mt-1">Amtrak Acela. Travel city-center to city-center in comfort (Moynihan Train Hall).</p>
+                                <time class="font-bold text-brand-navy block text-sm mb-1"><i
+                                        class="fas fa-train mr-1 text-brand-gold"></i>09:00 - 12:30</time>
+                                <h4 class="text-lg font-bold event-title"
+                                    onclick="openModal('Amtrak Acela to NYC', 'The best way to travel the Northeast Corridor. The high-speed Acela train takes you from the center of DC straight into the beautiful Moynihan Train Hall in Manhattan. No airport security required!', null)">
+                                    High-Speed Train: DC to NYC <i class="fas fa-info-circle"></i></h4>
+                                <p class="text-gray-600 text-sm mt-1">Amtrak Acela. Travel city-center to city-center in
+                                    comfort.</p>
                             </div>
                             <div class="timeline-item">
                                 <div class="timeline-dot-custom"></div>
                                 <time class="font-bold text-brand-navy block text-sm mb-1">14:30 - 15:30</time>
-                                <h4 class="text-lg font-bold">Times Square Welcome <a href="https://maps.google.com/?q=Times+Square+NYC" target="_blank" class="map-link"><i class="fas fa-map-marker-alt"></i></a></h4>
-                                <p class="text-gray-600 text-sm mt-1">A high-energy kickoff lunch in the heart of the city.</p>
+                                <h4 class="text-lg font-bold event-title"
+                                    onclick="openModal('Times Square Welcome', 'Step out into the neon glow of Times Square. It is loud, vibrant, and the perfect way to realize you have arrived in New York City.', null)">
+                                    Times Square Welcome <i class="fas fa-info-circle"></i></h4>
+                                <a href="https://maps.google.com/?q=Times+Square+NYC" target="_blank"
+                                    class="map-link block mt-1" onclick="event.stopPropagation()"><i
+                                        class="fas fa-map-marker-alt"></i> Times Square</a>
                             </div>
                             <div class="timeline-item">
                                 <div class="timeline-dot-custom"></div>
                                 <time class="font-bold text-brand-navy block text-sm mb-1">15:30 - 19:30</time>
-                                <h4 class="text-lg font-bold">City Tour & The High Line</h4>
-                                <p class="text-gray-600 text-sm mt-1">Hop-On-Hop-Off bus orientation, followed by a sunset walk on the High Line & Chelsea Market.</p>
+                                <h4 class="text-lg font-bold event-title"
+                                    onclick="openModal('The High Line', 'Walk this elevated park built on a historic freight rail line elevated above the streets on Manhattan\'s West Side. It ends near the fantastic food stalls at Chelsea Market.', null)">
+                                    City Tour & The High Line <i class="fas fa-info-circle"></i></h4>
+                                <p class="text-gray-600 text-sm mt-1">Sunset walk on the High Line & Chelsea Market.</p>
                             </div>
                             <div class="timeline-item-last">
                                 <div class="timeline-dot-custom"></div>
                                 <time class="font-bold text-brand-navy block text-sm mb-1">20:30 - 22:30</time>
-                                <h4 class="text-lg font-bold">Rockefeller & Empire State</h4>
+                                <h4 class="text-lg font-bold event-title"
+                                    onclick="openModal('Top of the Rock', 'For the best night views, visit the Top of the Rock observation deck. Unlike the Empire State Building, going up the Rockefeller center means your photos will actually *include* the Empire State Building!', null)">
+                                    Rockefeller & Empire State <i class="fas fa-info-circle"></i></h4>
                                 <p class="text-gray-600 text-sm mt-1">View the iconic NYC skyline at night.</p>
                             </div>
                         </div>
@@ -431,96 +603,142 @@
 
                     <!-- Day 8 -->
                     <section class="mb-12">
-                        <h3 class="day-header">Thursday, May 14 <span class="text-sm font-sans text-gray-500 ml-2 font-normal">Icons & History</span></h3>
-                        <img src="https://plus.unsplash.com/premium_photo-1681803531285-75db948035d3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="Statue of Liberty" loading="lazy" decoding="async" class="w-full h-48 md:h-64 object-cover rounded-lg shadow-sm mb-6">
+                        <h3 class="day-header">Thursday, May 14 <span
+                                class="text-sm font-sans text-gray-500 ml-2 font-normal">Icons & History</span></h3>
+                        <img src="https://plus.unsplash.com/premium_photo-1681803531285-75db948035d3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+                            alt="Statue of Liberty" loading="lazy" decoding="async"
+                            class="w-full h-48 md:h-64 object-cover rounded-lg shadow-sm mb-6">
                         <div class="ml-2 md:ml-4">
                             <div class="timeline-item">
                                 <div class="timeline-dot-custom"></div>
                                 <time class="font-bold text-brand-navy block text-sm mb-1">08:30 - 12:00</time>
-                                <h4 class="text-lg font-bold">Statue of Liberty & Ellis Island</h4>
-                                <p class="text-gray-600 text-sm mt-1">Reserve the first ferry slot out of Battery Park to beat the crowds.</p>
+                                <h4 class="text-lg font-bold event-title"
+                                    onclick="openModal('Statue of Liberty', 'Book the very first ferry slot of the morning from Battery Park to beat the massive crowds. A true American icon.', null)">
+                                    Statue of Liberty & Ellis Island <i class="fas fa-info-circle"></i></h4>
+                                <p class="text-gray-600 text-sm mt-1">Reserve the first ferry slot out of Battery Park.
+                                </p>
                             </div>
                             <div class="timeline-item">
                                 <div class="timeline-dot-custom"></div>
                                 <time class="font-bold text-brand-navy block text-sm mb-1">13:00 - 15:30</time>
-                                <h4 class="text-lg font-bold">Twin Towers Memorial (9/11) <a href="https://maps.google.com/?q=9/11+Memorial" target="_blank" class="map-link"><i class="fas fa-map-marker-alt"></i></a></h4>
-                                <p class="text-gray-600 text-sm mt-1">A poignant visit to the memorial and museum.</p>
+                                <h4 class="text-lg font-bold event-title"
+                                    onclick="openModal('9/11 Memorial', 'A beautifully designed, incredibly moving memorial at Ground Zero.', null)">
+                                    Twin Towers Memorial (9/11) <i class="fas fa-info-circle"></i></h4>
+                                <a href="https://maps.google.com/?q=9/11+Memorial" target="_blank"
+                                    class="map-link block mt-1" onclick="event.stopPropagation()"><i
+                                        class="fas fa-map-marker-alt"></i> 9/11 Memorial</a>
                             </div>
                             <div class="timeline-item">
                                 <div class="timeline-dot-custom"></div>
                                 <time class="font-bold text-brand-navy block text-sm mb-1">16:00 - 18:30</time>
-                                <h4 class="text-lg font-bold">Brooklyn Bridge Walk</h4>
+                                <h4 class="text-lg font-bold event-title"
+                                    onclick="openModal('Brooklyn Bridge', 'Walk across the Brooklyn Bridge from Manhattan into Brooklyn as the sun starts to set. It is arguably the best free experience in NYC.', null)">
+                                    Brooklyn Bridge Walk <i class="fas fa-info-circle"></i></h4>
                                 <p class="text-gray-600 text-sm mt-1">Walk the iconic Brooklyn Bridge towards DUMBO.</p>
                             </div>
                             <div class="timeline-item-last">
                                 <div class="timeline-dot-custom"></div>
                                 <time class="font-bold text-brand-navy block text-sm mb-1">19:00 - 21:30</time>
-                                <h4 class="text-lg font-bold">Dinner in DUMBO</h4>
-                                <p class="text-gray-600 text-sm mt-1">Enjoy waterfront views of the Manhattan skyline from Brooklyn.</p>
+                                <h4 class="text-lg font-bold event-title"
+                                    onclick="openModal('DUMBO Waterfront', 'DUMBO (Down Under the Manhattan Bridge Overpass) offers stunning cobblestone streets and the classic photo-op of the Manhattan bridge framed between buildings.', null)">
+                                    Dinner in DUMBO <i class="fas fa-info-circle"></i></h4>
+                                <p class="text-gray-600 text-sm mt-1">Enjoy waterfront views of the Manhattan skyline
+                                    from Brooklyn.</p>
                             </div>
                         </div>
                     </section>
 
                     <!-- Day 9 -->
                     <section class="mb-12">
-                        <h3 class="day-header">Friday, May 15 <span class="text-sm font-sans text-gray-500 ml-2 font-normal">The NYC Bucket List</span></h3>
-                        <img src="https://plus.unsplash.com/premium_photo-1697730064923-dd664fc81d19?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="Central Park" loading="lazy" decoding="async" class="w-full h-48 md:h-64 object-cover rounded-lg shadow-sm mb-6">
+                        <h3 class="day-header">Friday, May 15 <span
+                                class="text-sm font-sans text-gray-500 ml-2 font-normal">The NYC Bucket List</span></h3>
+                        <img src="https://plus.unsplash.com/premium_photo-1697730064923-dd664fc81d19?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+                            alt="Central Park" loading="lazy" decoding="async"
+                            class="w-full h-48 md:h-64 object-cover rounded-lg shadow-sm mb-6">
                         <div class="ml-2 md:ml-4">
                             <div class="timeline-item">
                                 <div class="timeline-dot-custom"></div>
                                 <time class="font-bold text-brand-navy block text-sm mb-1">09:00 - 11:00</time>
-                                <h4 class="text-lg font-bold">Central Park & Met Steps <a href="https://maps.google.com/?q=The+Metropolitan+Museum+of+Art" target="_blank" class="map-link"><i class="fas fa-map-marker-alt"></i></a></h4>
-                                <p class="text-gray-600 text-sm mt-1">Classic morning stroll and iconic photos at the steps of the MET.</p>
+                                <h4 class="text-lg font-bold event-title"
+                                    onclick="openModal('Central Park & The Met', 'Stroll through Central Park and make your way to the steps of the Metropolitan Museum of Art (The Met) - famous for the annual Met Gala.', null)">
+                                    Central Park & Met Steps <i class="fas fa-info-circle"></i></h4>
+                                <a href="https://maps.google.com/?q=The+Metropolitan+Museum+of+Art" target="_blank"
+                                    class="map-link block mt-1" onclick="event.stopPropagation()"><i
+                                        class="fas fa-map-marker-alt"></i> The MET</a>
                             </div>
                             <div class="timeline-item">
                                 <div class="timeline-dot-custom"></div>
                                 <time class="font-bold text-brand-navy block text-sm mb-1">11:30 - 13:30</time>
-                                <h4 class="text-lg font-bold">5th Avenue Stroll</h4>
-                                <p class="text-gray-600 text-sm mt-1">Window shopping and a visit to St. Patrick's Cathedral.</p>
+                                <h4 class="text-lg font-bold event-title"
+                                    onclick="openModal('5th Avenue', 'Walk down 5th Avenue, past the Plaza Hotel, Rockefeller Center, and the stunning architecture of St. Patrick\'s Cathedral.', null)">
+                                    5th Avenue Stroll <i class="fas fa-info-circle"></i></h4>
+                                <p class="text-gray-600 text-sm mt-1">Window shopping and a visit to St. Patrick's
+                                    Cathedral.</p>
                             </div>
                             <div class="timeline-item">
                                 <div class="timeline-dot-custom"></div>
                                 <time class="font-bold text-brand-navy block text-sm mb-1">14:00 - 17:00</time>
-                                <h4 class="text-lg font-bold">MoMA</h4>
+                                <h4 class="text-lg font-bold event-title"
+                                    onclick="openModal('MoMA', 'The Museum of Modern Art houses incredible works, including Van Gogh\'s Starry Night.', null)">
+                                    MoMA <i class="fas fa-info-circle"></i></h4>
                                 <p class="text-gray-600 text-sm mt-1">Explore the Museum of Modern Art.</p>
                             </div>
                             <div class="timeline-item-last">
                                 <div class="timeline-dot-custom"></div>
-                                <time class="font-bold text-brand-gold block text-sm mb-1"><i class="fas fa-theater-masks mr-1"></i>19:00 - 22:00</time>
-                                <h4 class="text-lg font-bold">Broadway: MJ The Musical</h4>
-                                <p class="text-gray-600 text-sm mt-1">The ultimate NYC theater night. Book tickets in advance!</p>
+                                <time class="font-bold text-brand-gold block text-sm mb-1"><i
+                                        class="fas fa-theater-masks mr-1"></i>19:00 - 22:00</time>
+                                <h4 class="text-lg font-bold event-title"
+                                    onclick="openModal('Broadway Show', 'A trip to NYC is not complete without a Broadway show. MJ The Musical is a spectacular production. Book tickets well in advance!', null)">
+                                    Broadway: MJ The Musical <i class="fas fa-info-circle"></i></h4>
+                                <p class="text-gray-600 text-sm mt-1">The ultimate NYC theater night. Book tickets in
+                                    advance!</p>
                             </div>
                         </div>
                     </section>
 
                     <!-- Day 10 & 11 -->
                     <section>
-                        <h3 class="day-header">Weekend Finale <span class="text-sm font-sans text-gray-500 ml-2 font-normal">May 16 - 17</span></h3>
-                        <img src="https://plus.unsplash.com/premium_photo-1680284197425-4bd125d75cab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="Broadway" loading="lazy" decoding="async" class="w-full h-48 md:h-64 object-cover rounded-lg shadow-sm mb-6">
+                        <h3 class="day-header">Weekend Finale <span
+                                class="text-sm font-sans text-gray-500 ml-2 font-normal">May 16 - 17</span></h3>
+                        <img src="https://plus.unsplash.com/premium_photo-1680284197425-4bd125d75cab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+                            alt="Broadway" loading="lazy" decoding="async"
+                            class="w-full h-48 md:h-64 object-cover rounded-lg shadow-sm mb-6">
                         <div class="ml-2 md:ml-4">
                             <div class="timeline-item">
                                 <div class="timeline-dot-custom"></div>
                                 <time class="font-bold text-brand-navy block text-sm mb-1">Sat 10:00 - 12:30</time>
-                                <h4 class="text-lg font-bold">Morgan Library</h4>
+                                <h4 class="text-lg font-bold event-title"
+                                    onclick="openModal('Morgan Library', 'Once the private library of Pierpont Morgan, this majestic building is an architectural marvel and a hidden gem in NYC.', null)">
+                                    Morgan Library <i class="fas fa-info-circle"></i></h4>
                                 <p class="text-gray-600 text-sm mt-1">Stunning architecture and historical texts.</p>
                             </div>
                             <div class="timeline-item">
                                 <div class="timeline-dot-custom"></div>
                                 <time class="font-bold text-brand-navy block text-sm mb-1">Sat 13:00 - 17:00</time>
-                                <h4 class="text-lg font-bold">Soho & West Village</h4>
-                                <p class="text-gray-600 text-sm mt-1">Free afternoon to explore the boutiques, grab coffee, and relax.</p>
+                                <h4 class="text-lg font-bold event-title"
+                                    onclick="openModal('Soho & West Village', 'Spend a free afternoon wandering the cobblestone streets of Soho and the West Village. Great for boutique shopping, grabbing a coffee, and celebrity spotting.', null)">
+                                    Soho & West Village <i class="fas fa-info-circle"></i></h4>
+                                <p class="text-gray-600 text-sm mt-1">Free afternoon to explore the boutiques, grab
+                                    coffee, and relax.</p>
                             </div>
                             <div class="timeline-item">
                                 <div class="timeline-dot-custom"></div>
-                                <time class="font-bold text-brand-gold block text-sm mb-1"><i class="fas fa-glass-cheers mr-1"></i>Sat 19:30 - 22:30</time>
-                                <h4 class="text-lg font-bold">The Grand Finale Dinner</h4>
-                                <p class="text-gray-600 text-sm mt-1">Upscale NYC dining to celebrate the graduation and honeymoon.</p>
+                                <time class="font-bold text-brand-gold block text-sm mb-1"><i
+                                        class="fas fa-glass-cheers mr-1"></i>Sat 19:30 - 22:30</time>
+                                <h4 class="text-lg font-bold event-title"
+                                    onclick="openModal('The Grand Finale', 'A final, upscale romantic dinner in the city to cheers to your Master\'s Degree and a wonderful honeymoon.', null)">
+                                    The Grand Finale Dinner <i class="fas fa-info-circle"></i></h4>
+                                <p class="text-gray-600 text-sm mt-1">Upscale NYC dining to celebrate the graduation and
+                                    honeymoon.</p>
                             </div>
                             <div class="timeline-item-last">
                                 <div class="timeline-dot-custom"></div>
                                 <time class="font-bold text-brand-navy block text-sm mb-1">Sun 10:00 - 15:00</time>
-                                <h4 class="text-lg font-bold">Flight NYC to MEX</h4>
-                                <p class="text-gray-600 text-sm mt-1">Sleep on the plane. You earned it. Welcome home, Master of Software Engineering!</p>
+                                <h4 class="text-lg font-bold event-title"
+                                    onclick="openModal('Heading Home', 'Safe travels! Catch a flight out of JFK, EWR, or LGA back home. Time to rest.', null)">
+                                    Flight NYC to MEX <i class="fas fa-info-circle"></i></h4>
+                                <p class="text-gray-600 text-sm mt-1">Sleep on the plane. You earned it. Welcome home,
+                                    Master of Software Engineering!</p>
                             </div>
                         </div>
                     </section>
@@ -533,39 +751,113 @@
     <footer class="bg-brand-navy text-white py-12 text-center border-t-4 border-brand-gold">
         <div class="max-w-4xl mx-auto px-4">
             <h2 class="text-2xl font-serif mb-4">Elite Journeys & Milestones</h2>
-            <p class="text-gray-400 text-sm mb-6">Curated exclusively for Eduardo Angel Romero Diaz and his beloved wife.</p>
+            <p class="text-gray-400 text-sm mb-6">Curated exclusively for Eduardo Angel Romero Diaz and his beloved
+                wife.</p>
             <p class="text-brand-gold font-bold tracking-widest uppercase text-xs">See you in Pittsburgh!</p>
         </div>
     </footer>
 
+    <!-- Interactive Modal -->
+    <div id="details-modal"
+        class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/60 backdrop-blur-sm opacity-0 transition-opacity duration-300 px-4"
+        onclick="closeModal()">
+        <div class="bg-white rounded-lg shadow-2xl max-w-lg w-full overflow-hidden transform scale-95 transition-transform duration-300 relative"
+            id="modal-content" onclick="event.stopPropagation()">
+            <button onclick="closeModal()"
+                class="absolute top-4 right-4 bg-white/70 hover:bg-white rounded-full w-8 h-8 flex items-center justify-center text-brand-navy z-10 backdrop-blur shadow-sm transition">
+                <i class="fas fa-times"></i>
+            </button>
+            <img id="modal-image" src="" alt="Location" class="w-full h-48 md:h-64 object-cover hidden">
+            <div class="p-6 md:p-8">
+                <h3 id="modal-title" class="text-2xl font-serif text-brand-navy mb-3">Title</h3>
+                <div class="w-12 h-1 bg-brand-gold mb-4"></div>
+                <p id="modal-desc" class="text-gray-600 leading-relaxed mb-6">Description</p>
+                <div class="flex justify-end">
+                    <button onclick="closeModal()"
+                        class="px-6 py-2 border-2 border-brand-navy text-brand-navy rounded hover:bg-brand-navy hover:text-white transition-colors font-bold text-xs tracking-widest uppercase">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Interactive Scripts -->
     <script>
+        // Tab switching logic
         function showCity(city) {
-            // Hide all content
             document.querySelectorAll('.city-content').forEach(el => {
                 el.classList.add('hidden');
             });
-            // Reset all buttons
             document.querySelectorAll('button[id^="btn-"]').forEach(el => {
                 el.classList.remove('tab-active', 'text-brand-navy');
                 el.classList.add('text-gray-400');
             });
-            
-            // Show selected content
+
             const content = document.getElementById(city + '-content');
             content.classList.remove('hidden');
-            
-            // Style selected button
+
             const activeBtn = document.getElementById('btn-' + city);
             activeBtn.classList.remove('text-gray-400');
             activeBtn.classList.add('tab-active', 'text-brand-navy');
 
-            // Scroll to the content slightly to show it changed (especially on mobile)
-            // Using a timeout to allow the display:block to render first
             setTimeout(() => {
-                 document.getElementById('itinerary').scrollIntoView({ behavior: 'smooth' });
+                document.getElementById('itinerary').scrollIntoView({ behavior: 'smooth' });
             }, 10);
         }
+
+        // Modal Logic
+        function openModal(title, desc, imageSrc) {
+            const modal = document.getElementById('details-modal');
+            const content = document.getElementById('modal-content');
+
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-desc').innerText = desc;
+
+            const imgEl = document.getElementById('modal-image');
+            if (imageSrc) {
+                imgEl.src = imageSrc;
+                imgEl.classList.remove('hidden');
+            } else {
+                imgEl.classList.add('hidden');
+            }
+
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+
+            // Disable background scrolling
+            document.body.style.overflow = 'hidden';
+
+            // Trigger animation
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                content.classList.remove('scale-95');
+                content.classList.add('scale-100');
+            }, 10);
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('details-modal');
+            const content = document.getElementById('modal-content');
+
+            modal.classList.add('opacity-0');
+            content.classList.remove('scale-100');
+            content.classList.add('scale-95');
+
+            // Re-enable background scrolling
+            document.body.style.overflow = 'auto';
+
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            }, 300); // Matches the duration-300 class
+        }
+
+        // Listen for ESC key to close modal
+        document.addEventListener('keydown', function (event) {
+            if (event.key === "Escape") {
+                closeModal();
+            }
+        });
     </script>
 </body>
+
 </html>
