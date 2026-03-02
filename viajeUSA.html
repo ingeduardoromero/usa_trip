@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eduardo's Graduation & Honeymoon | Elite Travel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            gold: '#D4AF37',
+                            navy: '#1A2A3A',
+                            light: '#F8F9FA'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['Lato', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .hero-bg {
+            background-image: linear-gradient(rgba(26, 42, 58, 0.7), rgba(26, 42, 58, 0.7)), url('https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .tab-active { border-bottom: 2px solid #D4AF37; color: #D4AF37; }
+        .timeline-dot {
+            width: 12px; height: 12px; border-radius: 50%; background-color: #D4AF37;
+            position: absolute; left: -6px; top: 6px;
+        }
+        .timeline-line {
+            border-left: 2px solid #e5e7eb; position: relative; padding-left: 1.5rem; margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 bg-brand-light antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-brand-navy/95 backdrop-blur-sm text-white py-4 px-6 shadow-md transition-all">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="text-2xl font-serif font-bold tracking-wider text-brand-gold">
+                <i class="fas fa-compass mr-2"></i>ELITE JOURNEYS
+            </div>
+            <div class="hidden md:flex space-x-8 text-sm uppercase tracking-widest">
+                <a href="#overview" class="hover:text-brand-gold transition-colors">The Vision</a>
+                <a href="#destinations" class="hover:text-brand-gold transition-colors">Destinations</a>
+                <a href="#itinerary" class="hover:text-brand-gold transition-colors">Master Itinerary</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-bg h-screen flex items-center justify-center text-center px-4">
+        <div class="max-w-4xl text-white">
+            <p class="text-brand-gold tracking-[0.3em] uppercase text-sm md:text-base mb-4 font-semibold">May 7 - May 17, 2026</p>
+            <h1 class="text-5xl md:text-7xl font-serif font-bold mb-6 leading-tight">Eduardo's Graduation <br> <span class="italic font-light">& Honeymoon</span></h1>
+            <p class="text-lg md:text-xl font-light mb-10 max-w-2xl mx-auto">Celebrating a Master's Degree from Carnegie Mellon University, followed by an unforgettable romantic escape through America's greatest cities.</p>
+            <a href="#itinerary" class="inline-block border-2 border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-brand-navy px-8 py-3 uppercase tracking-widest text-sm transition-all duration-300">View The Itinerary</a>
+        </div>
+    </header>
+
+    <!-- The Vision / Overview -->
+    <section id="overview" class="py-20 px-6 max-w-5xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-serif font-bold text-brand-navy mb-6">A Journey of Achievement & Romance</h2>
+        <div class="w-24 h-1 bg-brand-gold mx-auto mb-8"></div>
+        <p class="text-lg text-gray-600 leading-relaxed mb-10">
+            From the prestigious halls of Carnegie Mellon University in Pittsburgh, to the historic monuments of Washington D.C., and culminating in the vibrant, luxurious energy of New York City. This 11-day masterfully curated itinerary balances the pride of a major life milestone with the relaxation and wonder of a honeymoon.
+        </p>
+    </section>
+
+    <!-- Destinations Grid -->
+    <section id="destinations" class="py-10 px-6 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- PIT -->
+            <div class="group relative overflow-hidden rounded-lg shadow-lg h-96">
+                <img src="https://images.unsplash.com/photo-1579545041188-466d62a4faee?auto=format&fit=crop&w=800&q=80" alt="Pittsburgh" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-6">
+                    <span class="text-brand-gold uppercase text-xs font-bold tracking-widest mb-1">Part I: The Milestone</span>
+                    <h3 class="text-3xl font-serif text-white mb-2">Pittsburgh</h3>
+                    <p class="text-gray-200 text-sm">CMU Master's Ceremony, Soldiers & Sailors, & Skyline Dinners.</p>
+                </div>
+            </div>
+            <!-- DC -->
+            <div class="group relative overflow-hidden rounded-lg shadow-lg h-96">
+                <img src="https://images.unsplash.com/photo-1501466044931-62695aada8e9?auto=format&fit=crop&w=800&q=80" alt="Washington DC" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-6">
+                    <span class="text-brand-gold uppercase text-xs font-bold tracking-widest mb-1">Part II: The History</span>
+                    <h3 class="text-3xl font-serif text-white mb-2">Washington D.C.</h3>
+                    <p class="text-gray-200 text-sm">Smithsonian Museums, Monuments by Night, & Georgetown.</p>
+                </div>
+            </div>
+            <!-- NYC -->
+            <div class="group relative overflow-hidden rounded-lg shadow-lg h-96">
+                <img src="https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?auto=format&fit=crop&w=800&q=80" alt="New York City" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-6">
+                    <span class="text-brand-gold uppercase text-xs font-bold tracking-widest mb-1">Part III: The Celebration</span>
+                    <h3 class="text-3xl font-serif text-white mb-2">New York City</h3>
+                    <p class="text-gray-200 text-sm">Broadway, The Met Steps, Central Park, & Michelin Dining.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Master Itinerary Interactive Section -->
+    <section id="itinerary" class="py-20 bg-white">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-serif font-bold text-brand-navy mb-4 text-center">Your Master Itinerary</h2>
+            <p class="text-center text-gray-500 mb-10">Click on a city to view the daily schedule.</p>
+
+            <!-- Tabs -->
+            <div class="flex flex-wrap justify-center border-b border-gray-200 mb-10">
+                <button onclick="showCity('pit')" id="btn-pit" class="px-6 py-4 font-bold uppercase tracking-wider text-sm tab-active transition-colors">Pittsburgh (May 7-10)</button>
+                <button onclick="showCity('dc')" id="btn-dc" class="px-6 py-4 font-bold uppercase tracking-wider text-sm text-gray-400 hover:text-brand-navy transition-colors">Washington D.C. (May 11-13)</button>
+                <button onclick="showCity('nyc')" id="btn-nyc" class="px-6 py-4 font-bold uppercase tracking-wider text-sm text-gray-400 hover:text-brand-navy transition-colors">New York City (May 13-17)</button>
+            </div>
+
+            <!-- Content: Pittsburgh -->
+            <div id="pit-content" class="city-content animate-fade-in">
+                <!-- Day 1 -->
+                <h3 class="text-2xl font-serif text-brand-navy mb-6 bg-gray-50 p-4 rounded-md border-l-4 border-brand-gold">Thursday, May 7 <span class="text-sm font-sans text-gray-500 ml-2 font-normal">Arrival & Prep</span></h3>
+                <div class="ml-4 mb-10 border-l-2 border-gray-200">
+                    <div class="timeline-line">
+                        <div class="timeline-dot"></div>
+                        <span class="font-bold text-brand-navy block">08:00 - 16:00</span>
+                        <h4 class="text-lg font-bold">Flight MEX to PIT</h4>
+                        <p class="text-gray-600 text-sm mt-1">Aim for early morning departure via DFW or IAH to arrive stress-free.</p>
+                    </div>
+                    <div class="timeline-line">
+                        <div class="timeline-dot"></div>
+                        <span class="font-bold text-brand-navy block">17:00 - 18:00</span>
+                        <h4 class="text-lg font-bold">Hotel Check-in near CMU</h4>
+                        <p class="text-gray-600 text-sm mt-1">Settle in at The Oaklander or Wyndham (Oakland basecamp).</p>
+                    </div>
+                    <div class="timeline-line border-transparent">
+                        <div class="timeline-dot"></div>
+                        <span class="font-bold text-brand-navy block">18:30 - 21:00</span>
+                        <h4 class="text-lg font-bold">Campus Walk & Welcome Dinner</h4>
+                        <p class="text-gray-600 text-sm mt-1">Confirm walking routes for tomorrow and enjoy a casual dinner at The Porch.</p>
+                    </div>
+                </div>
+
+                <!-- Day 2 -->
+                <h3 class="text-2xl font-serif text-brand-navy mb-6 bg-gray-50 p-4 rounded-md border-l-4 border-brand-gold">Friday, May 8 <span class="text-sm font-sans text-gray-500 ml-2 font-normal">Degree Day!</span></h3>
+                <div class="ml-4 mb-10 border-l-2 border-gray-200">
+                    <div class="timeline-line">
+                        <div class="timeline-dot"></div>
+                        <span class="font-bold text-brand-navy block text-brand-gold"><i class="fas fa-star mr-1"></i>09:00 - 10:30</span>
+                        <h4 class="text-lg font-bold">S3D/MSE Breakfast</h4>
+                        <p class="text-gray-600 text-sm mt-1">TCS Hall (4665 Forbes Ave). The official start of the celebrations.</p>
+                    </div>
+                    <div class="timeline-line">
+                        <div class="timeline-dot"></div>
+                        <span class="font-bold text-brand-navy block text-brand-gold"><i class="fas fa-graduation-cap mr-1"></i>11:00 - 13:00</span>
+                        <h4 class="text-lg font-bold">SCS Master's Ceremony</h4>
+                        <p class="text-gray-600 text-sm mt-1">Soldiers & Sailors Memorial Hall. The big moment!</p>
+                    </div>
+                    <div class="timeline-line">
+                        <div class="timeline-dot"></div>
+                        <span class="font-bold text-brand-navy block">13:30 - 15:30</span>
+                        <h4 class="text-lg font-bold">Post-Ceremony Lunch</h4>
+                        <p class="text-gray-600 text-sm mt-1">Elegant Italian dining at Lucca Ristorante.</p>
+                    </div>
+                    <div class="timeline-line border-transparent">
+                        <div class="timeline-dot"></div>
+                        <span class="font-bold text-brand-navy block">19:30 - 22:00</span>
+                        <h4 class="text-lg font-bold">The Graduation Dinner at Altius</h4>
+                        <p class="text-gray-600 text-sm mt-1">Take the Duquesne Incline up Mt. Washington for spectacular skyline views.</p>
+                    </div>
+                </div>
+
+                <!-- Day 3 -->
+                <h3 class="text-2xl font-serif text-brand-navy mb-6 bg-gray-50 p-4 rounded-md border-l-4 border-brand-gold">Saturday, May 9 <span class="text-sm font-sans text-gray-500 ml-2 font-normal">Explore Pittsburgh</span></h3>
+                <div class="ml-4 mb-10 border-l-2 border-gray-200">
+                    <div class="timeline-line">
+                        <div class="timeline-dot"></div>
+                        <span class="font-bold text-brand-navy block">09:00 - 11:00</span>
+                        <h4 class="text-lg font-bold">Campus Photoshoot</h4>
+                        <p class="text-gray-600 text-sm mt-1">Photos at The Fence and Cathedral of Learning before the crowds arrive.</p>
+                    </div>
+                    <div class="timeline-line">
+                        <div class="timeline-dot"></div>
+                        <span class="font-bold text-brand-navy block">11:30 - 14:30</span>
+                        <h4 class="text-lg font-bold">Strip District Brunch</h4>
+                        <p class="text-gray-600 text-sm mt-1">Local vibe, great coffee, and souvenir shopping.</p>
+                    </div>
+                     <div class="timeline-line">
+                        <div class="timeline-dot"></div>
+                        <span class="font-bold text-brand-navy block">15:00 - 17:30</span>
+                        <h4 class="text-lg font-bold">Phipps Conservatory</h4>
+                        <p class="text-gray-600 text-sm mt-1">Beautiful indoor botanical gardens near campus.</p>
+                    </div>
+                    <div class="timeline-line border-transparent">
+                        <div class="timeline-dot"></div>
+                        <span class="font-bold text-brand-navy block">19:00 - 21:30</span>
+                        <h4 class="text-lg font-bold">Dinner in Lawrenceville</h4>
+                        <p class="text-gray-600 text-sm mt-1">Highly recommended casual dinner at Pusadee's Garden.</p>
+                    </div>
+                </div>
+                 <!-- Day 4 -->
+                 <h3 class="text-2xl font-serif text-brand-navy mb-6 bg-gray-50 p-4 rounded-md border-l-4 border-brand-gold">Sunday, May 10 <span class="text-sm font-sans text-gray-500 ml-2 font-normal">Main Commencement</span></h3>
+                 <div class="ml-4 border-l-2 border-gray-200">
+                     <div class="timeline-line">
+                         <div class="timeline-dot"></div>
+                         <span class="font-bold text-brand-navy block text-brand-gold"><i class="fas fa-university mr-1"></i>10:00 - 13:00</span>
+                         <h4 class="text-lg font-bold">Main CMU Commencement</h4>
+                         <p class="text-gray-600 text-sm mt-1">Gesling Stadium. Pack umbrellas just in case!</p>
+                     </div>
+                     <div class="timeline-line border-transparent">
+                         <div class="timeline-dot"></div>
+                         <span class="font-bold text-brand-navy block">16:00 - 19:00</span>
+                         <h4 class="text-lg font-bold">Transition to Honeymoon Mode</h4>
+                         <p class="text-gray-600 text-sm mt-1">Pack bags and prepare to trade the graduation cap for vacation wear!</p>
+                     </div>
+                 </div>
+            </div>
+
+            <!-- Content: DC -->
+            <div id="dc-content" class="city-content hidden animate-fade-in">
+                 <!-- Day 5 -->
+                 <h3 class="text-2xl font-serif text-brand-navy mb-6 bg-gray-50 p-4 rounded-md border-l-4 border-brand-gold">Monday, May 11 <span class="text-sm font-sans text-gray-500 ml-2 font-normal">Hello, Capital</span></h3>
+                 <div class="ml-4 mb-10 border-l-2 border-gray-200">
+                     <div class="timeline-line">
+                         <div class="timeline-dot"></div>
+                         <span class="font-bold text-brand-navy block">10:00 - 13:00</span>
+                         <h4 class="text-lg font-bold">Flight PIT to Washington D.C.</h4>
+                         <p class="text-gray-600 text-sm mt-1">Quick 1-hour flight to DCA to maximize sightseeing time.</p>
+                     </div>
+                     <div class="timeline-line">
+                         <div class="timeline-dot"></div>
+                         <span class="font-bold text-brand-navy block">15:00 - 18:00</span>
+                         <h4 class="text-lg font-bold">National Mall Intro</h4>
+                         <p class="text-gray-600 text-sm mt-1">A grand walk past the Washington Monument & Lincoln Memorial.</p>
+                     </div>
+                     <div class="timeline-line border-transparent">
+                         <div class="timeline-dot"></div>
+                         <span class="font-bold text-brand-navy block">19:30 - 21:30</span>
+                         <h4 class="text-lg font-bold">DC Kickoff Dinner</h4>
+                         <p class="text-gray-600 text-sm mt-1">Upscale seafood at Fiola Mare (Georgetown) or The Wharf.</p>
+                     </div>
+                 </div>
+                 <!-- Day 6 -->
+                 <h3 class="text-2xl font-serif text-brand-navy mb-6 bg-gray-50 p-4 rounded-md border-l-4 border-brand-gold">Tuesday, May 12 <span class="text-sm font-sans text-gray-500 ml-2 font-normal">Museums & Monuments</span></h3>
+                 <div class="ml-4 border-l-2 border-gray-200">
+                     <div class="timeline-line">
+                         <div class="timeline-dot"></div>
+                         <span class="font-bold text-brand-navy block">09:30 - 13:00</span>
+                         <h4 class="text-lg font-bold">Smithsonian Museums</h4>
+                         <p class="text-gray-600 text-sm mt-1">Choose between Air & Space or Natural History.</p>
+                     </div>
+                     <div class="timeline-line">
+                        <div class="timeline-dot"></div>
+                        <span class="font-bold text-brand-navy block">15:30 - 18:00</span>
+                        <h4 class="text-lg font-bold">US Capitol & Library</h4>
+                        <p class="text-gray-600 text-sm mt-1">Exterior photos of the Capitol Building and the stunning Library of Congress.</p>
+                    </div>
+                     <div class="timeline-line border-transparent">
+                         <div class="timeline-dot"></div>
+                         <span class="font-bold text-brand-navy block">19:00 - 21:30</span>
+                         <h4 class="text-lg font-bold">Dinner in Logan Circle</h4>
+                         <p class="text-gray-600 text-sm mt-1">Classic French fare at Le Diplomate (Book exactly 30 days out).</p>
+                     </div>
+                 </div>
+            </div>
+
+            <!-- Content: NYC -->
+            <div id="nyc-content" class="city-content hidden animate-fade-in">
+                <!-- Day 7 -->
+                <h3 class="text-2xl font-serif text-brand-navy mb-6 bg-gray-50 p-4 rounded-md border-l-4 border-brand-gold">Wednesday, May 13 <span class="text-sm font-sans text-gray-500 ml-2 font-normal">Acela to the Big Apple</span></h3>
+                <div class="ml-4 mb-10 border-l-2 border-gray-200">
+                    <div class="timeline-line">
+                        <div class="timeline-dot"></div>
+                        <span class="font-bold text-brand-navy block"><i class="fas fa-train mr-1 text-brand-gold"></i>09:00 - 12:30</span>
+                        <h4 class="text-lg font-bold">High-Speed Train: DC to NYC</h4>
+                        <p class="text-gray-600 text-sm mt-1">Amtrak Acela. Travel city-center to city-center in comfort.</p>
+                    </div>
+                    <div class="timeline-line">
+                        <div class="timeline-dot"></div>
+                        <span class="font-bold text-brand-navy block">14:30 - 15:30</span>
+                        <h4 class="text-lg font-bold">Hard Rock Cafe & Times Square</h4>
+                        <p class="text-gray-600 text-sm mt-1">A high-energy kickoff lunch in the heart of the city.</p>
+                    </div>
+                    <div class="timeline-line">
+                        <div class="timeline-dot"></div>
+                        <span class="font-bold text-brand-navy block">15:30 - 19:30</span>
+                        <h4 class="text-lg font-bold">City Tour & The High Line</h4>
+                        <p class="text-gray-600 text-sm mt-1">Hop-On-Hop-Off bus orientation, followed by a sunset walk on the High Line & Chelsea Market.</p>
+                    </div>
+                    <div class="timeline-line border-transparent">
+                        <div class="timeline-dot"></div>
+                        <span class="font-bold text-brand-navy block">20:30 - 22:30</span>
+                        <h4 class="text-lg font-bold">Rockefeller & Empire State</h4>
+                        <p class="text-gray-600 text-sm mt-1">View the iconic NYC skyline at night.</p>
+                    </div>
+                </div>
+
+                 <!-- Day 8 -->
+                 <h3 class="text-2xl font-serif text-brand-navy mb-6 bg-gray-50 p-4 rounded-md border-l-4 border-brand-gold">Thursday, May 14 <span class="text-sm font-sans text-gray-500 ml-2 font-normal">Icons & History</span></h3>
+                 <div class="ml-4 mb-10 border-l-2 border-gray-200">
+                     <div class="timeline-line">
+                         <div class="timeline-dot"></div>
+                         <span class="font-bold text-brand-navy block">08:30 - 12:00</span>
+                         <h4 class="text-lg font-bold">Statue of Liberty & Ellis Island</h4>
+                         <p class="text-gray-600 text-sm mt-1">Reserve the first ferry slot to beat the crowds.</p>
+                     </div>
+                     <div class="timeline-line">
+                         <div class="timeline-dot"></div>
+                         <span class="font-bold text-brand-navy block">13:00 - 15:30</span>
+                         <h4 class="text-lg font-bold">Twin Towers Memorial (9/11)</h4>
+                         <p class="text-gray-600 text-sm mt-1">A poignant visit to the memorial and museum.</p>
+                     </div>
+                     <div class="timeline-line">
+                        <div class="timeline-dot"></div>
+                        <span class="font-bold text-brand-navy block">16:00 - 18:30</span>
+                        <h4 class="text-lg font-bold">Brooklyn Supreme Court & Bridge Walk</h4>
+                        <p class="text-gray-600 text-sm mt-1">Stroll past the historic courthouse and walk the iconic Brooklyn Bridge.</p>
+                    </div>
+                     <div class="timeline-line border-transparent">
+                         <div class="timeline-dot"></div>
+                         <span class="font-bold text-brand-navy block">19:00 - 21:30</span>
+                         <h4 class="text-lg font-bold">Dinner in DUMBO</h4>
+                         <p class="text-gray-600 text-sm mt-1">Enjoy waterfront views of the Manhattan skyline from Brooklyn.</p>
+                     </div>
+                 </div>
+
+                 <!-- Day 9 -->
+                 <h3 class="text-2xl font-serif text-brand-navy mb-6 bg-gray-50 p-4 rounded-md border-l-4 border-brand-gold">Friday, May 15 <span class="text-sm font-sans text-gray-500 ml-2 font-normal">The NYC Bucket List</span></h3>
+                 <div class="ml-4 mb-10 border-l-2 border-gray-200">
+                     <div class="timeline-line">
+                         <div class="timeline-dot"></div>
+                         <span class="font-bold text-brand-navy block">09:00 - 11:00</span>
+                         <h4 class="text-lg font-bold">Central Park & Met Gala Steps</h4>
+                         <p class="text-gray-600 text-sm mt-1">Classic morning stroll and iconic photos at the steps of the MET.</p>
+                     </div>
+                     <div class="timeline-line">
+                         <div class="timeline-dot"></div>
+                         <span class="font-bold text-brand-navy block">11:30 - 13:30</span>
+                         <h4 class="text-lg font-bold">5th Avenue Stroll</h4>
+                         <p class="text-gray-600 text-sm mt-1">Window shopping and a visit to St. Patrick's Cathedral.</p>
+                     </div>
+                     <div class="timeline-line">
+                        <div class="timeline-dot"></div>
+                        <span class="font-bold text-brand-navy block">14:00 - 17:00</span>
+                        <h4 class="text-lg font-bold">MoMA</h4>
+                        <p class="text-gray-600 text-sm mt-1">Explore the Museum of Modern Art.</p>
+                    </div>
+                     <div class="timeline-line border-transparent">
+                         <div class="timeline-dot"></div>
+                         <span class="font-bold text-brand-navy block text-brand-gold"><i class="fas fa-theater-masks mr-1"></i>19:00 - 22:00</span>
+                         <h4 class="text-lg font-bold">Broadway: MJ The Musical</h4>
+                         <p class="text-gray-600 text-sm mt-1">The ultimate NYC theater night. Book tickets in advance!</p>
+                     </div>
+                 </div>
+
+                  <!-- Day 10 & 11 -->
+                 <h3 class="text-2xl font-serif text-brand-navy mb-6 bg-gray-50 p-4 rounded-md border-l-4 border-brand-gold">Weekend Finale <span class="text-sm font-sans text-gray-500 ml-2 font-normal">May 16 - 17</span></h3>
+                 <div class="ml-4 border-l-2 border-gray-200">
+                     <div class="timeline-line">
+                         <div class="timeline-dot"></div>
+                         <span class="font-bold text-brand-navy block">Sat 10:00 - 12:30</span>
+                         <h4 class="text-lg font-bold">Morgan Library (JP Morgan)</h4>
+                         <p class="text-gray-600 text-sm mt-1">Stunning architecture and historical texts.</p>
+                     </div>
+                     <div class="timeline-line">
+                         <div class="timeline-dot"></div>
+                         <span class="font-bold text-brand-navy block">Sat 13:00 - 17:00</span>
+                         <h4 class="text-lg font-bold">Soho & West Village</h4>
+                         <p class="text-gray-600 text-sm mt-1">Free afternoon to explore the boutiques, grab coffee, and relax.</p>
+                     </div>
+                     <div class="timeline-line">
+                        <div class="timeline-dot"></div>
+                        <span class="font-bold text-brand-navy block text-brand-gold"><i class="fas fa-glass-cheers mr-1"></i>Sat 19:30 - 22:30</span>
+                        <h4 class="text-lg font-bold">The Grand Finale Dinner</h4>
+                        <p class="text-gray-600 text-sm mt-1">Upscale NYC dining to celebrate the graduation and honeymoon.</p>
+                    </div>
+                     <div class="timeline-line border-transparent">
+                         <div class="timeline-dot"></div>
+                         <span class="font-bold text-brand-navy block">Sun 10:00 - 15:00</span>
+                         <h4 class="text-lg font-bold">Flight NYC to MEX</h4>
+                         <p class="text-gray-600 text-sm mt-1">Sleep on the plane. You earned it. Welcome home, Master of Software Engineering!</p>
+                     </div>
+                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-navy text-white py-12 text-center border-t-4 border-brand-gold">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-2xl font-serif mb-4">Elite Journeys & Milestones</h2>
+            <p class="text-gray-400 text-sm mb-6">Curated exclusively for Eduardo Angel Romero Diaz and his beloved wife.</p>
+            <p class="text-brand-gold font-bold tracking-widest uppercase text-xs">See you in Pittsburgh!</p>
+        </div>
+    </footer>
+
+    <!-- Simple Script for Tabs -->
+    <script>
+        function showCity(city) {
+            // Hide all content
+            document.querySelectorAll('.city-content').forEach(el => {
+                el.classList.add('hidden');
+            });
+            // Reset all buttons
+            document.querySelectorAll('button[id^="btn-"]').forEach(el => {
+                el.classList.remove('tab-active', 'text-brand-navy');
+                el.classList.add('text-gray-400');
+            });
+            
+            // Show selected content
+            document.getElementById(city + '-content').classList.remove('hidden');
+            
+            // Style selected button
+            const activeBtn = document.getElementById('btn-' + city);
+            activeBtn.classList.remove('text-gray-400');
+            activeBtn.classList.add('tab-active', 'text-brand-navy');
+        }
+    </script>
+</body>
+</html>
