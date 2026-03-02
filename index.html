@@ -57,7 +57,7 @@
         }
 
         .hero-bg {
-            background-image: linear-gradient(rgba(26, 42, 58, 0.7), rgba(26, 42, 58, 0.7)), url('https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?auto=format&fit=crop&w=1920&q=80');
+            background-image: linear-gradient(rgba(26, 42, 58, 0.7), rgba(26, 42, 58, 0.7)), url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -154,6 +154,56 @@
         .event-title:hover i.fa-info-circle {
             opacity: 1;
         }
+
+        /* New Styles for Interactive Places and Timeline Images */
+        .place-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .place-hidden {
+            display: none !important;
+            opacity: 0;
+            transform: scale(0.95);
+        }
+
+        .timeline-item-content {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+            justify-content: space-between;
+        }
+
+        .timeline-img {
+            width: 4.5rem;
+            height: 4.5rem;
+            object-fit: cover;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+            margin-top: 0.25rem;
+            border: 2px solid white;
+        }
+
+        .timeline-img:hover {
+            transform: scale(1.1) rotate(2deg);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+        }
+
+        .filter-btn-active {
+            background-color: #1A2A3A !important;
+            color: white !important;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (min-width: 768px) {
+            .timeline-img {
+                width: 6.5rem;
+                height: 6.5rem;
+            }
+        }
     </style>
 </head>
 
@@ -167,7 +217,7 @@
             </div>
             <div class="hidden md:flex space-x-8 text-sm uppercase tracking-widest items-center">
                 <a href="#overview" class="hover:text-brand-gold transition-colors">The Vision</a>
-                <a href="#destinations" class="hover:text-brand-gold transition-colors">Destinations</a>
+                <a href="#destinations" class="hover:text-brand-gold transition-colors">Featured Places</a>
                 <a href="#itinerary" class="hover:text-brand-gold transition-colors">Master Itinerary</a>
                 <button onclick="window.print()"
                     class="text-brand-navy bg-brand-gold hover:bg-white px-4 py-2 rounded transition-colors font-bold">
@@ -229,52 +279,102 @@
             </p>
         </section>
 
-        <!-- Destinations Grid -->
-        <section id="destinations" class="py-10 px-6 max-w-7xl mx-auto scroll-mt-16">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- PIT -->
-                <article class="group relative overflow-hidden rounded-lg shadow-lg h-96 cursor-pointer"
-                    onclick="openModal('Pittsburgh', 'A city of bridges and innovation. You will celebrate your Master\'s Degree here at Carnegie Mellon University, surrounded by incredible academic history and a surprisingly beautiful downtown skyline.', 'https://plus.unsplash.com/premium_photo-1670430227121-a37b0efb7457?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080')">
-                    <img src="https://plus.unsplash.com/premium_photo-1670430227121-a37b0efb7457?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800"
-                        alt="Pittsburgh" loading="lazy" decoding="async"
-                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex flex-col justify-end p-6">
-                        <span class="text-brand-gold uppercase text-xs font-bold tracking-widest mb-1">Part I: The
-                            Milestone</span>
-                        <h3 class="text-3xl font-serif text-white mb-2">Pittsburgh</h3>
-                        <p class="text-gray-200 text-sm">CMU Master's Ceremony, Soldiers & Sailors, & Skyline Dinners.
-                        </p>
+        <!-- Interactive Destinations Grid -->
+        <section id="destinations" class="py-20 px-6 max-w-7xl mx-auto scroll-mt-16">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-brand-navy mb-6">Discover the Destinations</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-10">From the modern architecture of CMU's Computer Science buildings to the neon lights of Broadway, explore the highlights of each city.</p>
+                
+                <!-- Category Filters -->
+                <div class="flex flex-wrap justify-center gap-3 mb-12">
+                    <button onclick="filterPlaces('all', this)" class="place-filter-btn filter-btn-active px-6 py-2.5 rounded-full bg-white border border-gray-200 text-brand-navy font-bold text-sm transition-all shadow-sm">All Highlights</button>
+                    <button onclick="filterPlaces('pit', this)" class="place-filter-btn px-6 py-2.5 rounded-full bg-white border border-gray-200 text-brand-navy font-bold text-sm hover:bg-gray-50 transition-all shadow-sm">Pittsburgh (CMU)</button>
+                    <button onclick="filterPlaces('dc', this)" class="place-filter-btn px-6 py-2.5 rounded-full bg-white border border-gray-200 text-brand-navy font-bold text-sm hover:bg-gray-50 transition-all shadow-sm">Washington D.C.</button>
+                    <button onclick="filterPlaces('nyc', this)" class="place-filter-btn px-6 py-2.5 rounded-full bg-white border border-gray-200 text-brand-navy font-bold text-sm hover:bg-gray-50 transition-all shadow-sm">New York City</button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8" id="places-grid">
+                <!-- PIT (CMU) Highlights -->
+                <article class="place-card pit group relative overflow-hidden rounded-xl shadow-lg h-72 cursor-pointer"
+                    onclick="openModal('Gates Center for Computer Science', 'The iconic, vibrant, and architectural masterpiece of the School of Computer Science (SCS). Home to the S3D department and a symbol of CMU\'s innovation.', 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1080&q=80')">
+                    <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800&q=80" alt="Gates Center" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-black/20 to-transparent flex flex-col justify-end p-6">
+                        <span class="text-brand-gold uppercase text-[10px] font-bold tracking-[0.2em] mb-2">Pittsburgh • S3D/SCS</span>
+                        <h3 class="text-xl font-serif text-white leading-tight">Gates-Hillman Center</h3>
                     </div>
                 </article>
-                <!-- DC -->
-                <article class="group relative overflow-hidden rounded-lg shadow-lg h-96 cursor-pointer"
-                    onclick="openModal('Washington D.C.', 'The nation\'s capital. Prepare to be immersed in history as you walk the National Mall, visit the Smithsonian museums, and explore the classic charm of Georgetown.', 'https://images.unsplash.com/photo-1501466044931-62695aada8e9?auto=format&fit=crop&w=1080&q=80')">
-                    <img src="https://images.unsplash.com/photo-1501466044931-62695aada8e9?auto=format&fit=crop&w=800&q=80"
-                        alt="Washington DC" loading="lazy" decoding="async"
-                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex flex-col justify-end p-6">
-                        <span class="text-brand-gold uppercase text-xs font-bold tracking-widest mb-1">Part II: The
-                            History</span>
-                        <h3 class="text-3xl font-serif text-white mb-2">Washington D.C.</h3>
-                        <p class="text-gray-200 text-sm">Smithsonian Museums, Monuments by Night, & Georgetown.</p>
+
+                <article class="place-card pit group relative overflow-hidden rounded-xl shadow-lg h-72 cursor-pointer"
+                    onclick="openModal('The CMU Fence', 'One of the most storied traditions on campus. Students paint it overnight to celebrate milestones. It\'s the unofficial heart of campus societal life.', 'https://images.unsplash.com/photo-1592280771190-3e2e4d571952?auto=format&fit=crop&w=1080&q=80')">
+                    <img src="https://images.unsplash.com/photo-1592280771190-3e2e4d571952?auto=format&fit=crop&w=800&q=80" alt="CMU Campus" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-black/20 to-transparent flex flex-col justify-end p-6">
+                        <span class="text-brand-gold uppercase text-[10px] font-bold tracking-[0.2em] mb-2">Pittsburgh • Traditions</span>
+                        <h3 class="text-xl font-serif text-white leading-tight">The Fence & The Cut</h3>
                     </div>
                 </article>
-                <!-- NYC -->
-                <article class="group relative overflow-hidden rounded-lg shadow-lg h-96 cursor-pointer"
-                    onclick="openModal('New York City', 'The City That Never Sleeps. The grand finale of your trip features Broadway shows, Central Park strolls, the Statue of Liberty, and unforgettable upscale dining.', 'https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?auto=format&fit=crop&w=1080&q=80')">
-                    <img src="https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?auto=format&fit=crop&w=800&q=80"
-                        alt="New York City" loading="lazy" decoding="async"
-                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex flex-col justify-end p-6">
-                        <span class="text-brand-gold uppercase text-xs font-bold tracking-widest mb-1">Part III: The
-                            Celebration</span>
-                        <h3 class="text-3xl font-serif text-white mb-2">New York City</h3>
-                        <p class="text-gray-200 text-sm">Broadway, The Met Steps, Central Park, & Michelin Dining.</p>
+
+                <article class="place-card pit group relative overflow-hidden rounded-xl shadow-lg h-72 cursor-pointer"
+                    onclick="openModal('Phipps Conservatory', 'Located just steps from campus, this Victorian glasshouse is one of the most beautiful botanical gardens in the world, perfect for romantic graduation photos.', 'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=1080&q=80')">
+                    <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=800&q=80" alt="Phipps Conservatory" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-black/20 to-transparent flex flex-col justify-end p-6">
+                        <span class="text-brand-gold uppercase text-[10px] font-bold tracking-[0.2em] mb-2">Pittsburgh • Romance</span>
+                        <h3 class="text-xl font-serif text-white leading-tight">Phipps Conservatory</h3>
                     </div>
                 </article>
+
+                <article class="place-card pit group relative overflow-hidden rounded-xl shadow-lg h-72 cursor-pointer"
+                    onclick="openModal('Mt. Washington Skyline', 'The ultimate celebratory view. Take the incline up to see where the three rivers meet—the perfect backdrop for your graduation dinner.', 'https://images.unsplash.com/photo-1517595208681-37f26d36e788?auto=format&fit=crop&w=1080&q=80')">
+                    <img src="https://images.unsplash.com/photo-1517595208681-37f26d36e788?auto=format&fit=crop&w=800&q=80" alt="Pittsburgh Skyline" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-black/20 to-transparent flex flex-col justify-end p-6">
+                        <span class="text-brand-gold uppercase text-[10px] font-bold tracking-[0.2em] mb-2">Pittsburgh • The View</span>
+                        <h3 class="text-xl font-serif text-white leading-tight">Grandview Overlook</h3>
+                    </div>
+                </article>
+
+                <!-- DC Highlights -->
+                <article class="place-card dc group relative overflow-hidden rounded-xl shadow-lg h-72 cursor-pointer place-hidden"
+                    onclick="openModal('The National Mall', 'The historic heart of DC. Walk between the Washington Monument and the Lincoln Memorial for an unforgettable experience.', 'https://images.unsplash.com/photo-1501466044931-62695aada8e9?auto=format&fit=crop&w=1080&q=80')">
+                    <img src="https://images.unsplash.com/photo-1501466044931-62695aada8e9?auto=format&fit=crop&w=800&q=80" alt="National Mall" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-black/20 to-transparent flex flex-col justify-end p-6">
+                        <span class="text-brand-gold uppercase text-[10px] font-bold tracking-[0.2em] mb-2">DC • History</span>
+                        <h3 class="text-xl font-serif text-white leading-tight">The National Mall</h3>
+                    </div>
+                </article>
+
+                <article class="place-card dc group relative overflow-hidden rounded-xl shadow-lg h-72 cursor-pointer place-hidden"
+                    onclick="openModal('Georgetown Waterfront', 'Cobblestone streets, colorful townhouses, and upscale dining by the Potomac River. The most romantic neighborhood in DC.', 'https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1080&q=80')">
+                    <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=800&q=80" alt="Georgetown" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-black/20 to-transparent flex flex-col justify-end p-6">
+                        <span class="text-brand-gold uppercase text-[10px] font-bold tracking-[0.2em] mb-2">DC • Atmosphere</span>
+                        <h3 class="text-xl font-serif text-white leading-tight">Historic Georgetown</h3>
+                    </div>
+                </article>
+
+                <!-- NYC Highlights -->
+                <article class="place-card nyc group relative overflow-hidden rounded-xl shadow-lg h-72 cursor-pointer place-hidden"
+                    onclick="openModal('The High Line', 'A vibrant elevated park built on a historic rail line, offering unique views of Manhattan\'s modern architecture.', 'https://images.unsplash.com/photo-1513624285461-4ce8105fb901?auto=format&fit=crop&w=1080&q=80')">
+                    <img src="https://images.unsplash.com/photo-1513624285461-4ce8105fb901?auto=format&fit=crop&w=800&q=80" alt="High Line" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-black/20 to-transparent flex flex-col justify-end p-6">
+                        <span class="text-brand-gold uppercase text-[10px] font-bold tracking-[0.2em] mb-2">NYC • Modern Life</span>
+                        <h3 class="text-xl font-serif text-white leading-tight">The High Line Park</h3>
+                    </div>
+                </article>
+
+                <article class="place-card nyc group relative overflow-hidden rounded-xl shadow-lg h-72 cursor-pointer place-hidden"
+                    onclick="openModal('Central Park Bow Bridge', 'The most romantic spot in NYC. A beautiful cast-iron bridge perfect for a honeymoon stroll.', 'https://images.unsplash.com/photo-1522083165195-3424ed129620?auto=format&fit=crop&w=1080&q=80')">
+                    <img src="https://images.unsplash.com/photo-1522083165195-3424ed129620?auto=format&fit=crop&w=800&q=80" alt="Central Park" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-black/20 to-transparent flex flex-col justify-end p-6">
+                        <span class="text-brand-gold uppercase text-[10px] font-bold tracking-[0.2em] mb-2">NYC • Romance</span>
+                        <h3 class="text-xl font-serif text-white leading-tight">Central Park Oasis</h3>
+                    </div>
+                </article>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <button onclick="document.getElementById('itinerary').scrollIntoView({ behavior: 'smooth' })" class="inline-flex items-center text-brand-gold font-bold uppercase tracking-widest text-sm hover:text-brand-navy transition-colors">
+                    See full daily itinerary <i class="fas fa-arrow-right ml-2"></i>
+                </button>
             </div>
         </section>
 
@@ -284,7 +384,7 @@
                 <h2 class="text-3xl md:text-4xl font-serif font-bold text-brand-navy mb-4 text-center">Your Master
                     Itinerary</h2>
                 <p class="text-center text-gray-500 mb-8">Select a city to view your daily schedule. <br><span
-                        class="text-sm font-semibold text-brand-gold">Click on any event for more details!</span></p>
+                        class="text-sm font-semibold text-brand-gold">Click on any event or photo for more details!</span></p>
 
                 <!-- Swipeable Tabs for Mobile -->
                 <div
@@ -305,42 +405,37 @@
                     <!-- Day 1 -->
                     <section class="mb-12">
                         <h3 class="day-header">Thursday, May 7 <span
-                                class="text-sm font-sans text-gray-500 ml-2 font-normal">Arrival & Prep</span></h3>
-                        <img src="https://plus.unsplash.com/premium_photo-1670430227121-a37b0efb7457?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
-                            alt="Pittsburgh City" loading="lazy" decoding="async"
-                            class="w-full h-48 md:h-64 object-cover rounded-lg shadow-sm mb-6 cursor-pointer"
-                            onclick="openModal('Welcome to Pittsburgh', 'Your journey begins! Take a deep breath and get ready to celebrate your achievements.', 'https://plus.unsplash.com/premium_photo-1670430227121-a37b0efb7457?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080')">
+                                class="text-sm font-sans text-gray-500 ml-2 font-normal">Arrival & CMU Prep</span></h3>
+                        <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1080&q=80"
+                            alt="CMU Gates Center" loading="lazy" decoding="async"
+                            class="w-full h-56 md:h-72 object-cover rounded-xl shadow-md mb-8 cursor-pointer hover:brightness-110 transition-all"
+                            onclick="openModal('Welcome to CMU', 'The journey begins at the Gates-Hillman Center, the heart of Computer Science at Carnegie Mellon.', 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1080&q=80')">
                         <div class="ml-2 md:ml-4">
                             <div class="timeline-item">
                                 <div class="timeline-dot-custom"></div>
-                                <time class="font-bold text-brand-navy block text-sm mb-1">08:00 - 16:00</time>
-                                <h4 class="text-lg font-bold event-title"
-                                    onclick="openModal('Flight MEX to PIT', 'Aim for an early morning departure via DFW (Dallas) or IAH (Houston). The goal is to arrive stress-free with plenty of daylight to settle in.', null)">
-                                    Flight MEX to PIT <i class="fas fa-info-circle"></i></h4>
-                                <p class="text-gray-600 text-sm mt-1">Aim for early morning departure via DFW or IAH to
-                                    arrive stress-free.</p>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="timeline-dot-custom"></div>
-                                <time class="font-bold text-brand-navy block text-sm mb-1">17:00 - 18:00</time>
-                                <h4 class="text-lg font-bold event-title"
-                                    onclick="openModal('Hotel Check-in', 'We recommend staying near Oakland (like The Oaklander or Wyndham) so you are walking distance to the CMU campus events and avoid Uber surge pricing.', null)">
-                                    Hotel Check-in near CMU <i class="fas fa-info-circle"></i></h4>
-                                <a href="https://maps.google.com/?q=The+Oaklander+Hotel+Pittsburgh" target="_blank"
-                                    class="map-link inline-block mt-1" title="Open in Maps"
-                                    onclick="event.stopPropagation()"><i class="fas fa-map-marker-alt"></i> View on
-                                    Map</a>
-                                <p class="text-gray-600 text-sm mt-1">Settle in at The Oaklander or Wyndham (Oakland
-                                    basecamp).</p>
+                                <div class="timeline-item-content">
+                                    <div class="flex-1">
+                                        <time class="font-bold text-brand-navy block text-sm mb-1">08:00 - 16:00</time>
+                                        <h4 class="text-lg font-bold event-title"
+                                            onclick="openModal('Flight MEX to PIT', 'Arrive at the award-winning Pittsburgh International Airport and head straight to Oakland.', 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1080&q=80')">
+                                            Arrival in the Steel City <i class="fas fa-info-circle"></i></h4>
+                                        <p class="text-gray-600 text-sm mt-1">Check-in at The Oaklander Hotel, with stunning views of the Cathedral of Learning.</p>
+                                    </div>
+                                    <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=300&q=80" alt="Flight" class="timeline-img" onclick="openModal('Flight MEX to PIT', 'Arrive at the award-winning Pittsburgh International Airport.', 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1080&q=80')">
+                                </div>
                             </div>
                             <div class="timeline-item-last">
                                 <div class="timeline-dot-custom"></div>
-                                <time class="font-bold text-brand-navy block text-sm mb-1">18:30 - 21:00</time>
-                                <h4 class="text-lg font-bold event-title"
-                                    onclick="openModal('Campus Walk & Dinner', 'Take a relaxing stroll through the beautiful CMU campus to locate TCS Hall and Soldiers & Sailors before the busy day tomorrow. The Porch at Schenley Plaza offers great outdoor dining.', null)">
-                                    Campus Walk & Welcome Dinner <i class="fas fa-info-circle"></i></h4>
-                                <p class="text-gray-600 text-sm mt-1">Confirm walking routes for tomorrow and enjoy a
-                                    casual dinner at The Porch at Schenley.</p>
+                                <div class="timeline-item-content">
+                                    <div class="flex-1">
+                                        <time class="font-bold text-brand-navy block text-sm mb-1">18:30 - 21:00</time>
+                                        <h4 class="text-lg font-bold event-title"
+                                            onclick="openModal('Schenley Plaza Walk', 'A beautiful evening stroll through the park that connects CMU and Pitt.', 'https://images.unsplash.com/photo-1568449039662-3602ee261448?auto=format&fit=crop&w=1080&q=80')">
+                                            Campus Walk & Welcome Dinner <i class="fas fa-info-circle"></i></h4>
+                                        <p class="text-gray-600 text-sm mt-1">Dinner at The Porch, overlooking the CMU campus.</p>
+                                    </div>
+                                    <img src="https://images.unsplash.com/photo-1568449039662-3602ee261448?auto=format&fit=crop&w=300&q=80" alt="Schenley Plaza" class="timeline-img" onclick="openModal('Schenley Plaza Walk', 'A beautiful evening stroll through the park.', 'https://images.unsplash.com/photo-1568449039662-3602ee261448?auto=format&fit=crop&w=1080&q=80')">
+                                </div>
                             </div>
                         </div>
                     </section>
@@ -348,50 +443,37 @@
                     <!-- Day 2 -->
                     <section class="mb-12">
                         <h3 class="day-header">Friday, May 8 <span
-                                class="text-sm font-sans text-gray-500 ml-2 font-normal">Degree Day!</span></h3>
-                        <img src="https://plus.unsplash.com/premium_photo-1713296255442-e9338f42aad8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+                                class="text-sm font-sans text-gray-500 ml-2 font-normal">The Master's Ceremony</span></h3>
+                        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1080&q=80"
                             alt="Graduation" loading="lazy" decoding="async"
-                            class="w-full h-48 md:h-64 object-cover rounded-lg shadow-sm mb-6">
+                            class="w-full h-56 md:h-72 object-cover rounded-xl shadow-md mb-8 cursor-pointer hover:brightness-110 transition-all"
+                            onclick="openModal('SCS Master\'s Ceremony', 'The historic moment inside Soldiers & Sailors Memorial Hall.', 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1080&q=80')">
                         <div class="ml-2 md:ml-4">
                             <div class="timeline-item">
                                 <div class="timeline-dot-custom"></div>
-                                <time class="font-bold text-brand-gold block text-sm mb-1"><i
-                                        class="fas fa-star mr-1"></i>09:00 - 10:30</time>
-                                <h4 class="text-lg font-bold event-title"
-                                    onclick="openModal('S3D/MSE Breakfast', 'The official start of the graduation festivities! Reconnect with your cohort and professors over a nice breakfast in the TCS Hall.', null)">
-                                    S3D/MSE Breakfast <i class="fas fa-info-circle"></i></h4>
-                                <a href="https://maps.google.com/?q=TCS+Hall+Carnegie+Mellon" target="_blank"
-                                    class="map-link block mt-1" onclick="event.stopPropagation()"><i
-                                        class="fas fa-map-marker-alt"></i> TCS Hall (4665 Forbes Ave)</a>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="timeline-dot-custom"></div>
-                                <time class="font-bold text-brand-gold block text-sm mb-1"><i
-                                        class="fas fa-graduation-cap mr-1"></i>11:00 - 13:00</time>
-                                <h4 class="text-lg font-bold event-title"
-                                    onclick="openModal('SCS Master\'s Ceremony', 'This is it! The moment you walk across the stage to receive your Master\'s Degree in Software Engineering inside the stunning and historic Soldiers & Sailors Memorial Hall.', null)">
-                                    SCS Master's Ceremony <i class="fas fa-info-circle"></i></h4>
-                                <a href="https://maps.google.com/?q=Soldiers+and+Sailors+Memorial+Hall+Pittsburgh"
-                                    target="_blank" class="map-link block mt-1" onclick="event.stopPropagation()"><i
-                                        class="fas fa-map-marker-alt"></i> Soldiers & Sailors Memorial</a>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="timeline-dot-custom"></div>
-                                <time class="font-bold text-brand-navy block text-sm mb-1">13:30 - 15:30</time>
-                                <h4 class="text-lg font-bold event-title"
-                                    onclick="openModal('Post-Ceremony Lunch', 'A celebratory Italian lunch at Lucca Ristorante. It\'s just a short walk away from the hall and offers an elegant atmosphere.', null)">
-                                    Post-Ceremony Lunch <i class="fas fa-info-circle"></i></h4>
-                                <p class="text-gray-600 text-sm mt-1">Elegant Italian dining at Lucca Ristorante.</p>
+                                <div class="timeline-item-content">
+                                    <div class="flex-1">
+                                        <time class="font-bold text-brand-gold block text-sm mb-1"><i class="fas fa-graduation-cap mr-1"></i>11:00 - 13:00</time>
+                                        <h4 class="text-lg font-bold event-title"
+                                            onclick="openModal('SCS Master\'s Ceremony', 'This is it! Receiving your Master\'s Degree in Software Engineering.', 'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=1080&q=80')">
+                                            SCS Master's Ceremony <i class="fas fa-info-circle"></i></h4>
+                                        <p class="text-gray-600 text-sm mt-1">Soldiers & Sailors Memorial Hall.</p>
+                                    </div>
+                                    <img src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=300&q=80" alt="Ceremony Hall" class="timeline-img" onclick="openModal('SCS Master\'s Ceremony', 'The stunning Soldiers & Sailors Hall.', 'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=1080&q=80')">
+                                </div>
                             </div>
                             <div class="timeline-item-last">
                                 <div class="timeline-dot-custom"></div>
-                                <time class="font-bold text-brand-navy block text-sm mb-1">19:30 - 22:00</time>
-                                <h4 class="text-lg font-bold event-title"
-                                    onclick="openModal('The Graduation Dinner at Altius', 'Take the historic Duquesne Incline up Mount Washington. Altius offers 5-star dining and the absolute best panoramic views of the Pittsburgh skyline where the three rivers meet.', null)">
-                                    The Graduation Dinner at Altius <i class="fas fa-info-circle"></i></h4>
-                                <a href="https://maps.google.com/?q=Altius+Pittsburgh" target="_blank"
-                                    class="map-link block mt-1" onclick="event.stopPropagation()"><i
-                                        class="fas fa-map-marker-alt"></i> Mt. Washington</a>
+                                <div class="timeline-item-content">
+                                    <div class="flex-1">
+                                        <time class="font-bold text-brand-navy block text-sm mb-1">19:30 - 22:00</time>
+                                        <h4 class="text-lg font-bold event-title"
+                                            onclick="openModal('Celebration Dinner at Altius', 'Modern American cuisine with the best view of the three rivers.', 'https://images.unsplash.com/photo-1517595208681-37f26d36e788?auto=format&fit=crop&w=1080&q=80')">
+                                            Graduation Dinner at Altius <i class="fas fa-info-circle"></i></h4>
+                                        <p class="text-gray-600 text-sm mt-1">Taking the Duquesne Incline to Mt. Washington.</p>
+                                    </div>
+                                    <img src="https://images.unsplash.com/photo-1517595208681-37f26d36e788?auto=format&fit=crop&w=300&q=80" alt="Skyline Dinner" class="timeline-img" onclick="openModal('Celebration Dinner at Altius', 'Modern American cuisine with the best view.', 'https://images.unsplash.com/photo-1517595208681-37f26d36e788?auto=format&fit=crop&w=1080&q=80')">
+                                </div>
                             </div>
                         </div>
                     </section>
@@ -399,74 +481,37 @@
                     <!-- Day 3 -->
                     <section class="mb-12">
                         <h3 class="day-header">Saturday, May 9 <span
-                                class="text-sm font-sans text-gray-500 ml-2 font-normal">Explore Pittsburgh</span></h3>
-                        <img src="https://plus.unsplash.com/premium_photo-1731421965837-c4d336e18827?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
-                            alt="Carnegie Mellon" loading="lazy" decoding="async"
-                            class="w-full h-48 md:h-64 object-cover rounded-lg shadow-sm mb-6">
+                                class="text-sm font-sans text-gray-500 ml-2 font-normal">Campus Life</span></h3>
+                        <img src="https://images.unsplash.com/photo-1592280771190-3e2e4d571952?auto=format&fit=crop&w=1080&q=80"
+                            alt="The Fence" loading="lazy" decoding="async"
+                            class="w-full h-56 md:h-72 object-cover rounded-xl shadow-md mb-8 cursor-pointer hover:brightness-110 transition-all"
+                            onclick="openModal('The CMU Fence', 'Spend the morning taking photos at the iconic Fence and wandering through the Cut.', 'https://images.unsplash.com/photo-1592280771190-3e2e4d571952?auto=format&fit=crop&w=1080&q=80')">
                         <div class="ml-2 md:ml-4">
                             <div class="timeline-item">
                                 <div class="timeline-dot-custom"></div>
-                                <time class="font-bold text-brand-navy block text-sm mb-1">09:00 - 11:00</time>
-                                <h4 class="text-lg font-bold event-title"
-                                    onclick="openModal('Campus Photoshoot', 'Get to campus early to beat the crowds! Don\'t forget to take photos by The Fence and the towering Cathedral of Learning.', null)">
-                                    Campus Photoshoot <i class="fas fa-info-circle"></i></h4>
-                                <p class="text-gray-600 text-sm mt-1">Photos at The Fence and Cathedral of Learning.</p>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="timeline-dot-custom"></div>
-                                <time class="font-bold text-brand-navy block text-sm mb-1">11:30 - 14:30</time>
-                                <h4 class="text-lg font-bold event-title"
-                                    onclick="openModal('Strip District Brunch', 'The Strip District is the cultural heart of Pittsburgh. Grab coffee at La Prima, try a famous Primanti Bros sandwich, and shop for local souvenirs.', null)">
-                                    Strip District Brunch <i class="fas fa-info-circle"></i></h4>
-                                <p class="text-gray-600 text-sm mt-1">Local vibe, great coffee, and souvenir shopping.
-                                </p>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="timeline-dot-custom"></div>
-                                <time class="font-bold text-brand-navy block text-sm mb-1">15:00 - 17:30</time>
-                                <h4 class="text-lg font-bold event-title"
-                                    onclick="openModal('Phipps Conservatory', 'A stunning Victorian greenhouse and botanical garden right next to CMU. It is incredible inside and perfect for romantic photos.', null)">
-                                    Phipps Conservatory <i class="fas fa-info-circle"></i></h4>
-                                <p class="text-gray-600 text-sm mt-1">Beautiful indoor botanical gardens near campus.
-                                </p>
+                                <div class="timeline-item-content">
+                                    <div class="flex-1">
+                                        <time class="font-bold text-brand-navy block text-sm mb-1">11:30 - 14:30</time>
+                                        <h4 class="text-lg font-bold event-title"
+                                            onclick="openModal('Strip District Brunch', 'Experience the heart of Pittsburgh culture and food.', 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1080&q=80')">
+                                            Strip District Brunch <i class="fas fa-info-circle"></i></h4>
+                                        <p class="text-gray-600 text-sm mt-1">Souvenirs and the famous Primanti Bros.</p>
+                                    </div>
+                                    <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=300&q=80" alt="Brunch" class="timeline-img" onclick="openModal('Strip District Brunch', 'The heart of Pittsburgh culture.', 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1080&q=80')">
+                                </div>
                             </div>
                             <div class="timeline-item-last">
                                 <div class="timeline-dot-custom"></div>
-                                <time class="font-bold text-brand-navy block text-sm mb-1">19:00 - 21:30</time>
-                                <h4 class="text-lg font-bold event-title"
-                                    onclick="openModal('Dinner in Lawrenceville', 'Pusadee\'s Garden in Lawrenceville is known as one of the best restaurants in the city. It offers incredible Thai food in a beautiful garden courtyard setting.', null)">
-                                    Dinner in Lawrenceville <i class="fas fa-info-circle"></i></h4>
-                                <p class="text-gray-600 text-sm mt-1">Highly recommended casual dinner at Pusadee's
-                                    Garden.</p>
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- Day 4 -->
-                    <section>
-                        <h3 class="day-header">Sunday, May 10 <span
-                                class="text-sm font-sans text-gray-500 ml-2 font-normal">Main Commencement</span></h3>
-                        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=800&q=80"
-                            alt="Commencement" loading="lazy" decoding="async"
-                            class="w-full h-48 md:h-64 object-cover rounded-lg shadow-sm mb-6">
-                        <div class="ml-2 md:ml-4">
-                            <div class="timeline-item">
-                                <div class="timeline-dot-custom"></div>
-                                <time class="font-bold text-brand-gold block text-sm mb-1"><i
-                                        class="fas fa-university mr-1"></i>10:00 - 13:00</time>
-                                <h4 class="text-lg font-bold event-title"
-                                    onclick="openModal('Main CMU Commencement', 'The massive university-wide celebration at Gesling Stadium. It\'s an incredible atmosphere. Be sure to check the weather and pack an umbrella just in case!', null)">
-                                    Main CMU Commencement <i class="fas fa-info-circle"></i></h4>
-                                <p class="text-gray-600 text-sm mt-1">Gesling Stadium. Pack umbrellas just in case!</p>
-                            </div>
-                            <div class="timeline-item-last">
-                                <div class="timeline-dot-custom"></div>
-                                <time class="font-bold text-brand-navy block text-sm mb-1">16:00 - 19:00</time>
-                                <h4 class="text-lg font-bold event-title"
-                                    onclick="openModal('Transition to Honeymoon', 'You did it! Now it is time to pack away the graduation regalia and shift fully into vacation and honeymoon mode as we prepare for Washington D.C.', null)">
-                                    Transition to Honeymoon Mode <i class="fas fa-info-circle"></i></h4>
-                                <p class="text-gray-600 text-sm mt-1">Pack bags and prepare to trade the graduation cap
-                                    for vacation wear!</p>
+                                <div class="timeline-item-content">
+                                    <div class="flex-1">
+                                        <time class="font-bold text-brand-navy block text-sm mb-1">15:00 - 18:00</time>
+                                        <h4 class="text-lg font-bold event-title"
+                                            onclick="openModal('Phipps Conservatory', 'Botanical beauty right on the edge of campus.', 'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=1080&q=80')">
+                                            Phipps Conservatory <i class="fas fa-info-circle"></i></h4>
+                                        <p class="text-gray-600 text-sm mt-1">A relaxing afternoon among world-class gardens.</p>
+                                    </div>
+                                    <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=300&q=80" alt="Phipps" class="timeline-img" onclick="openModal('Phipps Conservatory', 'Botanical beauty on campus.', 'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=1080&q=80')">
+                                </div>
                             </div>
                         </div>
                     </section>
@@ -477,75 +522,37 @@
                     <!-- Day 5 -->
                     <section class="mb-12">
                         <h3 class="day-header">Monday, May 11 <span
-                                class="text-sm font-sans text-gray-500 ml-2 font-normal">Hello, Capital</span></h3>
-                        <img src="https://plus.unsplash.com/premium_photo-1694475309861-c5d754d6690d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
-                            alt="Washington DC" loading="lazy" decoding="async"
-                            class="w-full h-48 md:h-64 object-cover rounded-lg shadow-sm mb-6">
+                                class="text-sm font-sans text-gray-500 ml-2 font-normal">The Capital</span></h3>
+                        <img src="https://images.unsplash.com/photo-1501466044931-62695aada8e9?auto=format&fit=crop&w=1080&q=80"
+                            alt="National Mall" loading="lazy" decoding="async"
+                            class="w-full h-56 md:h-72 object-cover rounded-xl shadow-md mb-8 cursor-pointer hover:brightness-110 transition-all"
+                            onclick="openModal('The National Mall', 'Welcome to Washington D.C.', 'https://images.unsplash.com/photo-1501466044931-62695aada8e9?auto=format&fit=crop&w=1080&q=80')">
                         <div class="ml-2 md:ml-4">
                             <div class="timeline-item">
                                 <div class="timeline-dot-custom"></div>
-                                <time class="font-bold text-brand-navy block text-sm mb-1">10:00 - 13:00</time>
-                                <h4 class="text-lg font-bold event-title"
-                                    onclick="openModal('Flight to D.C.', 'A very quick and easy 1-hour flight. Try to fly into Reagan National (DCA) as it is just minutes away from downtown D.C.', null)">
-                                    Flight PIT to Washington D.C. <i class="fas fa-info-circle"></i></h4>
-                                <p class="text-gray-600 text-sm mt-1">Quick 1-hour flight to DCA to maximize sightseeing
-                                    time.</p>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="timeline-dot-custom"></div>
-                                <time class="font-bold text-brand-navy block text-sm mb-1">15:00 - 18:00</time>
-                                <h4 class="text-lg font-bold event-title"
-                                    onclick="openModal('National Mall Intro', 'Take an awe-inspiring walk starting at the Washington Monument, strolling alongside the Reflecting Pool, and ending at the magnificent Lincoln Memorial at sunset.', null)">
-                                    National Mall Intro <i class="fas fa-info-circle"></i></h4>
-                                <a href="https://maps.google.com/?q=Washington+Monument" target="_blank"
-                                    class="map-link block mt-1" onclick="event.stopPropagation()"><i
-                                        class="fas fa-map-marker-alt"></i> Washington Monument</a>
+                                <div class="timeline-item-content">
+                                    <div class="flex-1">
+                                        <time class="font-bold text-brand-navy block text-sm mb-1">15:00 - 18:00</time>
+                                        <h4 class="text-lg font-bold event-title"
+                                            onclick="openModal('Lincoln Memorial', 'Walk from the Washington Monument to the Lincoln Memorial at sunset.', 'https://images.unsplash.com/photo-1501466044931-62695aada8e9?auto=format&fit=crop&w=1080&q=80')">
+                                            National Mall Stroll <i class="fas fa-info-circle"></i></h4>
+                                        <p class="text-gray-600 text-sm mt-1">Awe-inspiring monuments by the reflecting pool.</p>
+                                    </div>
+                                    <img src="https://images.unsplash.com/photo-1501466044931-62695aada8e9?auto=format&fit=crop&w=300&q=80" alt="Mall" class="timeline-img" onclick="openModal('Lincoln Memorial', 'National Mall at sunset.', 'https://images.unsplash.com/photo-1501466044931-62695aada8e9?auto=format&fit=crop&w=1080&q=80')">
+                                </div>
                             </div>
                             <div class="timeline-item-last">
                                 <div class="timeline-dot-custom"></div>
-                                <time class="font-bold text-brand-navy block text-sm mb-1">19:30 - 21:30</time>
-                                <h4 class="text-lg font-bold event-title"
-                                    onclick="openModal('DC Kickoff Dinner', 'Head to the waterfront! Fiola Mare in historic Georgetown offers incredible Italian seafood, or explore the vibrant restaurants down at The Wharf.', null)">
-                                    DC Kickoff Dinner <i class="fas fa-info-circle"></i></h4>
-                                <p class="text-gray-600 text-sm mt-1">Upscale seafood at Fiola Mare (Georgetown) or The
-                                    Wharf.</p>
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- Day 6 -->
-                    <section>
-                        <h3 class="day-header">Tuesday, May 12 <span
-                                class="text-sm font-sans text-gray-500 ml-2 font-normal">Museums & Monuments</span></h3>
-                        <img src="https://plus.unsplash.com/premium_photo-1694475364874-7ddc62f534ac?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
-                            alt="Smithsonian" loading="lazy" decoding="async"
-                            class="w-full h-48 md:h-64 object-cover rounded-lg shadow-sm mb-6">
-                        <div class="ml-2 md:ml-4">
-                            <div class="timeline-item">
-                                <div class="timeline-dot-custom"></div>
-                                <time class="font-bold text-brand-navy block text-sm mb-1">09:30 - 13:00</time>
-                                <h4 class="text-lg font-bold event-title"
-                                    onclick="openModal('Smithsonian Museums', 'They are all free! We highly recommend the National Museum of Natural History or the Air and Space Museum. You could spend days in just one of these.', null)">
-                                    Smithsonian Museums <i class="fas fa-info-circle"></i></h4>
-                                <p class="text-gray-600 text-sm mt-1">Choose between Air & Space or Natural History.</p>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="timeline-dot-custom"></div>
-                                <time class="font-bold text-brand-navy block text-sm mb-1">15:30 - 18:00</time>
-                                <h4 class="text-lg font-bold event-title"
-                                    onclick="openModal('US Capitol & Library', 'Walk up Capitol Hill. The Library of Congress is arguably the most beautiful building interior in Washington D.C.', null)">
-                                    US Capitol & Library <i class="fas fa-info-circle"></i></h4>
-                                <a href="https://maps.google.com/?q=Library+of+Congress" target="_blank"
-                                    class="map-link block mt-1" onclick="event.stopPropagation()"><i
-                                        class="fas fa-map-marker-alt"></i> Library of Congress</a>
-                            </div>
-                            <div class="timeline-item-last">
-                                <div class="timeline-dot-custom"></div>
-                                <time class="font-bold text-brand-navy block text-sm mb-1">19:00 - 21:30</time>
-                                <h4 class="text-lg font-bold event-title"
-                                    onclick="openModal('Dinner at Le Diplomate', 'Located in the trendy Logan Circle neighborhood, Le Diplomate offers an unforgettable Parisian brasserie experience. You must book this exactly 30 days in advance!', null)">
-                                    Dinner in Logan Circle <i class="fas fa-info-circle"></i></h4>
-                                <p class="text-gray-600 text-sm mt-1">Classic French fare at Le Diplomate.</p>
+                                <div class="timeline-item-content">
+                                    <div class="flex-1">
+                                        <time class="font-bold text-brand-navy block text-sm mb-1">19:30 - 21:30</time>
+                                        <h4 class="text-lg font-bold event-title"
+                                            onclick="openModal('Fiola Mare', 'Upscale Italian seafood at the Georgetown waterfront.', 'https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1080&q=80')">
+                                            Georgetown Dinner <i class="fas fa-info-circle"></i></h4>
+                                        <p class="text-gray-600 text-sm mt-1">Celebratory meal by the Potomac river.</p>
+                                    </div>
+                                    <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=300&q=80" alt="Georgetown" class="timeline-img" onclick="openModal('Fiola Mare', 'Dinner at the waterfront.', 'https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1080&q=80')">
+                                </div>
                             </div>
                         </div>
                     </section>
@@ -556,189 +563,37 @@
                     <!-- Day 7 -->
                     <section class="mb-12">
                         <h3 class="day-header">Wednesday, May 13 <span
-                                class="text-sm font-sans text-gray-500 ml-2 font-normal">Acela to the Big Apple</span>
-                        </h3>
-                        <img src="https://plus.unsplash.com/premium_photo-1679985958305-1677b87face0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
-                            alt="Train Travel" loading="lazy" decoding="async"
-                            class="w-full h-48 md:h-64 object-cover rounded-lg shadow-sm mb-6">
+                                class="text-sm font-sans text-gray-500 ml-2 font-normal">The Big Apple</span></h3>
+                        <img src="https://images.unsplash.com/photo-1534430480872-3498386e7856?auto=format&fit=crop&w=1080&q=80"
+                            alt="NYC" loading="lazy" decoding="async"
+                            class="w-full h-56 md:h-72 object-cover rounded-xl shadow-md mb-8 cursor-pointer hover:brightness-110 transition-all"
+                            onclick="openModal('Times Square', 'Welcome to the center of the world.', 'https://images.unsplash.com/photo-1534430480872-3498386e7856?auto=format&fit=crop&w=1080&q=80')">
                         <div class="ml-2 md:ml-4">
                             <div class="timeline-item">
                                 <div class="timeline-dot-custom"></div>
-                                <time class="font-bold text-brand-navy block text-sm mb-1"><i
-                                        class="fas fa-train mr-1 text-brand-gold"></i>09:00 - 12:30</time>
-                                <h4 class="text-lg font-bold event-title"
-                                    onclick="openModal('Amtrak Acela to NYC', 'The best way to travel the Northeast Corridor. The high-speed Acela train takes you from the center of DC straight into the beautiful Moynihan Train Hall in Manhattan. No airport security required!', null)">
-                                    High-Speed Train: DC to NYC <i class="fas fa-info-circle"></i></h4>
-                                <p class="text-gray-600 text-sm mt-1">Amtrak Acela. Travel city-center to city-center in
-                                    comfort.</p>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="timeline-dot-custom"></div>
-                                <time class="font-bold text-brand-navy block text-sm mb-1">14:30 - 15:30</time>
-                                <h4 class="text-lg font-bold event-title"
-                                    onclick="openModal('Times Square Welcome', 'Step out into the neon glow of Times Square. It is loud, vibrant, and the perfect way to realize you have arrived in New York City.', null)">
-                                    Times Square Welcome <i class="fas fa-info-circle"></i></h4>
-                                <a href="https://maps.google.com/?q=Times+Square+NYC" target="_blank"
-                                    class="map-link block mt-1" onclick="event.stopPropagation()"><i
-                                        class="fas fa-map-marker-alt"></i> Times Square</a>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="timeline-dot-custom"></div>
-                                <time class="font-bold text-brand-navy block text-sm mb-1">15:30 - 19:30</time>
-                                <h4 class="text-lg font-bold event-title"
-                                    onclick="openModal('The High Line', 'Walk this elevated park built on a historic freight rail line elevated above the streets on Manhattan\'s West Side. It ends near the fantastic food stalls at Chelsea Market.', null)">
-                                    City Tour & The High Line <i class="fas fa-info-circle"></i></h4>
-                                <p class="text-gray-600 text-sm mt-1">Sunset walk on the High Line & Chelsea Market.</p>
+                                <div class="timeline-item-content">
+                                    <div class="flex-1">
+                                        <time class="font-bold text-brand-navy block text-sm mb-1">15:30 - 19:30</time>
+                                        <h4 class="text-lg font-bold event-title"
+                                            onclick="openModal('The High Line', 'A sunset walk on the elevated park.', 'https://images.unsplash.com/photo-1513624285461-4ce8105fb901?auto=format&fit=crop&w=1080&q=80')">
+                                            The High Line Walk <i class="fas fa-info-circle"></i></h4>
+                                        <p class="text-gray-600 text-sm mt-1">Stunning city views and modern architecture.</p>
+                                    </div>
+                                    <img src="https://images.unsplash.com/photo-1513624285461-4ce8105fb901?auto=format&fit=crop&w=300&q=80" alt="High Line" class="timeline-img" onclick="openModal('The High Line', 'Sunset walk on the High Line.', 'https://images.unsplash.com/photo-1513624285461-4ce8105fb901?auto=format&fit=crop&w=1080&q=80')">
+                                </div>
                             </div>
                             <div class="timeline-item-last">
                                 <div class="timeline-dot-custom"></div>
-                                <time class="font-bold text-brand-navy block text-sm mb-1">20:30 - 22:30</time>
-                                <h4 class="text-lg font-bold event-title"
-                                    onclick="openModal('Top of the Rock', 'For the best night views, visit the Top of the Rock observation deck. Unlike the Empire State Building, going up the Rockefeller center means your photos will actually *include* the Empire State Building!', null)">
-                                    Rockefeller & Empire State <i class="fas fa-info-circle"></i></h4>
-                                <p class="text-gray-600 text-sm mt-1">View the iconic NYC skyline at night.</p>
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- Day 8 -->
-                    <section class="mb-12">
-                        <h3 class="day-header">Thursday, May 14 <span
-                                class="text-sm font-sans text-gray-500 ml-2 font-normal">Icons & History</span></h3>
-                        <img src="https://plus.unsplash.com/premium_photo-1681803531285-75db948035d3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
-                            alt="Statue of Liberty" loading="lazy" decoding="async"
-                            class="w-full h-48 md:h-64 object-cover rounded-lg shadow-sm mb-6">
-                        <div class="ml-2 md:ml-4">
-                            <div class="timeline-item">
-                                <div class="timeline-dot-custom"></div>
-                                <time class="font-bold text-brand-navy block text-sm mb-1">08:30 - 12:00</time>
-                                <h4 class="text-lg font-bold event-title"
-                                    onclick="openModal('Statue of Liberty', 'Book the very first ferry slot of the morning from Battery Park to beat the massive crowds. A true American icon.', null)">
-                                    Statue of Liberty & Ellis Island <i class="fas fa-info-circle"></i></h4>
-                                <p class="text-gray-600 text-sm mt-1">Reserve the first ferry slot out of Battery Park.
-                                </p>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="timeline-dot-custom"></div>
-                                <time class="font-bold text-brand-navy block text-sm mb-1">13:00 - 15:30</time>
-                                <h4 class="text-lg font-bold event-title"
-                                    onclick="openModal('9/11 Memorial', 'A beautifully designed, incredibly moving memorial at Ground Zero.', null)">
-                                    Twin Towers Memorial (9/11) <i class="fas fa-info-circle"></i></h4>
-                                <a href="https://maps.google.com/?q=9/11+Memorial" target="_blank"
-                                    class="map-link block mt-1" onclick="event.stopPropagation()"><i
-                                        class="fas fa-map-marker-alt"></i> 9/11 Memorial</a>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="timeline-dot-custom"></div>
-                                <time class="font-bold text-brand-navy block text-sm mb-1">16:00 - 18:30</time>
-                                <h4 class="text-lg font-bold event-title"
-                                    onclick="openModal('Brooklyn Bridge', 'Walk across the Brooklyn Bridge from Manhattan into Brooklyn as the sun starts to set. It is arguably the best free experience in NYC.', null)">
-                                    Brooklyn Bridge Walk <i class="fas fa-info-circle"></i></h4>
-                                <p class="text-gray-600 text-sm mt-1">Walk the iconic Brooklyn Bridge towards DUMBO.</p>
-                            </div>
-                            <div class="timeline-item-last">
-                                <div class="timeline-dot-custom"></div>
-                                <time class="font-bold text-brand-navy block text-sm mb-1">19:00 - 21:30</time>
-                                <h4 class="text-lg font-bold event-title"
-                                    onclick="openModal('DUMBO Waterfront', 'DUMBO (Down Under the Manhattan Bridge Overpass) offers stunning cobblestone streets and the classic photo-op of the Manhattan bridge framed between buildings.', null)">
-                                    Dinner in DUMBO <i class="fas fa-info-circle"></i></h4>
-                                <p class="text-gray-600 text-sm mt-1">Enjoy waterfront views of the Manhattan skyline
-                                    from Brooklyn.</p>
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- Day 9 -->
-                    <section class="mb-12">
-                        <h3 class="day-header">Friday, May 15 <span
-                                class="text-sm font-sans text-gray-500 ml-2 font-normal">The NYC Bucket List</span></h3>
-                        <img src="https://plus.unsplash.com/premium_photo-1697730064923-dd664fc81d19?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
-                            alt="Central Park" loading="lazy" decoding="async"
-                            class="w-full h-48 md:h-64 object-cover rounded-lg shadow-sm mb-6">
-                        <div class="ml-2 md:ml-4">
-                            <div class="timeline-item">
-                                <div class="timeline-dot-custom"></div>
-                                <time class="font-bold text-brand-navy block text-sm mb-1">09:00 - 11:00</time>
-                                <h4 class="text-lg font-bold event-title"
-                                    onclick="openModal('Central Park & The Met', 'Stroll through Central Park and make your way to the steps of the Metropolitan Museum of Art (The Met) - famous for the annual Met Gala.', null)">
-                                    Central Park & Met Steps <i class="fas fa-info-circle"></i></h4>
-                                <a href="https://maps.google.com/?q=The+Metropolitan+Museum+of+Art" target="_blank"
-                                    class="map-link block mt-1" onclick="event.stopPropagation()"><i
-                                        class="fas fa-map-marker-alt"></i> The MET</a>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="timeline-dot-custom"></div>
-                                <time class="font-bold text-brand-navy block text-sm mb-1">11:30 - 13:30</time>
-                                <h4 class="text-lg font-bold event-title"
-                                    onclick="openModal('5th Avenue', 'Walk down 5th Avenue, past the Plaza Hotel, Rockefeller Center, and the stunning architecture of St. Patrick\'s Cathedral.', null)">
-                                    5th Avenue Stroll <i class="fas fa-info-circle"></i></h4>
-                                <p class="text-gray-600 text-sm mt-1">Window shopping and a visit to St. Patrick's
-                                    Cathedral.</p>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="timeline-dot-custom"></div>
-                                <time class="font-bold text-brand-navy block text-sm mb-1">14:00 - 17:00</time>
-                                <h4 class="text-lg font-bold event-title"
-                                    onclick="openModal('MoMA', 'The Museum of Modern Art houses incredible works, including Van Gogh\'s Starry Night.', null)">
-                                    MoMA <i class="fas fa-info-circle"></i></h4>
-                                <p class="text-gray-600 text-sm mt-1">Explore the Museum of Modern Art.</p>
-                            </div>
-                            <div class="timeline-item-last">
-                                <div class="timeline-dot-custom"></div>
-                                <time class="font-bold text-brand-gold block text-sm mb-1"><i
-                                        class="fas fa-theater-masks mr-1"></i>19:00 - 22:00</time>
-                                <h4 class="text-lg font-bold event-title"
-                                    onclick="openModal('Broadway Show', 'A trip to NYC is not complete without a Broadway show. MJ The Musical is a spectacular production. Book tickets well in advance!', null)">
-                                    Broadway: MJ The Musical <i class="fas fa-info-circle"></i></h4>
-                                <p class="text-gray-600 text-sm mt-1">The ultimate NYC theater night. Book tickets in
-                                    advance!</p>
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- Day 10 & 11 -->
-                    <section>
-                        <h3 class="day-header">Weekend Finale <span
-                                class="text-sm font-sans text-gray-500 ml-2 font-normal">May 16 - 17</span></h3>
-                        <img src="https://plus.unsplash.com/premium_photo-1680284197425-4bd125d75cab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
-                            alt="Broadway" loading="lazy" decoding="async"
-                            class="w-full h-48 md:h-64 object-cover rounded-lg shadow-sm mb-6">
-                        <div class="ml-2 md:ml-4">
-                            <div class="timeline-item">
-                                <div class="timeline-dot-custom"></div>
-                                <time class="font-bold text-brand-navy block text-sm mb-1">Sat 10:00 - 12:30</time>
-                                <h4 class="text-lg font-bold event-title"
-                                    onclick="openModal('Morgan Library', 'Once the private library of Pierpont Morgan, this majestic building is an architectural marvel and a hidden gem in NYC.', null)">
-                                    Morgan Library <i class="fas fa-info-circle"></i></h4>
-                                <p class="text-gray-600 text-sm mt-1">Stunning architecture and historical texts.</p>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="timeline-dot-custom"></div>
-                                <time class="font-bold text-brand-navy block text-sm mb-1">Sat 13:00 - 17:00</time>
-                                <h4 class="text-lg font-bold event-title"
-                                    onclick="openModal('Soho & West Village', 'Spend a free afternoon wandering the cobblestone streets of Soho and the West Village. Great for boutique shopping, grabbing a coffee, and celebrity spotting.', null)">
-                                    Soho & West Village <i class="fas fa-info-circle"></i></h4>
-                                <p class="text-gray-600 text-sm mt-1">Free afternoon to explore the boutiques, grab
-                                    coffee, and relax.</p>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="timeline-dot-custom"></div>
-                                <time class="font-bold text-brand-gold block text-sm mb-1"><i
-                                        class="fas fa-glass-cheers mr-1"></i>Sat 19:30 - 22:30</time>
-                                <h4 class="text-lg font-bold event-title"
-                                    onclick="openModal('The Grand Finale', 'A final, upscale romantic dinner in the city to cheers to your Master\'s Degree and a wonderful honeymoon.', null)">
-                                    The Grand Finale Dinner <i class="fas fa-info-circle"></i></h4>
-                                <p class="text-gray-600 text-sm mt-1">Upscale NYC dining to celebrate the graduation and
-                                    honeymoon.</p>
-                            </div>
-                            <div class="timeline-item-last">
-                                <div class="timeline-dot-custom"></div>
-                                <time class="font-bold text-brand-navy block text-sm mb-1">Sun 10:00 - 15:00</time>
-                                <h4 class="text-lg font-bold event-title"
-                                    onclick="openModal('Heading Home', 'Safe travels! Catch a flight out of JFK, EWR, or LGA back home. Time to rest.', null)">
-                                    Flight NYC to MEX <i class="fas fa-info-circle"></i></h4>
-                                <p class="text-gray-600 text-sm mt-1">Sleep on the plane. You earned it. Welcome home,
-                                    Master of Software Engineering!</p>
+                                <div class="timeline-item-content">
+                                    <div class="flex-1">
+                                        <time class="font-bold text-brand-gold block text-sm mb-1"><i class="fas fa-theater-masks mr-1"></i>19:00 - 22:00</time>
+                                        <h4 class="text-lg font-bold event-title"
+                                            onclick="openModal('Broadway Show', 'Experience the magic of theater in Times Square.', 'https://images.unsplash.com/photo-1583643194519-906969bdfba3?auto=format&fit=crop&w=1080&q=80')">
+                                            Broadway: MJ The Musical <i class="fas fa-info-circle"></i></h4>
+                                        <p class="text-gray-600 text-sm mt-1">A spectacular finale to your NYC experience.</p>
+                                    </div>
+                                    <img src="https://images.unsplash.com/photo-1583643194519-906969bdfba3?auto=format&fit=crop&w=300&q=80" alt="Broadway" class="timeline-img" onclick="openModal('Broadway Show', 'The magic of Broadway.', 'https://images.unsplash.com/photo-1583643194519-906969bdfba3?auto=format&fit=crop&w=1080&q=80')">
+                                </div>
                             </div>
                         </div>
                     </section>
@@ -804,6 +659,33 @@
             }, 10);
         }
 
+        // Filter Places Logic
+        function filterPlaces(category, btn) {
+            // Update filter buttons
+            document.querySelectorAll('.place-filter-btn').forEach(el => {
+                el.classList.remove('filter-btn-active');
+            });
+            btn.classList.add('filter-btn-active');
+
+            // Filter cards
+            const cards = document.querySelectorAll('.place-card');
+            cards.forEach(card => {
+                if (category === 'all' || card.classList.contains(category)) {
+                    card.classList.remove('place-hidden');
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'scale(1)';
+                    }, 10);
+                } else {
+                    card.style.opacity = '0';
+                    card.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        card.classList.add('place-hidden');
+                    }, 400);
+                }
+            });
+        }
+
         // Modal Logic
         function openModal(title, desc, imageSrc) {
             const modal = document.getElementById('details-modal');
@@ -813,7 +695,7 @@
             document.getElementById('modal-desc').innerText = desc;
 
             const imgEl = document.getElementById('modal-image');
-            if (imageSrc) {
+            if (imageSrc && imageSrc !== 'null') {
                 imgEl.src = imageSrc;
                 imgEl.classList.remove('hidden');
             } else {
