@@ -39,33 +39,13 @@
         }
     </script>
     
-    <style type="text/tailwindcss">
-        @layer utilities {
-            .scrollbar-hide::-webkit-scrollbar {
-                display: none;
-            }
-            .scrollbar-hide {
-                -ms-overflow-style: none;
-                scrollbar-width: none;
-            }
+    <style>
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
         }
-
-        @layer components {
-            .timeline-item {
-                @apply border-l-2 border-e5e7eb relative pl-6 mb-6;
-            }
-            .timeline-item-last {
-                @apply border-l-2 border-transparent relative pl-6 mb-2;
-            }
-            .timeline-dot-custom {
-                @apply w-3 h-3 rounded-full bg-brand-gold absolute -left-[7px] top-1.5;
-            }
-            .day-header {
-                @apply text-2xl font-serif text-brand-navy mb-4 bg-gray-50/95 backdrop-blur-md p-4 rounded-md border-l-4 border-brand-gold sticky top-16 md:top-20 z-40 shadow-sm transition-all;
-            }
-            .map-link {
-                @apply text-brand-gold hover:text-brand-navy ml-2 text-sm transition-colors;
-            }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
         }
 
         html { scroll-behavior: smooth; }
@@ -80,6 +60,64 @@
         .tab-active { 
             border-bottom: 2px solid #D4AF37; 
             color: #D4AF37 !important; 
+        }
+
+        /* Replaced Tailwind @apply with standard CSS for components */
+        .timeline-item {
+            border-left: 2px solid #e5e7eb;
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .timeline-item-last {
+            border-left: 2px solid transparent;
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .timeline-dot-custom {
+            width: 0.75rem;
+            height: 0.75rem;
+            border-radius: 9999px;
+            background-color: #D4AF37;
+            position: absolute;
+            left: -0.4375rem;
+            top: 0.375rem;
+        }
+        .day-header {
+            font-size: 1.5rem;
+            line-height: 2rem;
+            font-family: "Playfair Display", serif;
+            color: #1A2A3A;
+            margin-bottom: 1rem;
+            background-color: rgba(248, 249, 250, 0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 1rem;
+            border-radius: 0.375rem;
+            border-left: 4px solid #D4AF37;
+            position: sticky;
+            top: 4rem;
+            z-index: 40;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        @media (min-width: 768px) {
+            .day-header {
+                top: 5rem;
+            }
+        }
+        .map-link {
+            color: #D4AF37;
+            margin-left: 0.5rem;
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms;
+        }
+        .map-link:hover {
+            color: #1A2A3A;
         }
     </style>
 </head>
