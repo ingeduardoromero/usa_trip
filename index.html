@@ -131,7 +131,6 @@
             color: #1A2A3A;
         }
 
-        /* Interactive click style for events */
         .event-title {
             cursor: pointer;
             transition: color 0.2s;
@@ -155,7 +154,6 @@
             opacity: 1;
         }
 
-        /* New Styles for Interactive Places and Timeline Images */
         .place-card {
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
@@ -209,7 +207,6 @@
 
 <body class="font-sans text-gray-800 bg-brand-light antialiased pb-20 md:pb-0 relative">
 
-    <!-- Top Navigation (Desktop & Mobile Header) -->
     <nav class="fixed w-full z-50 bg-brand-navy/95 backdrop-blur-sm text-white py-4 px-6 shadow-md transition-all">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <div class="text-xl md:text-2xl font-serif font-bold tracking-wider text-brand-gold">
@@ -224,14 +221,12 @@
                     <i class="fas fa-print mr-1"></i> Print
                 </button>
             </div>
-            <!-- Mobile Menu Button -->
             <div class="md:hidden flex items-center">
                 <button onclick="window.print()" class="text-brand-gold mr-4"><i class="fas fa-print"></i></button>
             </div>
         </div>
     </nav>
 
-    <!-- Bottom Navigation (Mobile Only) -->
     <div
         class="md:hidden fixed bottom-0 w-full bg-white border-t border-gray-200 z-50 flex justify-around py-3 pb-safe shadow-[0_-2px_10px_rgba(0,0,0,0.05)]">
         <a href="#overview" class="flex flex-col items-center text-gray-500 hover:text-brand-navy">
@@ -248,9 +243,7 @@
         </a>
     </div>
 
-    <!-- Main Content -->
     <main>
-        <!-- Hero Section -->
         <header class="hero-bg h-[100svh] flex items-center justify-center text-center px-4 pt-16">
             <div class="max-w-4xl text-white">
                 <p class="text-brand-gold tracking-[0.3em] uppercase text-sm md:text-base mb-4 font-semibold">May 7 -
@@ -266,7 +259,6 @@
             </div>
         </header>
 
-        <!-- The Vision / Overview -->
         <section id="overview" class="py-20 px-6 max-w-5xl mx-auto text-center scroll-mt-16">
             <h2 class="text-3xl md:text-4xl font-serif font-bold text-brand-navy mb-6">A Journey of Achievement &
                 Romance</h2>
@@ -279,13 +271,11 @@
             </p>
         </section>
 
-        <!-- Interactive Destinations Grid -->
         <section id="destinations" class="py-20 px-6 max-w-7xl mx-auto scroll-mt-16">
             <div class="text-center mb-12">
                 <h2 class="text-3xl md:text-4xl font-serif font-bold text-brand-navy mb-6">Discover the Destinations</h2>
                 <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-10">From the modern architecture of CMU's Computer Science buildings to the neon lights of Broadway, explore the highlights of each city.</p>
                 
-                <!-- Category Filters -->
                 <div class="flex flex-wrap justify-center gap-3 mb-12">
                     <button onclick="filterPlaces('all', this)" class="place-filter-btn filter-btn-active px-6 py-2.5 rounded-full bg-white border border-gray-200 text-brand-navy font-bold text-sm transition-all shadow-sm">All Highlights</button>
                     <button onclick="filterPlaces('pit', this)" class="place-filter-btn px-6 py-2.5 rounded-full bg-white border border-gray-200 text-brand-navy font-bold text-sm hover:bg-gray-50 transition-all shadow-sm">Pittsburgh (CMU)</button>
@@ -295,9 +285,8 @@
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8" id="places-grid">
-                <!-- PIT (CMU) Highlights -->
                 <article class="place-card pit group relative overflow-hidden rounded-xl shadow-lg h-72 cursor-pointer"
-                    onclick="openModal('Gates Center for Computer Science', 'The iconic, vibrant, and architectural masterpiece of the School of Computer Science (SCS). Home to the S3D department and a symbol of CMU\'s innovation.', 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1080&q=80')">
+                    onclick="openModal('Gates Center for Computer Science', 'The iconic masterpiece of the School of Computer Science (SCS) at Carnegie Mellon.', 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1080&q=80')">
                     <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800&q=80" alt="Gates Center" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-black/20 to-transparent flex flex-col justify-end p-6">
                         <span class="text-brand-gold uppercase text-[10px] font-bold tracking-[0.2em] mb-2">Pittsburgh • S3D/SCS</span>
@@ -306,8 +295,8 @@
                 </article>
 
                 <article class="place-card pit group relative overflow-hidden rounded-xl shadow-lg h-72 cursor-pointer"
-                    onclick="openModal('The CMU Fence', 'One of the most storied traditions on campus. Students paint it overnight to celebrate milestones. It\'s the unofficial heart of campus societal life.', 'https://images.unsplash.com/photo-1592280771190-3e2e4d571952?auto=format&fit=crop&w=1080&q=80')">
-                    <img src="https://images.unsplash.com/photo-1592280771190-3e2e4d571952?auto=format&fit=crop&w=800&q=80" alt="CMU Campus" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    onclick="openModal('The CMU Fence', 'One of the most storied traditions on campus. Students paint it overnight to celebrate milestones.', 'https://images.unsplash.com/photo-1592280771190-3e2e4d571952?auto=format&fit=crop&w=1080&q=80')">
+                    <img src="https://images.unsplash.com/photo-1592280771190-3e2e4d571952?auto=format&fit=crop&w=800&q=80" alt="The Fence" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-black/20 to-transparent flex flex-col justify-end p-6">
                         <span class="text-brand-gold uppercase text-[10px] font-bold tracking-[0.2em] mb-2">Pittsburgh • Traditions</span>
                         <h3 class="text-xl font-serif text-white leading-tight">The Fence & The Cut</h3>
@@ -315,7 +304,7 @@
                 </article>
 
                 <article class="place-card pit group relative overflow-hidden rounded-xl shadow-lg h-72 cursor-pointer"
-                    onclick="openModal('Phipps Conservatory', 'Located just steps from campus, this Victorian glasshouse is one of the most beautiful botanical gardens in the world, perfect for romantic graduation photos.', 'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=1080&q=80')">
+                    onclick="openModal('Phipps Conservatory', 'Located just steps from campus, this Victorian glasshouse is one of the most beautiful botanical gardens in the world.', 'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=1080&q=80')">
                     <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=800&q=80" alt="Phipps Conservatory" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-black/20 to-transparent flex flex-col justify-end p-6">
                         <span class="text-brand-gold uppercase text-[10px] font-bold tracking-[0.2em] mb-2">Pittsburgh • Romance</span>
@@ -324,7 +313,7 @@
                 </article>
 
                 <article class="place-card pit group relative overflow-hidden rounded-xl shadow-lg h-72 cursor-pointer"
-                    onclick="openModal('Mt. Washington Skyline', 'The ultimate celebratory view. Take the incline up to see where the three rivers meet—the perfect backdrop for your graduation dinner.', 'https://images.unsplash.com/photo-1517595208681-37f26d36e788?auto=format&fit=crop&w=1080&q=80')">
+                    onclick="openModal('Mt. Washington Skyline', 'The ultimate celebratory view. Take the incline up to see where the three rivers meet.', 'https://images.unsplash.com/photo-1517595208681-37f26d36e788?auto=format&fit=crop&w=1080&q=80')">
                     <img src="https://images.unsplash.com/photo-1517595208681-37f26d36e788?auto=format&fit=crop&w=800&q=80" alt="Pittsburgh Skyline" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-black/20 to-transparent flex flex-col justify-end p-6">
                         <span class="text-brand-gold uppercase text-[10px] font-bold tracking-[0.2em] mb-2">Pittsburgh • The View</span>
@@ -332,9 +321,8 @@
                     </div>
                 </article>
 
-                <!-- DC Highlights -->
                 <article class="place-card dc group relative overflow-hidden rounded-xl shadow-lg h-72 cursor-pointer place-hidden"
-                    onclick="openModal('The National Mall', 'The historic heart of DC. Walk between the Washington Monument and the Lincoln Memorial for an unforgettable experience.', 'https://images.unsplash.com/photo-1501466044931-62695aada8e9?auto=format&fit=crop&w=1080&q=80')">
+                    onclick="openModal('The National Mall', 'The historic heart of DC. Walk between the Washington Monument and the Lincoln Memorial.', 'https://images.unsplash.com/photo-1501466044931-62695aada8e9?auto=format&fit=crop&w=1080&q=80')">
                     <img src="https://images.unsplash.com/photo-1501466044931-62695aada8e9?auto=format&fit=crop&w=800&q=80" alt="National Mall" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-black/20 to-transparent flex flex-col justify-end p-6">
                         <span class="text-brand-gold uppercase text-[10px] font-bold tracking-[0.2em] mb-2">DC • History</span>
@@ -343,7 +331,7 @@
                 </article>
 
                 <article class="place-card dc group relative overflow-hidden rounded-xl shadow-lg h-72 cursor-pointer place-hidden"
-                    onclick="openModal('Georgetown Waterfront', 'Cobblestone streets, colorful townhouses, and upscale dining by the Potomac River. The most romantic neighborhood in DC.', 'https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1080&q=80')">
+                    onclick="openModal('Georgetown Waterfront', 'Cobblestone streets, colorful townhouses, and upscale dining by the Potomac River.', 'https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1080&q=80')">
                     <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=800&q=80" alt="Georgetown" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-black/20 to-transparent flex flex-col justify-end p-6">
                         <span class="text-brand-gold uppercase text-[10px] font-bold tracking-[0.2em] mb-2">DC • Atmosphere</span>
@@ -351,9 +339,8 @@
                     </div>
                 </article>
 
-                <!-- NYC Highlights -->
                 <article class="place-card nyc group relative overflow-hidden rounded-xl shadow-lg h-72 cursor-pointer place-hidden"
-                    onclick="openModal('The High Line', 'A vibrant elevated park built on a historic rail line, offering unique views of Manhattan\'s modern architecture.', 'https://images.unsplash.com/photo-1513624285461-4ce8105fb901?auto=format&fit=crop&w=1080&q=80')">
+                    onclick="openModal('The High Line', 'A vibrant elevated park built on a historic rail line.', 'https://images.unsplash.com/photo-1513624285461-4ce8105fb901?auto=format&fit=crop&w=1080&q=80')">
                     <img src="https://images.unsplash.com/photo-1513624285461-4ce8105fb901?auto=format&fit=crop&w=800&q=80" alt="High Line" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-black/20 to-transparent flex flex-col justify-end p-6">
                         <span class="text-brand-gold uppercase text-[10px] font-bold tracking-[0.2em] mb-2">NYC • Modern Life</span>
@@ -362,7 +349,7 @@
                 </article>
 
                 <article class="place-card nyc group relative overflow-hidden rounded-xl shadow-lg h-72 cursor-pointer place-hidden"
-                    onclick="openModal('Central Park Bow Bridge', 'The most romantic spot in NYC. A beautiful cast-iron bridge perfect for a honeymoon stroll.', 'https://images.unsplash.com/photo-1522083165195-3424ed129620?auto=format&fit=crop&w=1080&q=80')">
+                    onclick="openModal('Central Park Bow Bridge', 'The most romantic spot in NYC. A beautiful cast-iron bridge.', 'https://images.unsplash.com/photo-1522083165195-3424ed129620?auto=format&fit=crop&w=1080&q=80')">
                     <img src="https://images.unsplash.com/photo-1522083165195-3424ed129620?auto=format&fit=crop&w=800&q=80" alt="Central Park" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-black/20 to-transparent flex flex-col justify-end p-6">
                         <span class="text-brand-gold uppercase text-[10px] font-bold tracking-[0.2em] mb-2">NYC • Romance</span>
@@ -378,7 +365,6 @@
             </div>
         </section>
 
-        <!-- Master Itinerary Interactive Section -->
         <section id="itinerary" class="py-20 bg-white scroll-mt-16">
             <div class="max-w-4xl mx-auto px-4 md:px-6">
                 <h2 class="text-3xl md:text-4xl font-serif font-bold text-brand-navy mb-4 text-center">Your Master
@@ -386,7 +372,6 @@
                 <p class="text-center text-gray-500 mb-8">Select a city to view your daily schedule. <br><span
                         class="text-sm font-semibold text-brand-gold">Click on any event or photo for more details!</span></p>
 
-                <!-- Swipeable Tabs for Mobile -->
                 <div
                     class="flex overflow-x-auto whitespace-nowrap scrollbar-hide border-b border-gray-200 mb-10 pb-1 md:justify-center md:pb-0">
                     <button onclick="showCity('pit')" id="btn-pit"
@@ -394,34 +379,37 @@
                         (May 7-10)</button>
                     <button onclick="showCity('dc')" id="btn-dc"
                         class="px-6 py-4 font-bold uppercase tracking-wider text-sm text-gray-400 hover:text-brand-navy transition-colors shrink-0">Washington
-                        D.C. (May 11-13)</button>
+                        D.C. (May 11-12)</button>
                     <button onclick="showCity('nyc')" id="btn-nyc"
                         class="px-6 py-4 font-bold uppercase tracking-wider text-sm text-gray-400 hover:text-brand-navy transition-colors shrink-0">New
                         York City (May 13-17)</button>
                 </div>
 
-                <!-- Content: Pittsburgh -->
+                <!-- PIT CONTENT -->
                 <div id="pit-content" class="city-content animate-fade-in">
-                    <!-- Day 1 -->
                     <section class="mb-12">
-                        <h3 class="day-header">Thursday, May 7 <span
-                                class="text-sm font-sans text-gray-500 ml-2 font-normal">Arrival & CMU Prep</span></h3>
-                        <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1080&q=80"
-                            alt="CMU Gates Center" loading="lazy" decoding="async"
-                            class="w-full h-56 md:h-72 object-cover rounded-xl shadow-md mb-8 cursor-pointer hover:brightness-110 transition-all"
-                            onclick="openModal('Welcome to CMU', 'The journey begins at the Gates-Hillman Center, the heart of Computer Science at Carnegie Mellon.', 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1080&q=80')">
+                        <h3 class="day-header">Thursday, May 7 <span class="text-sm font-sans text-gray-500 ml-2 font-normal">Arrival & Prep</span></h3>
                         <div class="ml-2 md:ml-4">
                             <div class="timeline-item">
                                 <div class="timeline-dot-custom"></div>
                                 <div class="timeline-item-content">
                                     <div class="flex-1">
                                         <time class="font-bold text-brand-navy block text-sm mb-1">08:00 - 16:00</time>
-                                        <h4 class="text-lg font-bold event-title"
-                                            onclick="openModal('Flight MEX to PIT', 'Arrive at the award-winning Pittsburgh International Airport and head straight to Oakland.', 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1080&q=80')">
-                                            Arrival in the Steel City <i class="fas fa-info-circle"></i></h4>
-                                        <p class="text-gray-600 text-sm mt-1">Check-in at The Oaklander Hotel, with stunning views of the Cathedral of Learning.</p>
+                                        <h4 class="text-lg font-bold event-title" onclick="openModal('Flight MEX to PIT', 'Aim for an early morning departure via DFW or IAH.', 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1080&q=80')">Flight MEX to PIT <i class="fas fa-info-circle"></i></h4>
+                                        <p class="text-gray-600 text-sm mt-1">Aim for early morning departure via DFW or IAH.</p>
                                     </div>
-                                    <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=300&q=80" alt="Flight" class="timeline-img" onclick="openModal('Flight MEX to PIT', 'Arrive at the award-winning Pittsburgh International Airport.', 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1080&q=80')">
+                                    <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=300&q=80" alt="Flight" class="timeline-img" onclick="openModal('Flight MEX to PIT', 'Aim for an early morning departure via DFW or IAH.', 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1080&q=80')">
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot-custom"></div>
+                                <div class="timeline-item-content">
+                                    <div class="flex-1">
+                                        <time class="font-bold text-brand-navy block text-sm mb-1">17:00 - 18:00</time>
+                                        <h4 class="text-lg font-bold event-title" onclick="openModal('Hotel check-in near CMU', 'Stay at The Oaklander or Wyndham (Oakland).', 'https://images.unsplash.com/photo-1566073171639-4d38a0b16260?auto=format&fit=crop&w=1080&q=80')">Hotel check-in near CMU <i class="fas fa-info-circle"></i></h4>
+                                        <p class="text-gray-600 text-sm mt-1">The Oaklander or Wyndham (Oakland).</p>
+                                    </div>
+                                    <img src="https://images.unsplash.com/photo-1566073171639-4d38a0b16260?auto=format&fit=crop&w=300&q=80" alt="Hotel" class="timeline-img" onclick="openModal('Hotel check-in near CMU', 'Stay at The Oaklander or Wyndham (Oakland).', 'https://images.unsplash.com/photo-1566073171639-4d38a0b16260?auto=format&fit=crop&w=1080&q=80')">
                                 </div>
                             </div>
                             <div class="timeline-item-last">
@@ -429,37 +417,48 @@
                                 <div class="timeline-item-content">
                                     <div class="flex-1">
                                         <time class="font-bold text-brand-navy block text-sm mb-1">18:30 - 21:00</time>
-                                        <h4 class="text-lg font-bold event-title"
-                                            onclick="openModal('Schenley Plaza Walk', 'A beautiful evening stroll through the park that connects CMU and Pitt.', 'https://images.unsplash.com/photo-1568449039662-3602ee261448?auto=format&fit=crop&w=1080&q=80')">
-                                            Campus Walk & Welcome Dinner <i class="fas fa-info-circle"></i></h4>
-                                        <p class="text-gray-600 text-sm mt-1">Dinner at The Porch, overlooking the CMU campus.</p>
+                                        <h4 class="text-lg font-bold event-title" onclick="openModal('Quick campus walk & Dinner', 'Confirm Friday routes, casual dinner at The Porch.', 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1080&q=80')">Quick campus walk & Dinner <i class="fas fa-info-circle"></i></h4>
+                                        <p class="text-gray-600 text-sm mt-1">Confirm Friday routes, casual dinner at The Porch.</p>
                                     </div>
-                                    <img src="https://images.unsplash.com/photo-1568449039662-3602ee261448?auto=format&fit=crop&w=300&q=80" alt="Schenley Plaza" class="timeline-img" onclick="openModal('Schenley Plaza Walk', 'A beautiful evening stroll through the park.', 'https://images.unsplash.com/photo-1568449039662-3602ee261448?auto=format&fit=crop&w=1080&q=80')">
+                                    <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=300&q=80" alt="Dinner" class="timeline-img" onclick="openModal('Quick campus walk & Dinner', 'Confirm Friday routes, casual dinner at The Porch.', 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1080&q=80')">
                                 </div>
                             </div>
                         </div>
                     </section>
-
-                    <!-- Day 2 -->
                     <section class="mb-12">
-                        <h3 class="day-header">Friday, May 8 <span
-                                class="text-sm font-sans text-gray-500 ml-2 font-normal">The Master's Ceremony</span></h3>
-                        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1080&q=80"
-                            alt="Graduation" loading="lazy" decoding="async"
-                            class="w-full h-56 md:h-72 object-cover rounded-xl shadow-md mb-8 cursor-pointer hover:brightness-110 transition-all"
-                            onclick="openModal('SCS Master\'s Ceremony', 'The historic moment inside Soldiers & Sailors Memorial Hall.', 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1080&q=80')">
+                        <h3 class="day-header">Friday, May 8 <span class="text-sm font-sans text-gray-500 ml-2 font-normal">Graduation Ceremony</span></h3>
                         <div class="ml-2 md:ml-4">
                             <div class="timeline-item">
                                 <div class="timeline-dot-custom"></div>
                                 <div class="timeline-item-content">
                                     <div class="flex-1">
-                                        <time class="font-bold text-brand-gold block text-sm mb-1"><i class="fas fa-graduation-cap mr-1"></i>11:00 - 13:00</time>
-                                        <h4 class="text-lg font-bold event-title"
-                                            onclick="openModal('SCS Master\'s Ceremony', 'This is it! Receiving your Master\'s Degree in Software Engineering.', 'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=1080&q=80')">
-                                            SCS Master's Ceremony <i class="fas fa-info-circle"></i></h4>
+                                        <time class="font-bold text-brand-navy block text-sm mb-1">09:00 - 10:30</time>
+                                        <h4 class="text-lg font-bold event-title" onclick="openModal('S3D/MSE Breakfast', 'TCS Hall (4665 Forbes Ave).', 'https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=1080&q=80')">S3D/MSE Breakfast <i class="fas fa-info-circle"></i></h4>
+                                        <p class="text-gray-600 text-sm mt-1">TCS Hall (4665 Forbes Ave).</p>
+                                    </div>
+                                    <img src="https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=300&q=80" alt="Breakfast" class="timeline-img" onclick="openModal('S3D/MSE Breakfast', 'TCS Hall (4665 Forbes Ave).', 'https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=1080&q=80')">
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot-custom"></div>
+                                <div class="timeline-item-content">
+                                    <div class="flex-1">
+                                        <time class="font-bold text-brand-navy block text-sm mb-1">11:00 - 13:00</time>
+                                        <h4 class="text-lg font-bold event-title" onclick="openModal('SCS Master\'s Ceremony', 'Soldiers & Sailors Memorial Hall.', 'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=1080&q=80')">SCS Master's Ceremony <i class="fas fa-info-circle"></i></h4>
                                         <p class="text-gray-600 text-sm mt-1">Soldiers & Sailors Memorial Hall.</p>
                                     </div>
-                                    <img src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=300&q=80" alt="Ceremony Hall" class="timeline-img" onclick="openModal('SCS Master\'s Ceremony', 'The stunning Soldiers & Sailors Hall.', 'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=1080&q=80')">
+                                    <img src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=300&q=80" alt="Ceremony" class="timeline-img" onclick="openModal('SCS Master\'s Ceremony', 'Soldiers & Sailors Memorial Hall.', 'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=1080&q=80')">
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot-custom"></div>
+                                <div class="timeline-item-content">
+                                    <div class="flex-1">
+                                        <time class="font-bold text-brand-navy block text-sm mb-1">13:30 - 15:30</time>
+                                        <h4 class="text-lg font-bold event-title" onclick="openModal('Post-Ceremony Lunch', 'Lucca Ristorante (Elegant Italian).', 'https://images.unsplash.com/photo-1498579150354-9794b3e4eeae?auto=format&fit=crop&w=1080&q=80')">Post-Ceremony Lunch <i class="fas fa-info-circle"></i></h4>
+                                        <p class="text-gray-600 text-sm mt-1">Lucca Ristorante (Elegant Italian).</p>
+                                    </div>
+                                    <img src="https://images.unsplash.com/photo-1498579150354-9794b3e4eeae?auto=format&fit=crop&w=300&q=80" alt="Lunch" class="timeline-img" onclick="openModal('Post-Ceremony Lunch', 'Lucca Ristorante (Elegant Italian).', 'https://images.unsplash.com/photo-1498579150354-9794b3e4eeae?auto=format&fit=crop&w=1080&q=80')">
                                 </div>
                             </div>
                             <div class="timeline-item-last">
@@ -467,78 +466,150 @@
                                 <div class="timeline-item-content">
                                     <div class="flex-1">
                                         <time class="font-bold text-brand-navy block text-sm mb-1">19:30 - 22:00</time>
-                                        <h4 class="text-lg font-bold event-title"
-                                            onclick="openModal('Celebration Dinner at Altius', 'Modern American cuisine with the best view of the three rivers.', 'https://images.unsplash.com/photo-1517595208681-37f26d36e788?auto=format&fit=crop&w=1080&q=80')">
-                                            Graduation Dinner at Altius <i class="fas fa-info-circle"></i></h4>
-                                        <p class="text-gray-600 text-sm mt-1">Taking the Duquesne Incline to Mt. Washington.</p>
+                                        <h4 class="text-lg font-bold event-title" onclick="openModal('The Graduation Dinner at Altius', 'Best skyline view (Take Duquesne Incline up).', 'https://images.unsplash.com/photo-1517595208681-37f26d36e788?auto=format&fit=crop&w=1080&q=80')">The Graduation Dinner at Altius <i class="fas fa-info-circle"></i></h4>
+                                        <p class="text-gray-600 text-sm mt-1">Best skyline view (Take Duquesne Incline up).</p>
                                     </div>
-                                    <img src="https://images.unsplash.com/photo-1517595208681-37f26d36e788?auto=format&fit=crop&w=300&q=80" alt="Skyline Dinner" class="timeline-img" onclick="openModal('Celebration Dinner at Altius', 'Modern American cuisine with the best view.', 'https://images.unsplash.com/photo-1517595208681-37f26d36e788?auto=format&fit=crop&w=1080&q=80')">
+                                    <img src="https://images.unsplash.com/photo-1517595208681-37f26d36e788?auto=format&fit=crop&w=300&q=80" alt="Dinner" class="timeline-img" onclick="openModal('The Graduation Dinner at Altius', 'Best skyline view (Take Duquesne Incline up).', 'https://images.unsplash.com/photo-1517595208681-37f26d36e788?auto=format&fit=crop&w=1080&q=80')">
                                 </div>
                             </div>
                         </div>
                     </section>
-
-                    <!-- Day 3 -->
                     <section class="mb-12">
-                        <h3 class="day-header">Saturday, May 9 <span
-                                class="text-sm font-sans text-gray-500 ml-2 font-normal">Campus Life</span></h3>
-                        <img src="https://images.unsplash.com/photo-1592280771190-3e2e4d571952?auto=format&fit=crop&w=1080&q=80"
-                            alt="The Fence" loading="lazy" decoding="async"
-                            class="w-full h-56 md:h-72 object-cover rounded-xl shadow-md mb-8 cursor-pointer hover:brightness-110 transition-all"
-                            onclick="openModal('The CMU Fence', 'Spend the morning taking photos at the iconic Fence and wandering through the Cut.', 'https://images.unsplash.com/photo-1592280771190-3e2e4d571952?auto=format&fit=crop&w=1080&q=80')">
+                        <h3 class="day-header">Saturday, May 9 <span class="text-sm font-sans text-gray-500 ml-2 font-normal">Explore Pittsburgh</span></h3>
                         <div class="ml-2 md:ml-4">
                             <div class="timeline-item">
                                 <div class="timeline-dot-custom"></div>
                                 <div class="timeline-item-content">
                                     <div class="flex-1">
-                                        <time class="font-bold text-brand-navy block text-sm mb-1">11:30 - 14:30</time>
-                                        <h4 class="text-lg font-bold event-title"
-                                            onclick="openModal('Strip District Brunch', 'Experience the heart of Pittsburgh culture and food.', 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1080&q=80')">
-                                            Strip District Brunch <i class="fas fa-info-circle"></i></h4>
-                                        <p class="text-gray-600 text-sm mt-1">Souvenirs and the famous Primanti Bros.</p>
+                                        <time class="font-bold text-brand-navy block text-sm mb-1">09:00 - 11:00</time>
+                                        <h4 class="text-lg font-bold event-title" onclick="openModal('Campus Photoshoot', 'The Fence, Cathedral of Learning.', 'https://images.unsplash.com/photo-1581012733301-f99133bc9c50?auto=format&fit=crop&w=1080&q=80')">Campus Photoshoot <i class="fas fa-info-circle"></i></h4>
+                                        <p class="text-gray-600 text-sm mt-1">The Fence, Cathedral of Learning.</p>
                                     </div>
-                                    <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=300&q=80" alt="Brunch" class="timeline-img" onclick="openModal('Strip District Brunch', 'The heart of Pittsburgh culture.', 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1080&q=80')">
+                                    <img src="https://images.unsplash.com/photo-1581012733301-f99133bc9c50?auto=format&fit=crop&w=300&q=80" alt="Photoshoot" class="timeline-img" onclick="openModal('Campus Photoshoot', 'The Fence, Cathedral of Learning.', 'https://images.unsplash.com/photo-1581012733301-f99133bc9c50?auto=format&fit=crop&w=1080&q=80')">
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot-custom"></div>
+                                <div class="timeline-item-content">
+                                    <div class="flex-1">
+                                        <time class="font-bold text-brand-navy block text-sm mb-1">11:30 - 14:30</time>
+                                        <h4 class="text-lg font-bold event-title" onclick="openModal('Strip District brunch', 'Local vibe, great coffee & souvenirs.', 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1080&q=80')">Strip District brunch <i class="fas fa-info-circle"></i></h4>
+                                        <p class="text-gray-600 text-sm mt-1">Local vibe, great coffee & souvenirs.</p>
+                                    </div>
+                                    <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=300&q=80" alt="Brunch" class="timeline-img" onclick="openModal('Strip District brunch', 'Local vibe, great coffee & souvenirs.', 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1080&q=80')">
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot-custom"></div>
+                                <div class="timeline-item-content">
+                                    <div class="flex-1">
+                                        <time class="font-bold text-brand-navy block text-sm mb-1">15:00 - 17:30</time>
+                                        <h4 class="text-lg font-bold event-title" onclick="openModal('Phipps Conservatory', 'Indoor botanical gardens near campus.', 'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=1080&q=80')">Phipps Conservatory <i class="fas fa-info-circle"></i></h4>
+                                        <p class="text-gray-600 text-sm mt-1">Indoor botanical gardens near campus.</p>
+                                    </div>
+                                    <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=300&q=80" alt="Phipps" class="timeline-img" onclick="openModal('Phipps Conservatory', 'Indoor botanical gardens near campus.', 'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=1080&q=80')">
                                 </div>
                             </div>
                             <div class="timeline-item-last">
                                 <div class="timeline-dot-custom"></div>
                                 <div class="timeline-item-content">
                                     <div class="flex-1">
-                                        <time class="font-bold text-brand-navy block text-sm mb-1">15:00 - 18:00</time>
-                                        <h4 class="text-lg font-bold event-title"
-                                            onclick="openModal('Phipps Conservatory', 'Botanical beauty right on the edge of campus.', 'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=1080&q=80')">
-                                            Phipps Conservatory <i class="fas fa-info-circle"></i></h4>
-                                        <p class="text-gray-600 text-sm mt-1">A relaxing afternoon among world-class gardens.</p>
+                                        <time class="font-bold text-brand-navy block text-sm mb-1">19:00 - 21:30</time>
+                                        <h4 class="text-lg font-bold event-title" onclick="openModal('Casual Dinner in Lawrenceville', 'Pusadee\'s Garden (highly recommended).', 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1080&q=80')">Casual Dinner in Lawrenceville <i class="fas fa-info-circle"></i></h4>
+                                        <p class="text-gray-600 text-sm mt-1">Pusadee's Garden (highly recommended).</p>
                                     </div>
-                                    <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=300&q=80" alt="Phipps" class="timeline-img" onclick="openModal('Phipps Conservatory', 'Botanical beauty on campus.', 'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=1080&q=80')">
+                                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=300&q=80" alt="Dinner" class="timeline-img" onclick="openModal('Casual Dinner in Lawrenceville', 'Pusadee\'s Garden (highly recommended).', 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1080&q=80')">
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="mb-12">
+                        <h3 class="day-header">Sunday, May 10 <span class="text-sm font-sans text-gray-500 ml-2 font-normal">Main Commencement</span></h3>
+                        <div class="ml-2 md:ml-4">
+                            <div class="timeline-item">
+                                <div class="timeline-dot-custom"></div>
+                                <div class="timeline-item-content">
+                                    <div class="flex-1">
+                                        <time class="font-bold text-brand-navy block text-sm mb-1">08:30 - 09:30</time>
+                                        <h4 class="text-lg font-bold event-title" onclick="openModal('Arrive & seat for Commencement', 'Pack compact umbrellas.', 'https://images.unsplash.com/photo-1546410531-bea518040066?auto=format&fit=crop&w=1080&q=80')">Arrive & seat <i class="fas fa-info-circle"></i></h4>
+                                        <p class="text-gray-600 text-sm mt-1">Pack compact umbrellas.</p>
+                                    </div>
+                                    <img src="https://images.unsplash.com/photo-1546410531-bea518040066?auto=format&fit=crop&w=300&q=80" alt="Commencement" class="timeline-img" onclick="openModal('Arrive & seat for Commencement', 'Pack compact umbrellas.', 'https://images.unsplash.com/photo-1546410531-bea518040066?auto=format&fit=crop&w=1080&q=80')">
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot-custom"></div>
+                                <div class="timeline-item-content">
+                                    <div class="flex-1">
+                                        <time class="font-bold text-brand-navy block text-sm mb-1">10:00 - 13:00</time>
+                                        <h4 class="text-lg font-bold event-title" onclick="openModal('Main CMU Commencement', 'Gesling Stadium.', 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1080&q=80')">Main CMU Commencement <i class="fas fa-info-circle"></i></h4>
+                                        <p class="text-gray-600 text-sm mt-1">Gesling Stadium.</p>
+                                    </div>
+                                    <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=300&q=80" alt="Stadium" class="timeline-img" onclick="openModal('Main CMU Commencement', 'Gesling Stadium.', 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1080&q=80')">
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot-custom"></div>
+                                <div class="timeline-item-content">
+                                    <div class="flex-1">
+                                        <time class="font-bold text-brand-navy block text-sm mb-1">13:30 - 15:30</time>
+                                        <h4 class="text-lg font-bold event-title" onclick="openModal('Farewell Lunch', 'Celebrate with classmates.', 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1080&q=80')">Farewell Lunch <i class="fas fa-info-circle"></i></h4>
+                                        <p class="text-gray-600 text-sm mt-1">Celebrate with classmates.</p>
+                                    </div>
+                                    <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=300&q=80" alt="Lunch" class="timeline-img" onclick="openModal('Farewell Lunch', 'Celebrate with classmates.', 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1080&q=80')">
+                                </div>
+                            </div>
+                            <div class="timeline-item-last">
+                                <div class="timeline-dot-custom"></div>
+                                <div class="timeline-item-content">
+                                    <div class="flex-1">
+                                        <time class="font-bold text-brand-navy block text-sm mb-1">16:00 - 19:00</time>
+                                        <h4 class="text-lg font-bold event-title" onclick="openModal('Pack and prep for Honeymoon', 'Transition from Grad to Vacation mode.', 'https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=1080&q=80')">Pack and prep <i class="fas fa-info-circle"></i></h4>
+                                        <p class="text-gray-600 text-sm mt-1">Transition from Grad to Vacation mode.</p>
+                                    </div>
+                                    <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=300&q=80" alt="Pack" class="timeline-img" onclick="openModal('Pack and prep for Honeymoon', 'Transition from Grad to Vacation mode.', 'https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=1080&q=80')">
                                 </div>
                             </div>
                         </div>
                     </section>
                 </div>
 
-                <!-- Content: DC -->
+                <!-- DC CONTENT -->
                 <div id="dc-content" class="city-content hidden animate-fade-in">
-                    <!-- Day 5 -->
                     <section class="mb-12">
-                        <h3 class="day-header">Monday, May 11 <span
-                                class="text-sm font-sans text-gray-500 ml-2 font-normal">The Capital</span></h3>
-                        <img src="https://images.unsplash.com/photo-1501466044931-62695aada8e9?auto=format&fit=crop&w=1080&q=80"
-                            alt="National Mall" loading="lazy" decoding="async"
-                            class="w-full h-56 md:h-72 object-cover rounded-xl shadow-md mb-8 cursor-pointer hover:brightness-110 transition-all"
-                            onclick="openModal('The National Mall', 'Welcome to Washington D.C.', 'https://images.unsplash.com/photo-1501466044931-62695aada8e9?auto=format&fit=crop&w=1080&q=80')">
+                        <h3 class="day-header">Monday, May 11 <span class="text-sm font-sans text-gray-500 ml-2 font-normal">PIT to DC</span></h3>
                         <div class="ml-2 md:ml-4">
                             <div class="timeline-item">
                                 <div class="timeline-dot-custom"></div>
                                 <div class="timeline-item-content">
                                     <div class="flex-1">
-                                        <time class="font-bold text-brand-navy block text-sm mb-1">15:00 - 18:00</time>
-                                        <h4 class="text-lg font-bold event-title"
-                                            onclick="openModal('Lincoln Memorial', 'Walk from the Washington Monument to the Lincoln Memorial at sunset.', 'https://images.unsplash.com/photo-1501466044931-62695aada8e9?auto=format&fit=crop&w=1080&q=80')">
-                                            National Mall Stroll <i class="fas fa-info-circle"></i></h4>
-                                        <p class="text-gray-600 text-sm mt-1">Awe-inspiring monuments by the reflecting pool.</p>
+                                        <time class="font-bold text-brand-navy block text-sm mb-1">10:00 - 13:00</time>
+                                        <h4 class="text-lg font-bold event-title" onclick="openModal('Flight PIT to Washington D.C.', 'Quick 1-hr flight to DCA.', 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1080&q=80')">Flight to DC <i class="fas fa-info-circle"></i></h4>
+                                        <p class="text-gray-600 text-sm mt-1">Quick 1-hr flight to DCA.</p>
                                     </div>
-                                    <img src="https://images.unsplash.com/photo-1501466044931-62695aada8e9?auto=format&fit=crop&w=300&q=80" alt="Mall" class="timeline-img" onclick="openModal('Lincoln Memorial', 'National Mall at sunset.', 'https://images.unsplash.com/photo-1501466044931-62695aada8e9?auto=format&fit=crop&w=1080&q=80')">
+                                    <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=300&q=80" alt="Flight" class="timeline-img" onclick="openModal('Flight PIT to Washington D.C.', 'Quick 1-hr flight to DCA.', 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1080&q=80')">
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot-custom"></div>
+                                <div class="timeline-item-content">
+                                    <div class="flex-1">
+                                        <time class="font-bold text-brand-navy block text-sm mb-1">13:30 - 14:30</time>
+                                        <h4 class="text-lg font-bold event-title" onclick="openModal('Hotel check-in', 'Penn Quarter or Logan Circle.', 'https://images.unsplash.com/photo-1566073171639-4d38a0b16260?auto=format&fit=crop&w=1080&q=80')">Hotel check-in <i class="fas fa-info-circle"></i></h4>
+                                        <p class="text-gray-600 text-sm mt-1">Penn Quarter or Logan Circle.</p>
+                                    </div>
+                                    <img src="https://images.unsplash.com/photo-1566073171639-4d38a0b16260?auto=format&fit=crop&w=300&q=80" alt="Hotel" class="timeline-img" onclick="openModal('Hotel check-in', 'Penn Quarter or Logan Circle.', 'https://images.unsplash.com/photo-1566073171639-4d38a0b16260?auto=format&fit=crop&w=1080&q=80')">
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot-custom"></div>
+                                <div class="timeline-item-content">
+                                    <div class="flex-1">
+                                        <time class="font-bold text-brand-navy block text-sm mb-1">15:00 - 18:00</time>
+                                        <h4 class="text-lg font-bold event-title" onclick="openModal('National Mall & Monuments', 'Walk past Washington Monument & Lincoln Memorial.', 'https://images.unsplash.com/photo-1501466044931-62695aada8e9?auto=format&fit=crop&w=1080&q=80')">National Mall <i class="fas fa-info-circle"></i></h4>
+                                        <p class="text-gray-600 text-sm mt-1">Walk past Washington Monument & Lincoln Memorial.</p>
+                                    </div>
+                                    <img src="https://images.unsplash.com/photo-1501466044931-62695aada8e9?auto=format&fit=crop&w=300&q=80" alt="Mall" class="timeline-img" onclick="openModal('National Mall & Monuments', 'Walk past Washington Monument & Lincoln Memorial.', 'https://images.unsplash.com/photo-1501466044931-62695aada8e9?auto=format&fit=crop&w=1080&q=80')">
                                 </div>
                             </div>
                             <div class="timeline-item-last">
@@ -546,53 +617,297 @@
                                 <div class="timeline-item-content">
                                     <div class="flex-1">
                                         <time class="font-bold text-brand-navy block text-sm mb-1">19:30 - 21:30</time>
-                                        <h4 class="text-lg font-bold event-title"
-                                            onclick="openModal('Fiola Mare', 'Upscale Italian seafood at the Georgetown waterfront.', 'https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1080&q=80')">
-                                            Georgetown Dinner <i class="fas fa-info-circle"></i></h4>
-                                        <p class="text-gray-600 text-sm mt-1">Celebratory meal by the Potomac river.</p>
+                                        <h4 class="text-lg font-bold event-title" onclick="openModal('DC Kickoff Dinner', 'Fiola Mare (Georgetown) or The Wharf.', 'https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1080&q=80')">DC Kickoff Dinner <i class="fas fa-info-circle"></i></h4>
+                                        <p class="text-gray-600 text-sm mt-1">Fiola Mare (Georgetown) or The Wharf.</p>
                                     </div>
-                                    <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=300&q=80" alt="Georgetown" class="timeline-img" onclick="openModal('Fiola Mare', 'Dinner at the waterfront.', 'https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1080&q=80')">
+                                    <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=300&q=80" alt="Dinner" class="timeline-img" onclick="openModal('DC Kickoff Dinner', 'Fiola Mare (Georgetown) or The Wharf.', 'https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1080&q=80')">
                                 </div>
                             </div>
                         </div>
                     </section>
-                </div>
-
-                <!-- Content: NYC -->
-                <div id="nyc-content" class="city-content hidden animate-fade-in">
-                    <!-- Day 7 -->
                     <section class="mb-12">
-                        <h3 class="day-header">Wednesday, May 13 <span
-                                class="text-sm font-sans text-gray-500 ml-2 font-normal">The Big Apple</span></h3>
-                        <img src="https://images.unsplash.com/photo-1534430480872-3498386e7856?auto=format&fit=crop&w=1080&q=80"
-                            alt="NYC" loading="lazy" decoding="async"
-                            class="w-full h-56 md:h-72 object-cover rounded-xl shadow-md mb-8 cursor-pointer hover:brightness-110 transition-all"
-                            onclick="openModal('Times Square', 'Welcome to the center of the world.', 'https://images.unsplash.com/photo-1534430480872-3498386e7856?auto=format&fit=crop&w=1080&q=80')">
+                        <h3 class="day-header">Tuesday, May 12 <span class="text-sm font-sans text-gray-500 ml-2 font-normal">Museums & History</span></h3>
                         <div class="ml-2 md:ml-4">
                             <div class="timeline-item">
                                 <div class="timeline-dot-custom"></div>
                                 <div class="timeline-item-content">
                                     <div class="flex-1">
-                                        <time class="font-bold text-brand-navy block text-sm mb-1">15:30 - 19:30</time>
-                                        <h4 class="text-lg font-bold event-title"
-                                            onclick="openModal('The High Line', 'A sunset walk on the elevated park.', 'https://images.unsplash.com/photo-1513624285461-4ce8105fb901?auto=format&fit=crop&w=1080&q=80')">
-                                            The High Line Walk <i class="fas fa-info-circle"></i></h4>
-                                        <p class="text-gray-600 text-sm mt-1">Stunning city views and modern architecture.</p>
+                                        <time class="font-bold text-brand-navy block text-sm mb-1">09:30 - 13:00</time>
+                                        <h4 class="text-lg font-bold event-title" onclick="openModal('Smithsonian Museums', 'Air & Space or Natural History (Free).', 'https://images.unsplash.com/photo-1566127444979-b3d2b654e3d7?auto=format&fit=crop&w=1080&q=80')">Smithsonian Museums <i class="fas fa-info-circle"></i></h4>
+                                        <p class="text-gray-600 text-sm mt-1">Air & Space or Natural History (Free).</p>
                                     </div>
-                                    <img src="https://images.unsplash.com/photo-1513624285461-4ce8105fb901?auto=format&fit=crop&w=300&q=80" alt="High Line" class="timeline-img" onclick="openModal('The High Line', 'Sunset walk on the High Line.', 'https://images.unsplash.com/photo-1513624285461-4ce8105fb901?auto=format&fit=crop&w=1080&q=80')">
+                                    <img src="https://images.unsplash.com/photo-1566127444979-b3d2b654e3d7?auto=format&fit=crop&w=300&q=80" alt="Smithsonian" class="timeline-img" onclick="openModal('Smithsonian Museums', 'Air & Space or Natural History (Free).', 'https://images.unsplash.com/photo-1566127444979-b3d2b654e3d7?auto=format&fit=crop&w=1080&q=80')">
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot-custom"></div>
+                                <div class="timeline-item-content">
+                                    <div class="flex-1">
+                                        <time class="font-bold text-brand-navy block text-sm mb-1">13:30 - 15:00</time>
+                                        <h4 class="text-lg font-bold event-title" onclick="openModal('Lunch at Penn Quarter', 'Zaytinya or Jaleo.', 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=1080&q=80')">Lunch at Penn Quarter <i class="fas fa-info-circle"></i></h4>
+                                        <p class="text-gray-600 text-sm mt-1">Zaytinya or Jaleo.</p>
+                                    </div>
+                                    <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=300&q=80" alt="Lunch" class="timeline-img" onclick="openModal('Lunch at Penn Quarter', 'Zaytinya or Jaleo.', 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=1080&q=80')">
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot-custom"></div>
+                                <div class="timeline-item-content">
+                                    <div class="flex-1">
+                                        <time class="font-bold text-brand-navy block text-sm mb-1">15:30 - 18:00</time>
+                                        <h4 class="text-lg font-bold event-title" onclick="openModal('US Capitol (Exterior) & Library', 'Great architecture photos.', 'https://images.unsplash.com/photo-1582376432754-b63cc6a9b8c3?auto=format&fit=crop&w=1080&q=80')">US Capitol & Library <i class="fas fa-info-circle"></i></h4>
+                                        <p class="text-gray-600 text-sm mt-1">Great architecture photos.</p>
+                                    </div>
+                                    <img src="https://images.unsplash.com/photo-1582376432754-b63cc6a9b8c3?auto=format&fit=crop&w=300&q=80" alt="Capitol" class="timeline-img" onclick="openModal('US Capitol (Exterior) & Library', 'Great architecture photos.', 'https://images.unsplash.com/photo-1582376432754-b63cc6a9b8c3?auto=format&fit=crop&w=1080&q=80')">
                                 </div>
                             </div>
                             <div class="timeline-item-last">
                                 <div class="timeline-dot-custom"></div>
                                 <div class="timeline-item-content">
                                     <div class="flex-1">
-                                        <time class="font-bold text-brand-gold block text-sm mb-1"><i class="fas fa-theater-masks mr-1"></i>19:00 - 22:00</time>
-                                        <h4 class="text-lg font-bold event-title"
-                                            onclick="openModal('Broadway Show', 'Experience the magic of theater in Times Square.', 'https://images.unsplash.com/photo-1583643194519-906969bdfba3?auto=format&fit=crop&w=1080&q=80')">
-                                            Broadway: MJ The Musical <i class="fas fa-info-circle"></i></h4>
-                                        <p class="text-gray-600 text-sm mt-1">A spectacular finale to your NYC experience.</p>
+                                        <time class="font-bold text-brand-navy block text-sm mb-1">19:00 - 21:30</time>
+                                        <h4 class="text-lg font-bold event-title" onclick="openModal('Dinner in Logan Circle', 'Le Diplomate (Book exactly 30 days out).', 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=1080&q=80')">Dinner in Logan Circle <i class="fas fa-info-circle"></i></h4>
+                                        <p class="text-gray-600 text-sm mt-1">Le Diplomate (Book exactly 30 days out).</p>
                                     </div>
-                                    <img src="https://images.unsplash.com/photo-1583643194519-906969bdfba3?auto=format&fit=crop&w=300&q=80" alt="Broadway" class="timeline-img" onclick="openModal('Broadway Show', 'The magic of Broadway.', 'https://images.unsplash.com/photo-1583643194519-906969bdfba3?auto=format&fit=crop&w=1080&q=80')">
+                                    <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=300&q=80" alt="Dinner" class="timeline-img" onclick="openModal('Dinner in Logan Circle', 'Le Diplomate (Book exactly 30 days out).', 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=1080&q=80')">
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- NYC CONTENT -->
+                <div id="nyc-content" class="city-content hidden animate-fade-in">
+                    <section class="mb-12">
+                        <h3 class="day-header">Wednesday, May 13 <span class="text-sm font-sans text-gray-500 ml-2 font-normal">DC to NYC</span></h3>
+                        <div class="ml-2 md:ml-4">
+                            <div class="timeline-item">
+                                <div class="timeline-dot-custom"></div>
+                                <div class="timeline-item-content">
+                                    <div class="flex-1">
+                                        <time class="font-bold text-brand-navy block text-sm mb-1">09:00 - 12:30</time>
+                                        <h4 class="text-lg font-bold event-title" onclick="openModal('Train DC to NYC', 'Amtrak Acela (City center to city center).', 'https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&w=1080&q=80')">Train DC to NYC <i class="fas fa-info-circle"></i></h4>
+                                        <p class="text-gray-600 text-sm mt-1">Amtrak Acela (City center to city center).</p>
+                                    </div>
+                                    <img src="https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&w=300&q=80" alt="Train" class="timeline-img" onclick="openModal('Train DC to NYC', 'Amtrak Acela (City center to city center).', 'https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&w=1080&q=80')">
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot-custom"></div>
+                                <div class="timeline-item-content">
+                                    <div class="flex-1">
+                                        <time class="font-bold text-brand-navy block text-sm mb-1">13:00 - 14:00</time>
+                                        <h4 class="text-lg font-bold event-title" onclick="openModal('Hotel check-in Midtown', 'Near Times Square or Bryant Park.', 'https://images.unsplash.com/photo-1566073171639-4d38a0b16260?auto=format&fit=crop&w=1080&q=80')">Hotel check-in Midtown <i class="fas fa-info-circle"></i></h4>
+                                        <p class="text-gray-600 text-sm mt-1">Near Times Square or Bryant Park.</p>
+                                    </div>
+                                    <img src="https://images.unsplash.com/photo-1566073171639-4d38a0b16260?auto=format&fit=crop&w=300&q=80" alt="Hotel" class="timeline-img" onclick="openModal('Hotel check-in Midtown', 'Near Times Square or Bryant Park.', 'https://images.unsplash.com/photo-1566073171639-4d38a0b16260?auto=format&fit=crop&w=1080&q=80')">
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot-custom"></div>
+                                <div class="timeline-item-content">
+                                    <div class="flex-1">
+                                        <time class="font-bold text-brand-navy block text-sm mb-1">14:30 - 15:30</time>
+                                        <h4 class="text-lg font-bold event-title" onclick="openModal('Late Lunch at Hard Rock Cafe', 'High energy kickoff in Times Square.', 'https://images.unsplash.com/photo-1534430480872-3498386e7856?auto=format&fit=crop&w=1080&q=80')">Late Lunch <i class="fas fa-info-circle"></i></h4>
+                                        <p class="text-gray-600 text-sm mt-1">High energy kickoff in Times Square.</p>
+                                    </div>
+                                    <img src="https://images.unsplash.com/photo-1534430480872-3498386e7856?auto=format&fit=crop&w=300&q=80" alt="Times Square" class="timeline-img" onclick="openModal('Late Lunch at Hard Rock Cafe', 'High energy kickoff in Times Square.', 'https://images.unsplash.com/photo-1534430480872-3498386e7856?auto=format&fit=crop&w=1080&q=80')">
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot-custom"></div>
+                                <div class="timeline-item-content">
+                                    <div class="flex-1">
+                                        <time class="font-bold text-brand-navy block text-sm mb-1">15:30 - 17:30</time>
+                                        <h4 class="text-lg font-bold event-title" onclick="openModal('Tour por la Ciudad', 'Hop-On-Hop-Off bus to orient yourselves.', 'https://images.unsplash.com/photo-1534430480872-3498386e7856?auto=format&fit=crop&w=1080&q=80')">Tour por la Ciudad <i class="fas fa-info-circle"></i></h4>
+                                        <p class="text-gray-600 text-sm mt-1">Hop-On-Hop-Off bus to orient yourselves.</p>
+                                    </div>
+                                    <img src="https://images.unsplash.com/photo-1534430480872-3498386e7856?auto=format&fit=crop&w=300&q=80" alt="Bus" class="timeline-img" onclick="openModal('Tour por la Ciudad', 'Hop-On-Hop-Off bus to orient yourselves.', 'https://images.unsplash.com/photo-1534430480872-3498386e7856?auto=format&fit=crop&w=1080&q=80')">
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot-custom"></div>
+                                <div class="timeline-item-content">
+                                    <div class="flex-1">
+                                        <time class="font-bold text-brand-navy block text-sm mb-1">18:00 - 19:30</time>
+                                        <h4 class="text-lg font-bold event-title" onclick="openModal('High Line & Chelsea Market', 'Sunset walk and light snacks.', 'https://images.unsplash.com/photo-1513624285461-4ce8105fb901?auto=format&fit=crop&w=1080&q=80')">High Line <i class="fas fa-info-circle"></i></h4>
+                                        <p class="text-gray-600 text-sm mt-1">Sunset walk and light snacks.</p>
+                                    </div>
+                                    <img src="https://images.unsplash.com/photo-1513624285461-4ce8105fb901?auto=format&fit=crop&w=300&q=80" alt="High Line" class="timeline-img" onclick="openModal('High Line & Chelsea Market', 'Sunset walk and light snacks.', 'https://images.unsplash.com/photo-1513624285461-4ce8105fb901?auto=format&fit=crop&w=1080&q=80')">
+                                </div>
+                            </div>
+                            <div class="timeline-item-last">
+                                <div class="timeline-dot-custom"></div>
+                                <div class="timeline-item-content">
+                                    <div class="flex-1">
+                                        <time class="font-bold text-brand-navy block text-sm mb-1">20:30 - 22:30</time>
+                                        <h4 class="text-lg font-bold event-title" onclick="openModal('Rockefeller & Empire State', 'View the iconic buildings at night.', 'https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?auto=format&fit=crop&w=1080&q=80')">Rockefeller & Empire <i class="fas fa-info-circle"></i></h4>
+                                        <p class="text-gray-600 text-sm mt-1">View the iconic buildings at night.</p>
+                                    </div>
+                                    <img src="https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?auto=format&fit=crop&w=300&q=80" alt="Skyline" class="timeline-img" onclick="openModal('Rockefeller & Empire State', 'View the iconic buildings at night.', 'https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?auto=format&fit=crop&w=1080&q=80')">
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="mb-12">
+                        <h3 class="day-header">Thursday, May 14 <span class="text-sm font-sans text-gray-500 ml-2 font-normal">Icons & Bridge</span></h3>
+                        <div class="ml-2 md:ml-4">
+                            <div class="timeline-item">
+                                <div class="timeline-dot-custom"></div>
+                                <div class="timeline-item-content">
+                                    <div class="flex-1">
+                                        <time class="font-bold text-brand-navy block text-sm mb-1">08:30 - 12:00</time>
+                                        <h4 class="text-lg font-bold event-title" onclick="openModal('Statue of Liberty & Ellis Island', 'Reserve first ferry slot.', 'https://images.unsplash.com/photo-1605130284535-11dd9eedc58a?auto=format&fit=crop&w=1080&q=80')">Statue of Liberty <i class="fas fa-info-circle"></i></h4>
+                                        <p class="text-gray-600 text-sm mt-1">Reserve first ferry slot.</p>
+                                    </div>
+                                    <img src="https://images.unsplash.com/photo-1605130284535-11dd9eedc58a?auto=format&fit=crop&w=300&q=80" alt="Statue" class="timeline-img" onclick="openModal('Statue of Liberty & Ellis Island', 'Reserve first ferry slot.', 'https://images.unsplash.com/photo-1605130284535-11dd9eedc58a?auto=format&fit=crop&w=1080&q=80')">
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot-custom"></div>
+                                <div class="timeline-item-content">
+                                    <div class="flex-1">
+                                        <time class="font-bold text-brand-navy block text-sm mb-1">13:00 - 15:30</time>
+                                        <h4 class="text-lg font-bold event-title" onclick="openModal('Twin Towers Memorial (9/11)', 'Prebook museum tickets.', 'https://images.unsplash.com/photo-1546436836-07a91091f11c?auto=format&fit=crop&w=1080&q=80')">9/11 Memorial <i class="fas fa-info-circle"></i></h4>
+                                        <p class="text-gray-600 text-sm mt-1">Prebook museum tickets.</p>
+                                    </div>
+                                    <img src="https://images.unsplash.com/photo-1546436836-07a91091f11c?auto=format&fit=crop&w=300&q=80" alt="9/11" class="timeline-img" onclick="openModal('Twin Towers Memorial (9/11)', 'Prebook museum tickets.', 'https://images.unsplash.com/photo-1546436836-07a91091f11c?auto=format&fit=crop&w=1080&q=80')">
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot-custom"></div>
+                                <div class="timeline-item-content">
+                                    <div class="flex-1">
+                                        <time class="font-bold text-brand-navy block text-sm mb-1">16:00 - 18:30</time>
+                                        <h4 class="text-lg font-bold event-title" onclick="openModal('Brooklyn Supreme Court & Bridge', 'Walk past the court, then over the bridge.', 'https://images.unsplash.com/photo-1500039090688-dc78c06282fb?auto=format&fit=crop&w=1080&q=80')">Brooklyn Bridge <i class="fas fa-info-circle"></i></h4>
+                                        <p class="text-gray-600 text-sm mt-1">Walk past the court, then over the bridge.</p>
+                                    </div>
+                                    <img src="https://images.unsplash.com/photo-1500039090688-dc78c06282fb?auto=format&fit=crop&w=300&q=80" alt="Bridge" class="timeline-img" onclick="openModal('Brooklyn Supreme Court & Bridge', 'Walk past the court, then over the bridge.', 'https://images.unsplash.com/photo-1500039090688-dc78c06282fb?auto=format&fit=crop&w=1080&q=80')">
+                                </div>
+                            </div>
+                            <div class="timeline-item-last">
+                                <div class="timeline-dot-custom"></div>
+                                <div class="timeline-item-content">
+                                    <div class="flex-1">
+                                        <time class="font-bold text-brand-navy block text-sm mb-1">19:30 - 21:30</time>
+                                        <h4 class="text-lg font-bold event-title" onclick="openModal('Dinner in Brooklyn', 'DUMBO views of the Manhattan skyline.', 'https://images.unsplash.com/photo-1507619579562-f2e10fa14316?auto=format&fit=crop&w=1080&q=80')">Dinner in Brooklyn <i class="fas fa-info-circle"></i></h4>
+                                        <p class="text-gray-600 text-sm mt-1">DUMBO views of the Manhattan skyline.</p>
+                                    </div>
+                                    <img src="https://images.unsplash.com/photo-1507619579562-f2e10fa14316?auto=format&fit=crop&w=300&q=80" alt="DUMBO" class="timeline-img" onclick="openModal('Dinner in Brooklyn', 'DUMBO views of the Manhattan skyline.', 'https://images.unsplash.com/photo-1507619579562-f2e10fa14316?auto=format&fit=crop&w=1080&q=80')">
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="mb-12">
+                        <h3 class="day-header">Friday, May 15 <span class="text-sm font-sans text-gray-500 ml-2 font-normal">Central Park & Broadway</span></h3>
+                        <div class="ml-2 md:ml-4">
+                            <div class="timeline-item">
+                                <div class="timeline-dot-custom"></div>
+                                <div class="timeline-item-content">
+                                    <div class="flex-1">
+                                        <time class="font-bold text-brand-navy block text-sm mb-1">09:00 - 11:00</time>
+                                        <h4 class="text-lg font-bold event-title" onclick="openModal('Central Park & Met Gala Steps', 'Classic morning stroll and iconic photos.', 'https://images.unsplash.com/photo-1522083165195-3424ed129620?auto=format&fit=crop&w=1080&q=80')">Central Park <i class="fas fa-info-circle"></i></h4>
+                                        <p class="text-gray-600 text-sm mt-1">Classic morning stroll and iconic photos.</p>
+                                    </div>
+                                    <img src="https://images.unsplash.com/photo-1522083165195-3424ed129620?auto=format&fit=crop&w=300&q=80" alt="Park" class="timeline-img" onclick="openModal('Central Park & Met Gala Steps', 'Classic morning stroll and iconic photos.', 'https://images.unsplash.com/photo-1522083165195-3424ed129620?auto=format&fit=crop&w=1080&q=80')">
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot-custom"></div>
+                                <div class="timeline-item-content">
+                                    <div class="flex-1">
+                                        <time class="font-bold text-brand-navy block text-sm mb-1">11:30 - 13:30</time>
+                                        <h4 class="text-lg font-bold event-title" onclick="openModal('5th Avenue Stroll', 'Window shopping & St. Patrick\'s Cathedral.', 'https://images.unsplash.com/photo-1604514628550-37477afdf4e3?auto=format&fit=crop&w=1080&q=80')">5th Avenue Stroll <i class="fas fa-info-circle"></i></h4>
+                                        <p class="text-gray-600 text-sm mt-1">Window shopping & St. Patrick's Cathedral.</p>
+                                    </div>
+                                    <img src="https://images.unsplash.com/photo-1604514628550-37477afdf4e3?auto=format&fit=crop&w=300&q=80" alt="5th Ave" class="timeline-img" onclick="openModal('5th Avenue Stroll', 'Window shopping & St. Patrick\'s Cathedral.', 'https://images.unsplash.com/photo-1604514628550-37477afdf4e3?auto=format&fit=crop&w=1080&q=80')">
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot-custom"></div>
+                                <div class="timeline-item-content">
+                                    <div class="flex-1">
+                                        <time class="font-bold text-brand-navy block text-sm mb-1">14:00 - 17:00</time>
+                                        <h4 class="text-lg font-bold event-title" onclick="openModal('MoMA', 'Museum of Modern Art.', 'https://images.unsplash.com/photo-1518998053901-5348d3961a04?auto=format&fit=crop&w=1080&q=80')">MoMA <i class="fas fa-info-circle"></i></h4>
+                                        <p class="text-gray-600 text-sm mt-1">Museum of Modern Art.</p>
+                                    </div>
+                                    <img src="https://images.unsplash.com/photo-1518998053901-5348d3961a04?auto=format&fit=crop&w=300&q=80" alt="MoMA" class="timeline-img" onclick="openModal('MoMA', 'Museum of Modern Art.', 'https://images.unsplash.com/photo-1518998053901-5348d3961a04?auto=format&fit=crop&w=1080&q=80')">
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot-custom"></div>
+                                <div class="timeline-item-content">
+                                    <div class="flex-1">
+                                        <time class="font-bold text-brand-navy block text-sm mb-1">17:30 - 19:00</time>
+                                        <h4 class="text-lg font-bold event-title" onclick="openModal('Pre-theater dinner', 'Hell\'s Kitchen area.', 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1080&q=80')">Pre-theater dinner <i class="fas fa-info-circle"></i></h4>
+                                        <p class="text-gray-600 text-sm mt-1">Hell's Kitchen area.</p>
+                                    </div>
+                                    <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=300&q=80" alt="Dinner" class="timeline-img" onclick="openModal('Pre-theater dinner', 'Hell\'s Kitchen area.', 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1080&q=80')">
+                                </div>
+                            </div>
+                            <div class="timeline-item-last">
+                                <div class="timeline-dot-custom"></div>
+                                <div class="timeline-item-content">
+                                    <div class="flex-1">
+                                        <time class="font-bold text-brand-navy block text-sm mb-1">19:00 - 22:00</time>
+                                        <h4 class="text-lg font-bold event-title" onclick="openModal('Broadway: MJ The Musical', 'Book tickets as soon as available!', 'https://images.unsplash.com/photo-1583643194519-906969bdfba3?auto=format&fit=crop&w=1080&q=80')">Broadway: MJ <i class="fas fa-info-circle"></i></h4>
+                                        <p class="text-gray-600 text-sm mt-1">Book tickets as soon as available!</p>
+                                    </div>
+                                    <img src="https://images.unsplash.com/photo-1583643194519-906969bdfba3?auto=format&fit=crop&w=300&q=80" alt="Broadway" class="timeline-img" onclick="openModal('Broadway: MJ The Musical', 'Book tickets as soon as available!', 'https://images.unsplash.com/photo-1583643194519-906969bdfba3?auto=format&fit=crop&w=1080&q=80')">
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="mb-12">
+                        <h3 class="day-header">Saturday, May 16 <span class="text-sm font-sans text-gray-500 ml-2 font-normal">Last Day in NYC</span></h3>
+                        <div class="ml-2 md:ml-4">
+                            <div class="timeline-item">
+                                <div class="timeline-dot-custom"></div>
+                                <div class="timeline-item-content">
+                                    <div class="flex-1">
+                                        <time class="font-bold text-brand-navy block text-sm mb-1">10:00 - 12:30</time>
+                                        <h4 class="text-lg font-bold event-title" onclick="openModal('Morgan Library (JP Morgan)', 'Stunning architecture & historical texts.', 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=1080&q=80')">Morgan Library <i class="fas fa-info-circle"></i></h4>
+                                        <p class="text-gray-600 text-sm mt-1">Stunning architecture & historical texts.</p>
+                                    </div>
+                                    <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=300&q=80" alt="Library" class="timeline-img" onclick="openModal('Morgan Library (JP Morgan)', 'Stunning architecture & historical texts.', 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=1080&q=80')">
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot-custom"></div>
+                                <div class="timeline-item-content">
+                                    <div class="flex-1">
+                                        <time class="font-bold text-brand-navy block text-sm mb-1">13:00 - 17:00</time>
+                                        <h4 class="text-lg font-bold event-title" onclick="openModal('Soho & West Village', 'Free afternoon to explore and shop.', 'https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=1080&q=80')">Soho & Village <i class="fas fa-info-circle"></i></h4>
+                                        <p class="text-gray-600 text-sm mt-1">Free afternoon to explore and shop.</p>
+                                    </div>
+                                    <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=300&q=80" alt="Soho" class="timeline-img" onclick="openModal('Soho & West Village', 'Free afternoon to explore and shop.', 'https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=1080&q=80')">
+                                </div>
+                            </div>
+                            <div class="timeline-item-last">
+                                <div class="timeline-dot-custom"></div>
+                                <div class="timeline-item-content">
+                                    <div class="flex-1">
+                                        <time class="font-bold text-brand-navy block text-sm mb-1">19:30 - 22:00</time>
+                                        <h4 class="text-lg font-bold event-title" onclick="openModal('The Grand Finale Dinner', 'Upscale NYC dining to celebrate it all.', 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1080&q=80')">Grand Finale Dinner <i class="fas fa-info-circle"></i></h4>
+                                        <p class="text-gray-600 text-sm mt-1">Upscale NYC dining to celebrate it all.</p>
+                                    </div>
+                                    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=300&q=80" alt="Dinner" class="timeline-img" onclick="openModal('The Grand Finale Dinner', 'Upscale NYC dining to celebrate it all.', 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1080&q=80')">
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section>
+                        <h3 class="day-header">Sunday, May 17 <span class="text-sm font-sans text-gray-500 ml-2 font-normal">Safe Travels Home</span></h3>
+                        <div class="ml-2 md:ml-4">
+                            <div class="timeline-item-last">
+                                <div class="timeline-dot-custom"></div>
+                                <div class="timeline-item-content">
+                                    <div class="flex-1">
+                                        <time class="font-bold text-brand-navy block text-sm mb-1">10:00 - 15:00</time>
+                                        <h4 class="text-lg font-bold event-title" onclick="openModal('Flight NYC to MEX', 'Sleep on the plane, you earned it!', 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1080&q=80')">Flight Home <i class="fas fa-info-circle"></i></h4>
+                                        <p class="text-gray-600 text-sm mt-1">Sleep on the plane, you earned it!</p>
+                                    </div>
+                                    <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=300&q=80" alt="Flight" class="timeline-img" onclick="openModal('Flight NYC to MEX', 'Sleep on the plane, you earned it!', 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1080&q=80')">
                                 </div>
                             </div>
                         </div>
@@ -602,7 +917,6 @@
         </section>
     </main>
 
-    <!-- Footer -->
     <footer class="bg-brand-navy text-white py-12 text-center border-t-4 border-brand-gold">
         <div class="max-w-4xl mx-auto px-4">
             <h2 class="text-2xl font-serif mb-4">Elite Journeys & Milestones</h2>
@@ -612,7 +926,6 @@
         </div>
     </footer>
 
-    <!-- Interactive Modal -->
     <div id="details-modal"
         class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/60 backdrop-blur-sm opacity-0 transition-opacity duration-300 px-4"
         onclick="closeModal()">
@@ -635,9 +948,7 @@
         </div>
     </div>
 
-    <!-- Interactive Scripts -->
     <script>
-        // Tab switching logic
         function showCity(city) {
             document.querySelectorAll('.city-content').forEach(el => {
                 el.classList.add('hidden');
@@ -659,15 +970,12 @@
             }, 10);
         }
 
-        // Filter Places Logic
         function filterPlaces(category, btn) {
-            // Update filter buttons
             document.querySelectorAll('.place-filter-btn').forEach(el => {
                 el.classList.remove('filter-btn-active');
             });
             btn.classList.add('filter-btn-active');
 
-            // Filter cards
             const cards = document.querySelectorAll('.place-card');
             cards.forEach(card => {
                 if (category === 'all' || card.classList.contains(category)) {
@@ -686,7 +994,6 @@
             });
         }
 
-        // Modal Logic
         function openModal(title, desc, imageSrc) {
             const modal = document.getElementById('details-modal');
             const content = document.getElementById('modal-content');
@@ -704,11 +1011,8 @@
 
             modal.classList.remove('hidden');
             modal.classList.add('flex');
-
-            // Disable background scrolling
             document.body.style.overflow = 'hidden';
 
-            // Trigger animation
             setTimeout(() => {
                 modal.classList.remove('opacity-0');
                 content.classList.remove('scale-95');
@@ -723,17 +1027,14 @@
             modal.classList.add('opacity-0');
             content.classList.remove('scale-100');
             content.classList.add('scale-95');
-
-            // Re-enable background scrolling
             document.body.style.overflow = 'auto';
 
             setTimeout(() => {
                 modal.classList.add('hidden');
                 modal.classList.remove('flex');
-            }, 300); // Matches the duration-300 class
+            }, 300);
         }
 
-        // Listen for ESC key to close modal
         document.addEventListener('keydown', function (event) {
             if (event.key === "Escape") {
                 closeModal();
