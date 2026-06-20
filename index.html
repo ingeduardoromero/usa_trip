@@ -1,171 +1,1089 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eduardo's Graduation & Honeymoon | Elite Travel</title>
-    
-    <!-- External Libraries -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>España · July 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+  <style>
+    /* ─── RESET ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    <!-- Tailwind Configuration -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            gold: '#D4AF37',
-                            navy: '#1A2A3A',
-                            light: '#F8F9FA'
-                        }
-                    },
-                    fontFamily: {
-                        serif: ['"Playfair Display"', 'serif'],
-                        sans: ['Lato', 'sans-serif'],
-                    },
-                    keyframes: {
-                        fadeIn: {
-                            '0%': { opacity: '0', transform: 'translateY(10px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        }
-                    },
-                    animation: {
-                        'fade-in': 'fadeIn 0.5s ease-out forwards',
-                    }
-                }
-            }
-        }
-    </script>
+    /* ─── TOKENS ─── */
+    :root {
+      --cream:       #FAF7F2;
+      --cream-mid:   #F0EBE3;
+      --cream-dark:  #E2D9CF;
+      --ink:         #1C1917;
+      --ink-mid:     #44403C;
+      --ink-light:   #78716C;
+      --white:       #FFFFFF;
 
-    <!-- Modular Assets -->
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <script src="assets/js/main.js" defer></script>
-    <script src="assets/js/renderer.js" defer></script>
+      --c-madrid:    #7A3B4E;
+      --c-sevilla:   #B4491C;
+      --c-cordoba:   #1B4F72;
+      --c-granada:   #8A6900;
+      --c-ibiza:     #1E6B6F;
+      --gold:        #C9983A;
+      --gold-light:  #E8C87A;
+
+      --serif:  'Playfair Display', Georgia, serif;
+      --sans:   'DM Sans', system-ui, -apple-system, sans-serif;
+      --max:    1100px;
+    }
+
+    /* ─── BASE ─── */
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--sans);
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.75;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3, h4 { font-family: var(--serif); line-height: 1.15; }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(250, 247, 242, 0.94);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--cream-dark);
+    }
+    .nav-inner {
+      max-width: var(--max); margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 56px; padding: 0 2rem;
+    }
+    .nav-brand {
+      font-family: var(--serif); font-style: italic; font-size: 1.1rem;
+      color: var(--ink-mid); text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      text-decoration: none; font-size: 0.75rem; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-light);
+      transition: color 0.2s; display: flex; align-items: center; gap: 6px;
+    }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      display: inline-block; flex-shrink: 0;
+    }
+    @media (max-width: 700px) { .nav-links { display: none; } }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+      padding-top: 56px;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        158deg,
+        #2C0A18  0%,
+        #7A3B4E  28%,
+        #B4491C  58%,
+        #C9983A  82%,
+        #E8C87A  100%
+      );
+    }
+    .hero-photo-hint {
+      position: absolute; inset: 0;
+      display: flex; align-items: flex-end; justify-content: flex-start;
+      padding: 1.5rem; z-index: 2; pointer-events: none;
+    }
+    .hero-photo-hint span {
+      font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      background: rgba(0,0,0,0.28);
+      padding: 0.35rem 0.75rem; border-radius: 4px;
+      border: 1px solid rgba(255,255,255,0.14);
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.04) 0%, rgba(0,0,0,0.44) 100%);
+    }
+    .hero-content {
+      position: relative; z-index: 3;
+      text-align: center; color: white;
+      padding: 2rem; max-width: 740px;
+    }
+    .hero-eyebrow {
+      font-size: 0.72rem; letter-spacing: 0.28em; text-transform: uppercase;
+      opacity: 0.7; margin-bottom: 1.5rem; font-weight: 400;
+    }
+    .hero-title {
+      font-family: var(--serif);
+      font-size: clamp(5.5rem, 22vw, 12rem);
+      font-weight: 700; font-style: italic;
+      line-height: 0.88; letter-spacing: -0.02em;
+      margin-bottom: 1.75rem;
+      text-shadow: 0 4px 56px rgba(0,0,0,0.22);
+    }
+    .hero-dates {
+      font-family: var(--serif);
+      font-size: clamp(1.1rem, 3.5vw, 1.7rem);
+      font-weight: 400; opacity: 0.88; margin-bottom: 0.65rem;
+    }
+    .hero-sub {
+      font-size: 0.8rem; letter-spacing: 0.18em;
+      text-transform: uppercase; opacity: 0.55; font-weight: 400;
+    }
+    .hero-scroll {
+      position: absolute; bottom: 2.5rem; left: 50%;
+      transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+      color: rgba(255,255,255,0.5); font-size: 0.65rem;
+      letter-spacing: 0.18em; text-transform: uppercase; z-index: 3;
+      animation: bobble 2.2s ease-in-out infinite;
+    }
+    @keyframes bobble {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50%       { transform: translateX(-50%) translateY(7px); }
+    }
+
+    /* ─── STATS BAR ─── */
+    .stats { background: var(--ink); color: var(--cream); padding: 2.5rem 2rem; }
+    .stats-grid {
+      max-width: var(--max); margin: 0 auto;
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 2rem; text-align: center;
+    }
+    .stat-n {
+      font-family: var(--serif); font-size: 3.2rem; font-weight: 700;
+      color: var(--gold); display: block; line-height: 1; margin-bottom: 0.4rem;
+    }
+    .stat-l {
+      font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase;
+      opacity: 0.52; font-weight: 400;
+    }
+    @media (max-width: 540px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+
+    /* ─── SHARED LAYOUT ─── */
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 2rem; }
+    .eyebrow {
+      font-size: 0.7rem; letter-spacing: 0.26em; text-transform: uppercase;
+      color: var(--ink-light); font-weight: 500; margin-bottom: 0.6rem;
+    }
+
+    /* ─── ROUTE MAP ─── */
+    .route-sec { padding: 5rem 2rem; }
+    .route-title {
+      font-family: var(--serif);
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      margin-bottom: 3rem; color: var(--ink);
+    }
+    .route-scroll { overflow-x: auto; padding-bottom: 1rem; }
+    .route-legend {
+      display: flex; flex-wrap: wrap; gap: 1.25rem;
+      margin-top: 2rem; align-items: center;
+    }
+    .legend-item { display: flex; align-items: center; gap: 0.45rem; }
+    .legend-dot {
+      width: 10px; height: 10px; border-radius: 50%; display: inline-block; flex-shrink: 0;
+    }
+    .legend-dot.outline {
+      background: none; border: 1.5px solid var(--c-cordoba);
+    }
+    .legend-label { font-size: 0.78rem; color: var(--ink-light); }
+
+    /* ─── CITY SECTIONS ─── */
+    .city-sec { padding: 5.5rem 0; position: relative; }
+    .city-sec.alt { background: var(--cream-mid); }
+
+    .city-top {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 4rem; margin-bottom: 3.5rem; align-items: start;
+    }
+    @media (max-width: 768px) {
+      .city-top { grid-template-columns: 1fr; gap: 2rem; }
+    }
+
+    .city-bar {
+      height: 4px; width: 48px; border-radius: 2px;
+      background: var(--cc, var(--c-madrid));
+      margin-bottom: 1.25rem;
+    }
+    .city-tag {
+      font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--cc, var(--c-madrid)); font-weight: 500; margin-bottom: 0.4rem;
+    }
+    .city-name {
+      font-family: var(--serif);
+      font-size: clamp(2.8rem, 9vw, 5.5rem);
+      font-weight: 700; font-style: italic;
+      line-height: 0.92; color: var(--ink); margin-bottom: 0.6rem;
+    }
+    .city-nights {
+      font-size: 0.82rem; color: var(--ink-light);
+      margin-bottom: 1.5rem; letter-spacing: 0.04em;
+    }
+    .city-desc {
+      font-size: 1.02rem; color: var(--ink-mid);
+      max-width: 44ch; font-weight: 300; line-height: 1.82;
+    }
+
+    /* Hotel card */
+    .hotel {
+      background: var(--white); border-radius: 14px;
+      padding: 2rem; border: 1px solid var(--cream-dark);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.04);
+    }
+    .hotel-label {
+      font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--ink-light); font-weight: 500; margin-bottom: 0.6rem;
+    }
+    .hotel-name {
+      font-family: var(--serif); font-size: 1.15rem;
+      font-weight: 600; color: var(--ink); margin-bottom: 0.3rem;
+    }
+    .hotel-loc { font-size: 0.82rem; color: var(--ink-light); margin-bottom: 1rem; }
+    hr.thin { border: none; border-top: 1px solid var(--cream-dark); margin: 0.9rem 0; }
+    .hotel-dates { font-size: 0.8rem; color: var(--cc, var(--c-madrid)); font-weight: 500; }
+    .hotel-tags { margin-top: 0.75rem; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .htag {
+      font-size: 0.68rem; letter-spacing: 0.06em;
+      background: var(--cream); border: 1px solid var(--cream-dark);
+      border-radius: 100px; padding: 0.2rem 0.65rem; color: var(--ink-mid);
+    }
+
+    /* Days grid */
+    .days {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(248px, 1fr));
+      gap: 1.1rem; margin-bottom: 3rem;
+    }
+    .day {
+      background: var(--white); border-radius: 12px;
+      padding: 1.4rem 1.5rem 1.4rem 1.75rem;
+      border: 1px solid var(--cream-dark);
+      position: relative; overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .day:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.07);
+    }
+    .day::before {
+      content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+      width: 3px; background: var(--cc, var(--c-madrid));
+    }
+    .day-n {
+      font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--ink-light); font-weight: 500; margin-bottom: 0.2rem;
+    }
+    .day-d {
+      font-family: var(--serif); font-size: 0.95rem;
+      font-weight: 600; color: var(--ink); margin-bottom: 0.35rem;
+    }
+    .day-ttl {
+      font-size: 0.88rem; font-weight: 500;
+      color: var(--cc, var(--c-madrid)); margin-bottom: 0.4rem;
+    }
+    .day-txt { font-size: 0.82rem; color: var(--ink-light); line-height: 1.65; }
+
+    /* Photo placeholders */
+    .photos {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 0.9rem;
+    }
+    @media (max-width: 600px) {
+      .photos { grid-template-columns: 1fr 1fr; }
+      .photos .photo:last-child { display: none; }
+    }
+    .photo {
+      border-radius: 10px; overflow: hidden;
+      position: relative; aspect-ratio: 2 / 3;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center; padding: 1rem;
+    }
+    .photo-lbl {
+      font-size: 0.78rem; font-weight: 500;
+      color: rgba(255,255,255,0.92);
+      text-shadow: 0 1px 4px rgba(0,0,0,0.45);
+      margin-bottom: 0.5rem; letter-spacing: 0.03em;
+    }
+    .replace-badge {
+      font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
+      background: rgba(0,0,0,0.22);
+      padding: 0.2rem 0.55rem; border-radius: 3px;
+      border: 1px solid rgba(255,255,255,0.25);
+    }
+
+    /* ─── HIGHLIGHT CARDS (concerts) ─── */
+    .highlight {
+      padding: 7rem 2rem; position: relative; overflow: hidden;
+      text-align: center;
+    }
+    .h-bg { position: absolute; inset: 0; }
+    .h-overlay {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at center, transparent 20%, rgba(0,0,0,0.38) 100%);
+    }
+    .h-content {
+      position: relative; z-index: 1;
+      max-width: 580px; margin: 0 auto; color: white;
+    }
+    .h-badge {
+      display: inline-block; font-size: 0.62rem; letter-spacing: 0.28em;
+      text-transform: uppercase; font-weight: 500;
+      padding: 0.38rem 0.9rem;
+      border: 1px solid rgba(255,255,255,0.45); border-radius: 100px;
+      margin-bottom: 2rem; opacity: 0.9;
+    }
+    .h-presenter {
+      font-size: 0.68rem; letter-spacing: 0.28em; text-transform: uppercase;
+      opacity: 0.52; margin-bottom: 0.35rem;
+    }
+    .h-artist {
+      font-family: var(--serif);
+      font-size: clamp(2.8rem, 10vw, 5.8rem);
+      font-weight: 700; font-style: italic; line-height: 0.9;
+      text-shadow: 0 4px 40px rgba(0,0,0,0.3);
+      margin-bottom: 0.75rem;
+    }
+    .h-venue { font-size: 1rem; opacity: 0.82; margin-bottom: 0.35rem; }
+    .h-details { font-size: 0.82rem; opacity: 0.56; letter-spacing: 0.05em; }
+    .h-ornament { margin: 1.75rem 0; font-size: 1.1rem; opacity: 0.38; letter-spacing: 0.5em; }
+    .h-blurb {
+      font-size: 0.9rem; opacity: 0.72;
+      max-width: 36ch; margin: 0 auto; line-height: 1.7;
+    }
+
+    /* ─── CÓRDOBA INSET CARD ─── */
+    .cordoba-card {
+      background: var(--c-cordoba); color: white;
+      border-radius: 14px; overflow: hidden; margin: 2rem 0;
+    }
+    .cordoba-head {
+      background: rgba(0,0,0,0.18); padding: 1.25rem 2rem;
+      display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
+    }
+    .cordoba-head h3 {
+      font-family: var(--serif); font-size: 1.4rem; font-style: italic;
+    }
+    .cordoba-badge {
+      font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
+      background: rgba(255,255,255,0.14);
+      padding: 0.25rem 0.65rem; border-radius: 100px; font-weight: 500;
+    }
+    .cordoba-body {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem; padding: 2rem;
+    }
+    @media (max-width: 600px) {
+      .cordoba-body { grid-template-columns: 1fr; gap: 1.25rem; }
+    }
+    .cordoba-stop h4 {
+      font-family: var(--serif); font-size: 1rem;
+      font-weight: 600; margin-bottom: 0.4rem;
+    }
+    .cordoba-stop p { font-size: 0.82rem; opacity: 0.75; line-height: 1.65; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--ink); color: var(--cream);
+      text-align: center; padding: 5rem 2rem;
+    }
+    .foot-title {
+      font-family: var(--serif); font-size: 2rem;
+      font-style: italic; color: var(--gold); margin-bottom: 0.75rem;
+    }
+    .foot-divider {
+      width: 40px; height: 1px; background: rgba(255,255,255,0.12);
+      margin: 1.5rem auto;
+    }
+    .foot-sub { font-size: 0.78rem; opacity: 0.35; letter-spacing: 0.12em; }
+
+    /* ─── FADE-IN ANIMATION ─── */
+    .fade {
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .fade.in { opacity: 1; transform: translateY(0); }
+
+    /* ─── ORNAMENTAL RULE ─── */
+    .orn-rule {
+      display: flex; align-items: center; gap: 1.5rem;
+      padding: 3rem 0;
+    }
+    .orn-rule::before, .orn-rule::after {
+      content: ''; flex: 1; height: 1px; background: var(--cream-dark);
+    }
+    .orn-rule span { color: var(--gold); font-size: 0.9rem; }
+
+    /* ─── MISC ─── */
+    .mt-2 { margin-top: 2rem; }
+    .section-gap { padding-top: 3.5rem; }
+  </style>
 </head>
+<body>
 
-<body class="font-sans text-gray-800 bg-brand-light antialiased pb-20 md:pb-0 relative">
+<!-- ══════════════════════════════════════
+     NAV
+══════════════════════════════════════ -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="#top">España '26</a>
+    <ul class="nav-links">
+      <li><a href="#madrid"><span class="nav-dot" style="background:var(--c-madrid)"></span>Madrid</a></li>
+      <li><a href="#sevilla"><span class="nav-dot" style="background:var(--c-sevilla)"></span>Sevilla</a></li>
+      <li><a href="#granada"><span class="nav-dot" style="background:var(--c-granada)"></span>Granada</a></li>
+      <li><a href="#ibiza"><span class="nav-dot" style="background:var(--c-ibiza)"></span>Ibiza</a></li>
+    </ul>
+  </div>
+</nav>
 
-    <!-- Top Navigation -->
-    <nav class="fixed w-full z-50 bg-brand-navy/95 backdrop-blur-sm text-white py-4 px-6 shadow-md transition-all">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <div class="text-xl md:text-2xl font-serif font-bold tracking-wider text-brand-gold">
-                <i class="fas fa-compass mr-2"></i>ELITE JOURNEYS
-            </div>
-            <div class="hidden md:flex space-x-8 text-sm uppercase tracking-widest items-center">
-                <a href="#overview" class="hover:text-brand-gold transition-colors">The Vision</a>
-                <a href="#destinations" class="hover:text-brand-gold transition-colors">Featured Places</a>
-                <a href="#itinerary" class="hover:text-brand-gold transition-colors">Master Itinerary</a>
-                <button onclick="window.print()"
-                    class="text-brand-navy bg-brand-gold hover:bg-white px-4 py-2 rounded transition-colors font-bold">
-                    <i class="fas fa-print mr-1"></i> Print
-                </button>
-            </div>
-            <div class="md:hidden flex items-center">
-                <button onclick="window.print()" class="text-brand-gold mr-4"><i class="fas fa-print"></i></button>
-            </div>
-        </div>
-    </nav>
+<!-- ══════════════════════════════════════
+     HERO
+══════════════════════════════════════ -->
+<section class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="hero-photo-hint">
+    <span>Alhambra at golden hour · Granada — replace with your photo</span>
+  </div>
+  <div class="hero-overlay"></div>
 
-    <!-- Bottom Navigation (Mobile) -->
-    <div class="md:hidden fixed bottom-0 w-full bg-white border-t border-gray-200 z-50 flex justify-around py-3 pb-safe shadow-[0_-2px_10px_rgba(0,0,0,0.05)]">
-        <a href="#overview" class="flex flex-col items-center text-gray-500 hover:text-brand-navy">
-            <i class="fas fa-eye text-lg mb-1"></i>
-            <span class="text-[10px] uppercase font-bold tracking-widest">Vision</span>
-        </a>
-        <a href="#destinations" class="flex flex-col items-center text-gray-500 hover:text-brand-navy">
-            <i class="fas fa-map-marked-alt text-lg mb-1"></i>
-            <span class="text-[10px] uppercase font-bold tracking-widest">Places</span>
-        </a>
-        <a href="#itinerary" class="flex flex-col items-center text-brand-gold">
-            <i class="fas fa-calendar-alt text-lg mb-1"></i>
-            <span class="text-[10px] uppercase font-bold tracking-widest">Schedule</span>
-        </a>
+  <div class="hero-content">
+    <p class="hero-eyebrow">17 days through Andalucía &amp; beyond</p>
+    <h1 class="hero-title">España</h1>
+    <p class="hero-dates">11 – 27 July, 2026</p>
+    <p class="hero-sub">Madrid &nbsp;·&nbsp; Sevilla &nbsp;·&nbsp; Córdoba &nbsp;·&nbsp; Granada &nbsp;·&nbsp; Ibiza</p>
+  </div>
+
+  <div class="hero-scroll">
+    <svg width="14" height="22" viewBox="0 0 14 22" fill="none" aria-hidden="true">
+      <rect x="1" y="1" width="12" height="20" rx="6" stroke="white" stroke-width="1.5" opacity=".55"/>
+      <circle cx="7" cy="6.5" r="1.8" fill="white" opacity=".55"/>
+    </svg>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     STATS BAR
+══════════════════════════════════════ -->
+<div class="stats">
+  <div class="stats-grid">
+    <div><span class="stat-n">17</span><span class="stat-l">Days</span></div>
+    <div><span class="stat-n">6</span><span class="stat-l">Destinations</span></div>
+    <div><span class="stat-n">13</span><span class="stat-l">Hotel Nights</span></div>
+    <div><span class="stat-n">2</span><span class="stat-l">Legendary Shows</span></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     ROUTE MAP
+══════════════════════════════════════ -->
+<section class="route-sec" id="route">
+  <div class="wrap">
+    <p class="eyebrow">The Journey</p>
+    <h2 class="route-title">Our Route</h2>
+
+    <div class="route-scroll">
+      <svg viewBox="0 0 900 250" fill="none" xmlns="http://www.w3.org/2000/svg"
+           style="min-width:640px; width:100%; display:block;"
+           aria-label="Trip route map from Mexico to Madrid, Sevilla, Granada, Ibiza and back">
+
+        <!-- Main dashed path -->
+        <path d="M55 122 Q135 122 208 122 Q268 158 340 158 Q388 158 455 158 Q502 122 555 122 Q608 134 668 128 Q720 122 762 122 Q810 122 842 122"
+              stroke="#E2D9CF" stroke-width="2" stroke-dasharray="5 4"/>
+
+        <!-- Toledo branch -->
+        <line x1="270" y1="122" x2="270" y2="190" stroke="#E2D9CF" stroke-width="1.5" stroke-dasharray="3 3"/>
+        <circle cx="270" cy="196" r="5.5" fill="none" stroke="#1B4F72" stroke-width="1.5"/>
+        <text x="270" y="214" text-anchor="middle"
+              font-family="DM Sans, sans-serif" font-size="9.5" fill="#1B4F72">Toledo</text>
+        <text x="270" y="228" text-anchor="middle"
+              font-family="DM Sans, sans-serif" font-size="8" fill="#A8A29E">day trip · Jul 14</text>
+
+        <!-- Córdoba branch -->
+        <line x1="397" y1="158" x2="397" y2="200" stroke="#E2D9CF" stroke-width="1.5" stroke-dasharray="3 3"/>
+        <circle cx="397" cy="206" r="5.5" fill="none" stroke="#1B4F72" stroke-width="1.5"/>
+        <text x="397" y="220" text-anchor="middle"
+              font-family="DM Sans, sans-serif" font-size="9.5" fill="#1B4F72">Córdoba</text>
+        <text x="397" y="234" text-anchor="middle"
+              font-family="DM Sans, sans-serif" font-size="8" fill="#A8A29E">day trip · Jul 18</text>
+
+        <!-- MÉXICO -->
+        <circle cx="40" cy="122" r="6" fill="#78716C"/>
+        <text x="40" y="95" text-anchor="middle"
+              font-family="DM Sans, sans-serif" font-size="9" fill="#78716C" letter-spacing="0.8">MÉXICO</text>
+        <text x="40" y="108" text-anchor="middle"
+              font-family="DM Sans, sans-serif" font-size="8" fill="#A8A29E">Jul 11</text>
+
+        <!-- Plane MEX → MAD -->
+        <text x="125" y="109" text-anchor="middle" font-size="15" fill="#A8A29E">✈</text>
+        <text x="125" y="138" text-anchor="middle"
+              font-family="DM Sans, sans-serif" font-size="7.5" fill="#C9983A">overnight</text>
+
+        <!-- MADRID -->
+        <circle cx="208" cy="122" r="10" fill="#7A3B4E"/>
+        <text x="208" y="88" text-anchor="middle"
+              font-family="Playfair Display, serif" font-size="13" fill="#7A3B4E" font-style="italic">Madrid</text>
+        <text x="208" y="102" text-anchor="middle"
+              font-family="DM Sans, sans-serif" font-size="8" fill="#A8A29E">Jul 12–14</text>
+        <text x="208" y="148" text-anchor="middle"
+              font-family="DM Sans, sans-serif" font-size="8.5" fill="#78716C">3 nights</text>
+
+        <!-- Train MAD → SEV -->
+        <text x="274" y="110" text-anchor="middle" font-size="13">🚄</text>
+
+        <!-- SEVILLA -->
+        <circle cx="340" cy="158" r="10" fill="#B4491C"/>
+        <text x="340" y="124" text-anchor="middle"
+              font-family="Playfair Display, serif" font-size="13" fill="#B4491C" font-style="italic">Sevilla</text>
+        <text x="340" y="138" text-anchor="middle"
+              font-family="DM Sans, sans-serif" font-size="8" fill="#A8A29E">Jul 15–18</text>
+        <text x="340" y="184" text-anchor="middle"
+              font-family="DM Sans, sans-serif" font-size="8.5" fill="#78716C">3 nights</text>
+
+        <!-- Train SEV → GRA -->
+        <text x="462" y="148" text-anchor="middle" font-size="13">🚄</text>
+
+        <!-- GRANADA -->
+        <circle cx="555" cy="122" r="10" fill="#8A6900"/>
+        <text x="555" y="88" text-anchor="middle"
+              font-family="Playfair Display, serif" font-size="13" fill="#8A6900" font-style="italic">Granada</text>
+        <text x="555" y="102" text-anchor="middle"
+              font-family="DM Sans, sans-serif" font-size="8" fill="#A8A29E">Jul 19–21</text>
+        <text x="555" y="148" text-anchor="middle"
+              font-family="DM Sans, sans-serif" font-size="8.5" fill="#78716C">2 nights</text>
+
+        <!-- Plane GRA → IBZ via MAD -->
+        <text x="618" y="110" text-anchor="middle" font-size="15" fill="#A8A29E">✈</text>
+        <text x="618" y="135" text-anchor="middle"
+              font-family="DM Sans, sans-serif" font-size="7.5" fill="#C9983A">via Madrid</text>
+
+        <!-- IBIZA -->
+        <circle cx="668" cy="128" r="10" fill="#1E6B6F"/>
+        <text x="668" y="94" text-anchor="middle"
+              font-family="Playfair Display, serif" font-size="13" fill="#1E6B6F" font-style="italic">Ibiza</text>
+        <text x="668" y="108" text-anchor="middle"
+              font-family="DM Sans, sans-serif" font-size="8" fill="#A8A29E">Jul 21–25</text>
+        <text x="668" y="154" text-anchor="middle"
+              font-family="DM Sans, sans-serif" font-size="8.5" fill="#78716C">4 nights</text>
+
+        <!-- Plane IBZ → MAD return -->
+        <text x="722" y="116" text-anchor="middle" font-size="14" fill="#A8A29E">✈</text>
+
+        <!-- MADRID return -->
+        <circle cx="762" cy="122" r="8" fill="#7A3B4E" opacity=".52"/>
+        <text x="762" y="91" text-anchor="middle"
+              font-family="Playfair Display, serif" font-size="11" fill="#7A3B4E" opacity=".7" font-style="italic">Madrid</text>
+        <text x="762" y="104" text-anchor="middle"
+              font-family="DM Sans, sans-serif" font-size="7.5" fill="#A8A29E">Jul 25–26</text>
+
+        <!-- Plane home -->
+        <text x="808" y="116" text-anchor="middle" font-size="14" fill="#A8A29E">✈</text>
+        <text x="845" y="122" text-anchor="middle"
+              font-family="DM Sans, sans-serif" font-size="9.5" fill="#78716C">MEX</text>
+      </svg>
     </div>
 
-    <main>
-        <!-- Hero -->
-        <header class="hero-bg h-[100svh] flex items-center justify-center text-center px-4 pt-16">
-            <div class="max-w-4xl text-white">
-                <p class="text-brand-gold tracking-[0.3em] uppercase text-sm md:text-base mb-4 font-semibold">May 7 - May 17, 2026</p>
-                <h1 class="text-5xl md:text-7xl font-serif font-bold mb-6 leading-tight">Eduardo's Graduation <br> <span class="italic font-light">& Honeymoon</span></h1>
-                <p class="text-lg md:text-xl font-light mb-10 max-w-2xl mx-auto">Celebrating a Master's Degree from Carnegie Mellon University, followed by an unforgettable romantic escape through America's greatest cities.</p>
-                <a href="#itinerary" class="inline-block border-2 border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-brand-navy px-8 py-3 uppercase tracking-widest text-sm transition-all duration-300 font-bold">View The Itinerary</a>
-            </div>
-        </header>
-
-        <!-- Vision -->
-        <section id="overview" class="py-20 px-6 max-w-5xl mx-auto text-center scroll-mt-16">
-            <h2 class="text-3xl md:text-4xl font-serif font-bold text-brand-navy mb-6">A Journey of Achievement & Romance</h2>
-            <div class="w-24 h-1 bg-brand-gold mx-auto mb-8"></div>
-            <p class="text-lg text-gray-600 leading-relaxed mb-10">
-                From the prestigious halls of Carnegie Mellon University in Pittsburgh, to the historic monuments of Washington D.C., and culminating in the vibrant, luxurious energy of New York City.
-            </p>
-        </section>
-
-        <!-- Dynamic Places Section -->
-        <section id="destinations" class="py-20 px-6 max-w-7xl mx-auto scroll-mt-16">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-serif font-bold text-brand-navy mb-6">Discover the Destinations</h2>
-                <div class="flex flex-wrap justify-center gap-3 mb-12">
-                    <button onclick="filterPlaces('all', this)" class="place-filter-btn filter-btn-active px-6 py-2.5 rounded-full bg-white border border-gray-200 text-brand-navy font-bold text-sm transition-all shadow-sm">All Highlights</button>
-                    <button onclick="filterPlaces('pit', this)" class="place-filter-btn px-6 py-2.5 rounded-full bg-white border border-gray-200 text-brand-navy font-bold text-sm hover:bg-gray-50 transition-all shadow-sm">Pittsburgh (CMU)</button>
-                    <button onclick="filterPlaces('dc', this)" class="place-filter-btn px-6 py-2.5 rounded-full bg-white border border-gray-200 text-brand-navy font-bold text-sm hover:bg-gray-50 transition-all shadow-sm">Washington D.C.</button>
-                    <button onclick="filterPlaces('nyc', this)" class="place-filter-btn px-6 py-2.5 rounded-full bg-white border border-gray-200 text-brand-navy font-bold text-sm hover:bg-gray-50 transition-all shadow-sm">New York City</button>
-                </div>
-            </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8" id="places-grid">
-                <!-- Rendered by renderer.js -->
-            </div>
-        </section>
-
-        <!-- Dynamic Itinerary Section -->
-        <section id="itinerary" class="py-20 bg-white scroll-mt-16">
-            <div class="max-w-4xl mx-auto px-4 md:px-6">
-                <h2 class="text-3xl md:text-4xl font-serif font-bold text-brand-navy mb-4 text-center">Your Master Itinerary</h2>
-                <div class="flex overflow-x-auto whitespace-nowrap scrollbar-hide border-b border-gray-200 mb-10 pb-1 md:justify-center">
-                    <button onclick="showCity('pit')" id="btn-pit" class="px-6 py-4 font-bold uppercase tracking-wider text-sm tab-active text-brand-navy transition-colors shrink-0">Pittsburgh (May 7-10)</button>
-                    <button onclick="showCity('dc')" id="btn-dc" class="px-6 py-4 font-bold uppercase tracking-wider text-sm text-gray-400 hover:text-brand-navy transition-colors shrink-0">Washington D.C. (May 11-12)</button>
-                    <button onclick="showCity('nyc')" id="btn-nyc" class="px-6 py-4 font-bold uppercase tracking-wider text-sm text-gray-400 hover:text-brand-navy transition-colors shrink-0">New York City (May 13-17)</button>
-                </div>
-                <div id="itinerary-tabs-content">
-                    <!-- Rendered by renderer.js -->
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-brand-navy text-white py-12 text-center border-t-4 border-brand-gold">
-        <div class="max-w-4xl mx-auto px-4">
-            <h2 class="text-2xl font-serif mb-4">Elite Journeys & Milestones</h2>
-            <p class="text-gray-400 text-sm mb-6">Curated exclusively for Eduardo Angel Romero Diaz and his beloved wife.</p>
-            <p class="text-brand-gold font-bold tracking-widest uppercase text-xs">See you in Pittsburgh!</p>
-        </div>
-    </footer>
-
-    <!-- Interactive Modal -->
-    <div id="details-modal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/60 backdrop-blur-sm opacity-0 transition-opacity duration-300 px-4" onclick="closeModal()">
-        <div class="bg-white rounded-lg shadow-2xl max-w-lg w-full overflow-hidden transform scale-95 transition-transform duration-300 relative" id="modal-content" onclick="event.stopPropagation()">
-            <button onclick="closeModal()" class="absolute top-4 right-4 bg-white/70 hover:bg-white rounded-full w-8 h-8 flex items-center justify-center text-brand-navy z-10 backdrop-blur shadow-sm transition">
-                <i class="fas fa-times"></i>
-            </button>
-            <img id="modal-image" src="" alt="Location" class="w-full h-48 md:h-64 object-cover hidden">
-            <div class="p-6 md:p-8">
-                <h3 id="modal-title" class="text-2xl font-serif text-brand-navy mb-3">Title</h3>
-                <div class="w-12 h-1 bg-brand-gold mb-4"></div>
-                <p id="modal-desc" class="text-gray-600 leading-relaxed mb-6">Description</p>
-                <div class="flex justify-end">
-                    <button onclick="closeModal()" class="px-6 py-2 border-2 border-brand-navy text-brand-navy rounded hover:bg-brand-navy hover:text-white transition-colors font-bold text-xs tracking-widest uppercase">Close</button>
-                </div>
-            </div>
-        </div>
+    <!-- Legend -->
+    <div class="route-legend">
+      <span class="eyebrow" style="margin:0">Legend:</span>
+      <div class="legend-item">
+        <span class="legend-dot" style="background:#7A3B4E"></span>
+        <span class="legend-label">Madrid</span>
+      </div>
+      <div class="legend-item">
+        <span class="legend-dot" style="background:#B4491C"></span>
+        <span class="legend-label">Sevilla</span>
+      </div>
+      <div class="legend-item">
+        <span class="legend-dot" style="background:#8A6900"></span>
+        <span class="legend-label">Granada</span>
+      </div>
+      <div class="legend-item">
+        <span class="legend-dot" style="background:#1E6B6F"></span>
+        <span class="legend-label">Ibiza</span>
+      </div>
+      <div class="legend-item">
+        <span class="legend-dot outline"></span>
+        <span class="legend-label">Day trips</span>
+      </div>
     </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     MADRID
+══════════════════════════════════════ -->
+<section class="city-sec" id="madrid" style="--cc: var(--c-madrid)">
+  <div class="wrap">
+
+    <div class="city-top">
+      <!-- Left: identity + description -->
+      <div>
+        <div class="city-bar"></div>
+        <p class="city-tag">Days 1 – 4</p>
+        <h2 class="city-name">Madrid</h2>
+        <p class="city-nights">3 nights &nbsp;·&nbsp; July 12 – 14, 2026</p>
+        <p class="city-desc">The Spanish capital opens its arms: grand Baroque boulevards, a golden art triangle, and the infectious energy of a city that never quite sleeps. We arrive and let Madrid wash over us slowly — Retiro's lake at dusk, Mercado de San Miguel, tapas on Cava Baja until late.</p>
+      </div>
+      <!-- Right: hotel -->
+      <div class="hotel fade">
+        <p class="hotel-label">Where we stay</p>
+        <p class="hotel-name">Boutique Hotel — Barrio de las Letras</p>
+        <p class="hotel-loc">Literary Quarter · Central Madrid</p>
+        <hr class="thin">
+        <p class="hotel-dates">Check-in Sun 12 Jul &nbsp;·&nbsp; Check-out Wed 15 Jul</p>
+        <div class="hotel-tags">
+          <span class="htag">Walking distance to the Prado</span>
+          <span class="htag">Steps from Huertas</span>
+          <span class="htag">Rooftop terrace</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Days -->
+    <div class="days">
+      <div class="day fade">
+        <p class="day-n">Day 1 &nbsp;·&nbsp; Saturday</p>
+        <p class="day-d">July 11</p>
+        <p class="day-ttl">México City → Madrid ✈</p>
+        <p class="day-txt">Board the overnight flight. Spain waits on the other side of the night.</p>
+      </div>
+      <div class="day fade">
+        <p class="day-n">Day 2 &nbsp;·&nbsp; Sunday</p>
+        <p class="day-d">July 12</p>
+        <p class="day-ttl">Arrival &amp; First Steps</p>
+        <p class="day-txt">Land in Barajas, check in to the hotel, and let the city ease you in. A slow walk through Retiro, a long lunch, maybe a nap. No rush — the trip has just begun.</p>
+      </div>
+      <div class="day fade">
+        <p class="day-n">Day 3 &nbsp;·&nbsp; Monday</p>
+        <p class="day-d">July 13</p>
+        <p class="day-ttl">Full Day — Madrid</p>
+        <p class="day-txt">The Prado or Reina Sofía in the morning. Gran Vía in the afternoon. Aperitivo hour on Malasaña. Dinner late, as Madrileños do it best.</p>
+      </div>
+      <div class="day fade">
+        <p class="day-n">Day 4 &nbsp;·&nbsp; Tuesday</p>
+        <p class="day-d">July 14</p>
+        <p class="day-ttl">Toledo Day Trip</p>
+        <p class="day-txt">45 minutes south by AVE and you're in another world entirely. Ancient city of three cultures — the Cathedral, El Greco's Burial of the Count of Orgaz, winding medieval lanes. Back to Madrid for dinner.</p>
+      </div>
+    </div>
+
+    <!-- Photos -->
+    <div class="photos">
+      <div class="photo fade" style="background: linear-gradient(145deg, #4C1828, #9E4F6A)">
+        <p class="photo-lbl">Gran Vía at Night</p>
+        <span class="replace-badge">Replace me</span>
+      </div>
+      <div class="photo fade" style="background: linear-gradient(145deg, #7A3B4E, #C47090)">
+        <p class="photo-lbl">Parque del Retiro</p>
+        <span class="replace-badge">Replace me</span>
+      </div>
+      <div class="photo fade" style="background: linear-gradient(145deg, #3E0E20, #7A3B4E)">
+        <p class="photo-lbl">Mercado de San Miguel</p>
+        <span class="replace-badge">Replace me</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     SEVILLA
+══════════════════════════════════════ -->
+<section class="city-sec alt" id="sevilla" style="--cc: var(--c-sevilla)">
+  <div class="wrap">
+
+    <div class="city-top">
+      <div>
+        <div class="city-bar"></div>
+        <p class="city-tag">Days 5 – 8</p>
+        <h2 class="city-name">Sevilla</h2>
+        <p class="city-nights">3 nights &nbsp;·&nbsp; July 15 – 18, 2026</p>
+        <p class="city-desc">The city of flamenco, orange blossoms, and Moorish grandeur. Narrow whitewashed lanes lead to hidden plazas. The Giralda towers above and the Guadalquivir shimmers gold below. And then — a concert under the stars at one of Spain's most iconic settings.</p>
+      </div>
+      <div class="hotel fade">
+        <p class="hotel-label">Where we stay</p>
+        <p class="hotel-name">Hotel Boutique Casas de Santa Cruz</p>
+        <p class="hotel-loc">Barrio de Santa Cruz · Sevilla</p>
+        <hr class="thin">
+        <p class="hotel-dates">Check-in Wed 15 Jul &nbsp;·&nbsp; Check-out Sun 19 Jul</p>
+        <div class="hotel-tags">
+          <span class="htag">Heart of the old quarter</span>
+          <span class="htag">Steps from the Cathedral</span>
+          <span class="htag">Traditional Andalusian patio</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Days -->
+    <div class="days">
+      <div class="day fade">
+        <p class="day-n">Day 5 &nbsp;·&nbsp; Wednesday</p>
+        <p class="day-d">July 15</p>
+        <p class="day-ttl">Madrid → Sevilla 🚄</p>
+        <p class="day-txt">The AVE south. Two and a half hours as the landscape shifts — olive groves, burnt sienna earth, and suddenly Sevilla's rooftops. Afternoon to settle in and get lost in the barrio.</p>
+      </div>
+      <div class="day fade">
+        <p class="day-n">Day 6 &nbsp;·&nbsp; Thursday</p>
+        <p class="day-d">July 16</p>
+        <p class="day-ttl">Free Day → Jamiroquai ★</p>
+        <p class="day-txt">Wander the Barrio de Santa Cruz, visit the Alcázar gardens, lunch somewhere perfect. Then dress up, head to Plaza de España as the golden hour hits — and dance.</p>
+      </div>
+      <div class="day fade">
+        <p class="day-n">Day 7 &nbsp;·&nbsp; Friday</p>
+        <p class="day-d">July 17</p>
+        <p class="day-ttl">Recovery Day</p>
+        <p class="day-txt">A slow morning, rooftop breakfast, maybe a long tapas crawl across the river into Triana. Sevilla rewards those who wander without a plan.</p>
+      </div>
+      <div class="day fade">
+        <p class="day-n">Day 8 &nbsp;·&nbsp; Saturday</p>
+        <p class="day-d">July 18</p>
+        <p class="day-ttl">Córdoba Day Trip 🏛</p>
+        <p class="day-txt">45 minutes north by AVE. La Mezquita, the Judería, the Alcázar gardens — Córdoba packs centuries into one extraordinary day. Back to Sevilla for a last dinner.</p>
+      </div>
+    </div>
+
+    <!-- Córdoba inset card -->
+    <div class="cordoba-card fade">
+      <div class="cordoba-head">
+        <h3>Córdoba</h3>
+        <span class="cordoba-badge">Day Trip · Saturday, July 18</span>
+      </div>
+      <div class="cordoba-body">
+        <div class="cordoba-stop">
+          <h4>La Mezquita</h4>
+          <p>A mosque-cathedral that defies easy description. Eight hundred red-and-white arches stretching into near-infinity — one of humanity's supreme architectural achievements.</p>
+        </div>
+        <div class="cordoba-stop">
+          <h4>La Judería</h4>
+          <p>The medieval Jewish quarter — a labyrinth of whitewashed lanes, flower-draped courtyards, and the quiet hum of centuries. Don't miss the ancient Synagogue.</p>
+        </div>
+        <div class="cordoba-stop">
+          <h4>Alcázar Gardens</h4>
+          <p>Terraced Moorish gardens with Roman mosaics and reflecting pools. The perfect afternoon cool-down before the train back south to Sevilla.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Photos -->
+    <div class="photos mt-2">
+      <div class="photo fade" style="background: linear-gradient(145deg, #7A2010, #D4643A)">
+        <p class="photo-lbl">Plaza de España</p>
+        <span class="replace-badge">Replace me</span>
+      </div>
+      <div class="photo fade" style="background: linear-gradient(145deg, #B4491C, #E8844A)">
+        <p class="photo-lbl">Barrio de Santa Cruz</p>
+        <span class="replace-badge">Replace me</span>
+      </div>
+      <div class="photo fade" style="background: linear-gradient(145deg, #8A2E10, #C44A20)">
+        <p class="photo-lbl">Sevilla Cathedral &amp; Giralda</p>
+        <span class="replace-badge">Replace me</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     HIGHLIGHT: JAMIROQUAI
+══════════════════════════════════════ -->
+<section class="highlight" id="jamiroquai">
+  <div class="h-bg"
+       style="background: linear-gradient(140deg, #1A0A2E 0%, #4A1A5E 28%, #8A2E1C 62%, #C9983A 88%, #F0C855 100%)">
+  </div>
+  <div class="h-overlay"></div>
+  <div class="h-content">
+    <p class="h-badge">★ Concert Night</p>
+    <h3 class="h-artist">Jamiroquai</h3>
+    <p class="h-venue">Plaza de España &nbsp;·&nbsp; Sevilla</p>
+    <p class="h-details">Thursday 16 July 2026 &nbsp;·&nbsp; Doors 8 pm</p>
+    <p class="h-ornament">✦ &nbsp; ✦ &nbsp; ✦</p>
+    <p class="h-blurb">One of the world's great live acts beneath the arching colonnades of one of Spain's most magical open-air settings. Music, warm light, and the summer night air of Andalucía.</p>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     GRANADA
+══════════════════════════════════════ -->
+<section class="city-sec" id="granada" style="--cc: var(--c-granada)">
+  <div class="wrap">
+
+    <div class="city-top">
+      <div>
+        <div class="city-bar"></div>
+        <p class="city-tag">Days 9 – 11</p>
+        <h2 class="city-name">Granada</h2>
+        <p class="city-nights">2 nights &nbsp;·&nbsp; July 19 – 21, 2026</p>
+        <p class="city-desc">The Alhambra rises above the city like a crown of rust and gold. Below, the Albaicín's whitewashed maze spills down the hillside with views that stop you mid-breath. Granada is the soul of Moorish Spain — and we stay on the hill itself, steps from the palace.</p>
+      </div>
+      <div class="hotel fade">
+        <p class="hotel-label">Where we stay</p>
+        <p class="hotel-name">Hotel Alhambra Palace</p>
+        <p class="hotel-loc">Alhambra Hill · Granada</p>
+        <hr class="thin">
+        <p class="hotel-dates">Check-in Sun 19 Jul &nbsp;·&nbsp; Check-out Tue 21 Jul</p>
+        <div class="hotel-tags">
+          <span class="htag">Steps from the Alhambra gates</span>
+          <span class="htag">Panoramic city terrace</span>
+          <span class="htag">Neo-Moorish architecture</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Days -->
+    <div class="days">
+      <div class="day fade">
+        <p class="day-n">Day 9 &nbsp;·&nbsp; Sunday</p>
+        <p class="day-d">July 19</p>
+        <p class="day-ttl">Sevilla → Granada 🚄</p>
+        <p class="day-txt">East through the Sierra Nevada foothills. Arrive by midday, settle into the hotel on the Alhambra hill. The Albaicín at sunset, dinner in a cave restaurant.</p>
+      </div>
+      <div class="day fade">
+        <p class="day-n">Day 10 &nbsp;·&nbsp; Monday</p>
+        <p class="day-d">July 20</p>
+        <p class="day-ttl">La Alhambra ★</p>
+        <p class="day-txt">An entire morning inside one of the world's most perfect buildings. The Nasrid Palaces, the Generalife gardens, the views over the Albaicín. Afternoon free — tapas bars that give you a free drink with every order.</p>
+      </div>
+      <div class="day fade">
+        <p class="day-n">Day 11 &nbsp;·&nbsp; Tuesday</p>
+        <p class="day-d">July 21</p>
+        <p class="day-ttl">Granada → Madrid → Ibiza ✈</p>
+        <p class="day-txt">Early AVE back to Madrid, then an evening flight west to the island. We arrive in Ibiza with the night still young and the Mediterranean spread below.</p>
+      </div>
+    </div>
+
+    <!-- Photos -->
+    <div class="photos">
+      <div class="photo fade" style="background: linear-gradient(145deg, #4A2800, #A07400)">
+        <p class="photo-lbl">La Alhambra</p>
+        <span class="replace-badge">Replace me</span>
+      </div>
+      <div class="photo fade" style="background: linear-gradient(145deg, #8A6900, #D4A827)">
+        <p class="photo-lbl">Generalife Gardens</p>
+        <span class="replace-badge">Replace me</span>
+      </div>
+      <div class="photo fade" style="background: linear-gradient(145deg, #6A4800, #A87C10)">
+        <p class="photo-lbl">Albaicín at Dusk</p>
+        <span class="replace-badge">Replace me</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     IBIZA
+══════════════════════════════════════ -->
+<section class="city-sec alt" id="ibiza" style="--cc: var(--c-ibiza)">
+  <div class="wrap">
+
+    <div class="city-top">
+      <div>
+        <div class="city-bar"></div>
+        <p class="city-tag">Days 11 – 15</p>
+        <h2 class="city-name">Ibiza</h2>
+        <p class="city-nights">4 nights &nbsp;·&nbsp; July 21 – 25, 2026</p>
+        <p class="city-desc">The Balearic island that invented a feeling. Crystal water, pine forests, ancient sunsets from Dalt Vila, and the best sound systems in the world. We come for the beaches, the food, and one completely unforgettable night at Amnesia.</p>
+      </div>
+      <div class="hotel fade">
+        <p class="hotel-label">Where we stay</p>
+        <p class="hotel-name">TRS Ibiza Hotel</p>
+        <p class="hotel-loc">San Antonio Bay · Ibiza</p>
+        <hr class="thin">
+        <p class="hotel-dates">Check-in Tue 21 Jul &nbsp;·&nbsp; Check-out Sat 25 Jul</p>
+        <div class="hotel-tags">
+          <span class="htag">Adults-only resort</span>
+          <span class="htag">Sunset side of the island</span>
+          <span class="htag">All-inclusive</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Days -->
+    <div class="days">
+      <div class="day fade">
+        <p class="day-n">Days 11–12 &nbsp;·&nbsp; Tue–Wed</p>
+        <p class="day-d">July 21–22</p>
+        <p class="day-ttl">Arrival &amp; First Beach Day</p>
+        <p class="day-txt">Arrive after the mainland journey. The Mediterranean opens wide. First swim, first sundowner watching the famous Ibizan sunset. The island starts working its spell.</p>
+      </div>
+      <div class="day fade">
+        <p class="day-n">Day 13 &nbsp;·&nbsp; Thursday</p>
+        <p class="day-d">July 23</p>
+        <p class="day-ttl">Explore the Island</p>
+        <p class="day-txt">Rent a car or a boat. Ses Salines beach, the salt flats, a hilltop restaurant with a view. Dalt Vila in the evening — the UNESCO old town glowing amber at golden hour.</p>
+      </div>
+      <div class="day fade">
+        <p class="day-n">Day 14 &nbsp;·&nbsp; Friday</p>
+        <p class="day-d">July 24</p>
+        <p class="day-ttl">Beach Day → Amnesia ★</p>
+        <p class="day-txt">A long, languid day at the beach saving energy for the night. Dinner early. Then — Amnesia, Glitterbox, Armand Van Helden. One of the world's greatest DJs in one of the world's greatest clubs.</p>
+      </div>
+      <div class="day fade">
+        <p class="day-n">Day 15 &nbsp;·&nbsp; Saturday</p>
+        <p class="day-d">July 25</p>
+        <p class="day-ttl">Last Morning → Madrid ✈</p>
+        <p class="day-txt">A final Balearic sunrise. Pack up. The flight back to the mainland and one last stop before home.</p>
+      </div>
+    </div>
+
+    <!-- Photos -->
+    <div class="photos">
+      <div class="photo fade" style="background: linear-gradient(145deg, #0C3E42, #2E9DA2)">
+        <p class="photo-lbl">Es Vedrà Sea View</p>
+        <span class="replace-badge">Replace me</span>
+      </div>
+      <div class="photo fade" style="background: linear-gradient(145deg, #1E6B6F, #52B7BC)">
+        <p class="photo-lbl">Dalt Vila at Sunset</p>
+        <span class="replace-badge">Replace me</span>
+      </div>
+      <div class="photo fade" style="background: linear-gradient(145deg, #144A4E, #349AA0)">
+        <p class="photo-lbl">Ses Salines Beach</p>
+        <span class="replace-badge">Replace me</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     HIGHLIGHT: ARMAND VAN HELDEN
+══════════════════════════════════════ -->
+<section class="highlight" id="amnesia">
+  <div class="h-bg"
+       style="background: linear-gradient(140deg, #020818 0%, #041240 22%, #0C2E5C 46%, #1E6B6F 76%, #2EA8A0 100%)">
+  </div>
+  <div class="h-overlay"></div>
+  <div class="h-content">
+    <p class="h-badge">★ Concert Night</p>
+    <p class="h-presenter">Glitterbox presents</p>
+    <h3 class="h-artist">Armand Van Helden</h3>
+    <p class="h-venue">Amnesia &nbsp;·&nbsp; Ibiza</p>
+    <p class="h-details">Friday 24 July 2026</p>
+    <p class="h-ornament">✦ &nbsp; ✦ &nbsp; ✦</p>
+    <p class="h-blurb">House music royalty at the legendary Amnesia. Glitterbox's euphoric, inclusive party universe — the night Ibiza was made for.</p>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     MADRID — RETURN
+══════════════════════════════════════ -->
+<section class="city-sec" id="madrid-return" style="--cc: var(--c-madrid)">
+  <div class="wrap">
+
+    <div class="city-top">
+      <div style="opacity: 0.72">
+        <div class="city-bar"></div>
+        <p class="city-tag">Days 15 – 17</p>
+        <h2 class="city-name">Madrid</h2>
+        <p class="city-nights">1 night &nbsp;·&nbsp; July 25 – 26, 2026</p>
+        <p class="city-desc">One final night in the Spanish capital before the long flight home. A gentle goodbye — decent sleep near Barajas, one last café con leche, and the runway waiting in the morning light.</p>
+      </div>
+      <div class="hotel fade">
+        <p class="hotel-label">Where we stay</p>
+        <p class="hotel-name">Hotel near Barajas Airport</p>
+        <p class="hotel-loc">Aeropuerto Area · Madrid</p>
+        <hr class="thin">
+        <p class="hotel-dates">Check-in Sat 25 Jul &nbsp;·&nbsp; Check-out Sun 26 Jul</p>
+        <div class="hotel-tags">
+          <span class="htag">Airport convenience</span>
+          <span class="htag">Easy early check-out</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Days -->
+    <div class="days">
+      <div class="day fade">
+        <p class="day-n">Day 15 &nbsp;·&nbsp; Saturday</p>
+        <p class="day-d">July 25</p>
+        <p class="day-ttl">Ibiza → Madrid ✈</p>
+        <p class="day-txt">Fly back to the mainland. Evening to rest, repack, and have a quiet last dinner on Spanish soil.</p>
+      </div>
+      <div class="day fade">
+        <p class="day-n">Day 16 &nbsp;·&nbsp; Sunday</p>
+        <p class="day-d">July 26</p>
+        <p class="day-ttl">Recovery near Barajas</p>
+        <p class="day-txt">A gentle final day. Maybe one last museum, one last plate of jamón. The countdown to departure begins.</p>
+      </div>
+      <div class="day fade">
+        <p class="day-n">Day 17 &nbsp;·&nbsp; Monday</p>
+        <p class="day-d">July 27</p>
+        <p class="day-ttl">Madrid → México City ✈</p>
+        <p class="day-txt">Home. Full of memories, tanned, slightly tired, completely changed. Until the next one.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     FOOTER
+══════════════════════════════════════ -->
+<footer>
+  <p class="foot-title">Hasta pronto, España</p>
+  <div class="foot-divider"></div>
+  <p class="foot-sub">July 2026 &nbsp;·&nbsp; A journey for two</p>
+</footer>
+
+
+<!-- ══════════════════════════════════════
+     JAVASCRIPT
+══════════════════════════════════════ -->
+<script>
+  // ── Fade-in on scroll ──
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        // Stagger siblings that are fading in together
+        const siblings = e.target.parentElement
+          ? Array.from(e.target.parentElement.querySelectorAll('.fade:not(.in)'))
+          : [];
+        const idx = siblings.indexOf(e.target);
+        setTimeout(() => {
+          e.target.classList.add('in');
+        }, Math.min(idx * 80, 320));
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade').forEach(el => observer.observe(el));
+
+  // ── Nav active highlight on scroll ──
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const cityIds  = ['madrid', 'sevilla', 'granada', 'ibiza'];
+
+  const secObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting && cityIds.includes(e.target.id)) {
+        navLinks.forEach(a => a.style.color = '');
+        const active = document.querySelector(`.nav-links a[href="#${e.target.id}"]`);
+        if (active) active.style.color = 'var(--ink)';
+      }
+    });
+  }, { rootMargin: '-40% 0px -40% 0px' });
+
+  cityIds.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) secObserver.observe(el);
+  });
+</script>
 
 </body>
 </html>
