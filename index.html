@@ -302,21 +302,15 @@
       border-radius: 10px; overflow: hidden;
       position: relative; aspect-ratio: 2 / 3;
       display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      text-align: center; padding: 1rem;
+      align-items: flex-start; justify-content: flex-end;
+      padding: 1.1rem 1.25rem;
     }
     .photo-lbl {
-      font-size: 0.78rem; font-weight: 500;
+      font-size: 0.75rem; font-weight: 500;
       color: rgba(255,255,255,0.92);
-      text-shadow: 0 1px 4px rgba(0,0,0,0.45);
-      margin-bottom: 0.5rem; letter-spacing: 0.03em;
-    }
-    .replace-badge {
-      font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase;
-      color: rgba(255,255,255,0.65);
-      background: rgba(0,0,0,0.22);
-      padding: 0.2rem 0.55rem; border-radius: 3px;
-      border: 1px solid rgba(255,255,255,0.25);
+      text-shadow: 0 1px 8px rgba(0,0,0,0.8), 0 0 20px rgba(0,0,0,0.5);
+      letter-spacing: 0.04em; line-height: 1.3;
+      position: relative; z-index: 1;
     }
 
     /* ─── HIGHLIGHT CARDS (concerts) ─── */
@@ -421,6 +415,60 @@
     }
     .orn-rule span { color: var(--gold); font-size: 0.9rem; }
 
+    /* ─── BUDGET ─── */
+    .budget-grid {
+      max-width: 720px;
+      border: 1px solid var(--cream-dark);
+      border-radius: 14px;
+      overflow: hidden;
+      background: var(--white);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.04);
+      margin-bottom: 1.5rem;
+    }
+    .budget-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid var(--cream-dark);
+      gap: 1rem;
+    }
+    .budget-row:last-child { border-bottom: none; }
+    .budget-row--header {
+      background: var(--ink); padding: 0.75rem 1.5rem;
+    }
+    .budget-row--header .budget-cat {
+      font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase;
+      color: rgba(255,255,255,0.45); font-weight: 500;
+    }
+    .budget-row--header .budget-amt {
+      font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase;
+      color: rgba(255,255,255,0.45); font-weight: 500;
+    }
+    .budget-item {
+      font-weight: 500; font-size: 0.93rem; color: var(--ink); margin-bottom: 0.15rem;
+    }
+    .budget-note {
+      font-size: 0.72rem; color: var(--ink-light); line-height: 1.5;
+    }
+    .budget-amt {
+      font-family: var(--serif); font-size: 1rem; font-weight: 600;
+      color: var(--ink); white-space: nowrap; flex-shrink: 0;
+    }
+    .budget-row--total {
+      background: var(--ink); padding: 1.25rem 1.5rem;
+    }
+    .budget-total-lbl {
+      font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(255,255,255,0.55); font-weight: 500;
+    }
+    .budget-total-amt {
+      font-family: var(--serif); font-size: 1.75rem; font-weight: 700;
+      color: var(--gold); white-space: nowrap;
+    }
+    .budget-disclaimer {
+      font-size: 0.75rem; color: var(--ink-light);
+      max-width: 720px; padding: 0 0.25rem;
+    }
+
     /* ─── MISC ─── */
     .mt-2 { margin-top: 2rem; }
     .section-gap { padding-top: 3.5rem; }
@@ -439,6 +487,7 @@
       <li><a href="#sevilla"><span class="nav-dot" style="background:var(--c-sevilla)"></span>Sevilla</a></li>
       <li><a href="#granada"><span class="nav-dot" style="background:var(--c-granada)"></span>Granada</a></li>
       <li><a href="#ibiza"><span class="nav-dot" style="background:var(--c-ibiza)"></span>Ibiza</a></li>
+      <li><a href="#budget"><span class="nav-dot" style="background:var(--gold)"></span>Budget</a></li>
     </ul>
   </div>
 </nav>
@@ -454,9 +503,9 @@
   <div class="hero-overlay"></div>
 
   <div class="hero-content">
-    <p class="hero-eyebrow">17 days through Andalucía &amp; beyond</p>
+    <p class="hero-eyebrow">16 days through Andalucía &amp; beyond</p>
     <h1 class="hero-title">España</h1>
-    <p class="hero-dates">11 – 27 July, 2026</p>
+    <p class="hero-dates">11 – 26 July, 2026</p>
     <p class="hero-sub">Madrid &nbsp;·&nbsp; Sevilla &nbsp;·&nbsp; Córdoba &nbsp;·&nbsp; Granada &nbsp;·&nbsp; Ibiza</p>
   </div>
 
@@ -474,7 +523,7 @@
 ══════════════════════════════════════ -->
 <div class="stats">
   <div class="stats-grid">
-    <div><span class="stat-n">17</span><span class="stat-l">Days</span></div>
+    <div><span class="stat-n">16</span><span class="stat-l">Days</span></div>
     <div><span class="stat-n">6</span><span class="stat-l">Destinations</span></div>
     <div><span class="stat-n">13</span><span class="stat-l">Hotel Nights</span></div>
     <div><span class="stat-n">2</span><span class="stat-l">Legendary Shows</span></div>
@@ -543,7 +592,7 @@
         <text x="340" y="124" text-anchor="middle"
               font-family="Playfair Display, serif" font-size="13" fill="#B4491C" font-style="italic">Sevilla</text>
         <text x="340" y="138" text-anchor="middle"
-              font-family="DM Sans, sans-serif" font-size="8" fill="#A8A29E">Jul 15–18</text>
+              font-family="DM Sans, sans-serif" font-size="8" fill="#A8A29E">Jul 15–17</text>
         <text x="340" y="184" text-anchor="middle"
               font-family="DM Sans, sans-serif" font-size="8.5" fill="#78716C">3 nights</text>
 
@@ -678,17 +727,14 @@
 
     <!-- Photos -->
     <div class="photos">
-      <div class="photo fade" style="background: linear-gradient(145deg, #4C1828, #9E4F6A)">
+      <div class="photo fade" style="background: linear-gradient(to bottom, rgba(0,0,0,0.05), rgba(0,0,0,0.55)), url('https://images.unsplash.com/photo-vKVc9oFmDjM?auto=format&fit=crop&w=600&h=900&q=80') center/cover no-repeat">
         <p class="photo-lbl">Gran Vía at Night</p>
-        <span class="replace-badge">Replace me</span>
       </div>
-      <div class="photo fade" style="background: linear-gradient(145deg, #7A3B4E, #C47090)">
+      <div class="photo fade" style="background: linear-gradient(to bottom, rgba(0,0,0,0.05), rgba(0,0,0,0.55)), url('https://images.unsplash.com/photo-yD9rlSBT9Eo?auto=format&fit=crop&w=600&h=900&q=80') center/cover no-repeat">
         <p class="photo-lbl">Parque del Retiro</p>
-        <span class="replace-badge">Replace me</span>
       </div>
-      <div class="photo fade" style="background: linear-gradient(145deg, #3E0E20, #7A3B4E)">
+      <div class="photo fade" style="background: linear-gradient(to bottom, rgba(0,0,0,0.05), rgba(0,0,0,0.55)), url('https://images.unsplash.com/photo-j_eSrickVd4?auto=format&fit=crop&w=600&h=900&q=80') center/cover no-repeat">
         <p class="photo-lbl">Mercado de San Miguel</p>
-        <span class="replace-badge">Replace me</span>
       </div>
     </div>
 
@@ -707,7 +753,7 @@
         <div class="city-bar"></div>
         <p class="city-tag">Days 5 – 8</p>
         <h2 class="city-name">Sevilla</h2>
-        <p class="city-nights">3 nights &nbsp;·&nbsp; July 15 – 18, 2026</p>
+        <p class="city-nights">3 nights &nbsp;·&nbsp; July 15 – 17, 2026</p>
         <p class="city-desc">The city of flamenco, orange blossoms, and Moorish grandeur. Narrow whitewashed lanes lead to hidden plazas. The Giralda towers above and the Guadalquivir shimmers gold below. And then — a concert under the stars at one of Spain's most iconic settings.</p>
       </div>
       <div class="hotel fade">
@@ -715,7 +761,7 @@
         <p class="hotel-name">Hotel Boutique Casas de Santa Cruz</p>
         <p class="hotel-loc">Barrio de Santa Cruz · Sevilla</p>
         <hr class="thin">
-        <p class="hotel-dates">Check-in Wed 15 Jul &nbsp;·&nbsp; Check-out Sun 19 Jul</p>
+        <p class="hotel-dates">Check-in Wed 15 Jul &nbsp;·&nbsp; Check-out Sat 18 Jul</p>
         <div class="hotel-tags">
           <span class="htag">Heart of the old quarter</span>
           <span class="htag">Steps from the Cathedral</span>
@@ -747,8 +793,8 @@
       <div class="day fade">
         <p class="day-n">Day 8 &nbsp;·&nbsp; Saturday</p>
         <p class="day-d">July 18</p>
-        <p class="day-ttl">Córdoba Day Trip 🏛</p>
-        <p class="day-txt">45 minutes north by AVE. La Mezquita, the Judería, the Alcázar gardens — Córdoba packs centuries into one extraordinary day. Back to Sevilla for a last dinner.</p>
+        <p class="day-ttl">Córdoba Day Trip → Granada 🚄</p>
+        <p class="day-txt">North to Córdoba by AVE — La Mezquita, the Judería, the Alcázar gardens. Then south-east to Granada in the evening. Check in, Albaicín at sunset, dinner in a cave restaurant.</p>
       </div>
     </div>
 
@@ -776,17 +822,14 @@
 
     <!-- Photos -->
     <div class="photos mt-2">
-      <div class="photo fade" style="background: linear-gradient(145deg, #7A2010, #D4643A)">
+      <div class="photo fade" style="background: linear-gradient(to bottom, rgba(0,0,0,0.05), rgba(0,0,0,0.55)), url('https://images.unsplash.com/photo-4HWBIUH9yRM?auto=format&fit=crop&w=600&h=900&q=80') center/cover no-repeat">
         <p class="photo-lbl">Plaza de España</p>
-        <span class="replace-badge">Replace me</span>
       </div>
-      <div class="photo fade" style="background: linear-gradient(145deg, #B4491C, #E8844A)">
+      <div class="photo fade" style="background: linear-gradient(to bottom, rgba(0,0,0,0.05), rgba(0,0,0,0.55)), url('https://images.unsplash.com/photo-zEs2vWTDEGI?auto=format&fit=crop&w=600&h=900&q=80') center/cover no-repeat">
         <p class="photo-lbl">Barrio de Santa Cruz</p>
-        <span class="replace-badge">Replace me</span>
       </div>
-      <div class="photo fade" style="background: linear-gradient(145deg, #8A2E10, #C44A20)">
+      <div class="photo fade" style="background: linear-gradient(to bottom, rgba(0,0,0,0.05), rgba(0,0,0,0.55)), url('https://images.unsplash.com/photo-8K6nHmxU70k?auto=format&fit=crop&w=600&h=900&q=80') center/cover no-repeat">
         <p class="photo-lbl">Sevilla Cathedral &amp; Giralda</p>
-        <span class="replace-badge">Replace me</span>
       </div>
     </div>
 
@@ -824,7 +867,7 @@
         <div class="city-bar"></div>
         <p class="city-tag">Days 9 – 11</p>
         <h2 class="city-name">Granada</h2>
-        <p class="city-nights">2 nights &nbsp;·&nbsp; July 19 – 21, 2026</p>
+        <p class="city-nights">2 nights &nbsp;·&nbsp; July 18 – 20, 2026</p>
         <p class="city-desc">The Alhambra rises above the city like a crown of rust and gold. Below, the Albaicín's whitewashed maze spills down the hillside with views that stop you mid-breath. Granada is the soul of Moorish Spain — and we stay on the hill itself, steps from the palace.</p>
       </div>
       <div class="hotel fade">
@@ -832,7 +875,7 @@
         <p class="hotel-name">Hotel Alhambra Palace</p>
         <p class="hotel-loc">Alhambra Hill · Granada</p>
         <hr class="thin">
-        <p class="hotel-dates">Check-in Sun 19 Jul &nbsp;·&nbsp; Check-out Tue 21 Jul</p>
+        <p class="hotel-dates">Check-in Sat 18 Jul &nbsp;·&nbsp; Check-out Tue 21 Jul</p>
         <div class="hotel-tags">
           <span class="htag">Steps from the Alhambra gates</span>
           <span class="htag">Panoramic city terrace</span>
@@ -846,36 +889,33 @@
       <div class="day fade">
         <p class="day-n">Day 9 &nbsp;·&nbsp; Sunday</p>
         <p class="day-d">July 19</p>
-        <p class="day-ttl">Sevilla → Granada 🚄</p>
-        <p class="day-txt">East through the Sierra Nevada foothills. Arrive by midday, settle into the hotel on the Alhambra hill. The Albaicín at sunset, dinner in a cave restaurant.</p>
+        <p class="day-ttl">Granada — First Full Day</p>
+        <p class="day-txt">Wander the Albaicín by morning, climb to Mirador de San Nicolás for the view. Tapas in the afternoon — every drink comes with a free plate. The city eases you in gently.</p>
       </div>
       <div class="day fade">
         <p class="day-n">Day 10 &nbsp;·&nbsp; Monday</p>
         <p class="day-d">July 20</p>
         <p class="day-ttl">La Alhambra ★</p>
-        <p class="day-txt">An entire morning inside one of the world's most perfect buildings. The Nasrid Palaces, the Generalife gardens, the views over the Albaicín. Afternoon free — tapas bars that give you a free drink with every order.</p>
+        <p class="day-txt">An entire morning inside one of the world's most perfect buildings. The Nasrid Palaces, the Generalife gardens, the views over the Albaicín. Afternoon free — more tapas, more Granada magic.</p>
       </div>
       <div class="day fade">
         <p class="day-n">Day 11 &nbsp;·&nbsp; Tuesday</p>
         <p class="day-d">July 21</p>
         <p class="day-ttl">Granada → Madrid → Ibiza ✈</p>
-        <p class="day-txt">Early AVE back to Madrid, then an evening flight west to the island. We arrive in Ibiza with the night still young and the Mediterranean spread below.</p>
+        <p class="day-txt">Morning AVE to Madrid, evening flight to the island. We arrive in Ibiza with the night still young and the Mediterranean spread below.</p>
       </div>
     </div>
 
     <!-- Photos -->
     <div class="photos">
-      <div class="photo fade" style="background: linear-gradient(145deg, #4A2800, #A07400)">
+      <div class="photo fade" style="background: linear-gradient(to bottom, rgba(0,0,0,0.05), rgba(0,0,0,0.55)), url('https://images.unsplash.com/photo-fJgrq86poVo?auto=format&fit=crop&w=600&h=900&q=80') center/cover no-repeat">
         <p class="photo-lbl">La Alhambra</p>
-        <span class="replace-badge">Replace me</span>
       </div>
-      <div class="photo fade" style="background: linear-gradient(145deg, #8A6900, #D4A827)">
+      <div class="photo fade" style="background: linear-gradient(to bottom, rgba(0,0,0,0.05), rgba(0,0,0,0.55)), url('https://images.unsplash.com/photo-di_YbOIqnIE?auto=format&fit=crop&w=600&h=900&q=80') center/cover no-repeat">
         <p class="photo-lbl">Generalife Gardens</p>
-        <span class="replace-badge">Replace me</span>
       </div>
-      <div class="photo fade" style="background: linear-gradient(145deg, #6A4800, #A87C10)">
+      <div class="photo fade" style="background: linear-gradient(to bottom, rgba(0,0,0,0.05), rgba(0,0,0,0.55)), url('https://images.unsplash.com/photo-HN9Jf9ICvCo?auto=format&fit=crop&w=600&h=900&q=80') center/cover no-repeat">
         <p class="photo-lbl">Albaicín at Dusk</p>
-        <span class="replace-badge">Replace me</span>
       </div>
     </div>
 
@@ -941,17 +981,14 @@
 
     <!-- Photos -->
     <div class="photos">
-      <div class="photo fade" style="background: linear-gradient(145deg, #0C3E42, #2E9DA2)">
-        <p class="photo-lbl">Es Vedrà Sea View</p>
-        <span class="replace-badge">Replace me</span>
+      <div class="photo fade" style="background: linear-gradient(to bottom, rgba(0,0,0,0.05), rgba(0,0,0,0.55)), url('https://images.unsplash.com/photo-9j5zI9mKnIQ?auto=format&fit=crop&w=600&h=900&q=80') center/cover no-repeat">
+        <p class="photo-lbl">Es Vedrà</p>
       </div>
-      <div class="photo fade" style="background: linear-gradient(145deg, #1E6B6F, #52B7BC)">
+      <div class="photo fade" style="background: linear-gradient(to bottom, rgba(0,0,0,0.05), rgba(0,0,0,0.55)), url('https://images.unsplash.com/photo-2kAbnnH9pZA?auto=format&fit=crop&w=600&h=900&q=80') center/cover no-repeat">
         <p class="photo-lbl">Dalt Vila at Sunset</p>
-        <span class="replace-badge">Replace me</span>
       </div>
-      <div class="photo fade" style="background: linear-gradient(145deg, #144A4E, #349AA0)">
+      <div class="photo fade" style="background: linear-gradient(to bottom, rgba(0,0,0,0.05), rgba(0,0,0,0.55)), url('https://images.unsplash.com/photo-YZ8Jc6TiH2A?auto=format&fit=crop&w=600&h=900&q=80') center/cover no-repeat">
         <p class="photo-lbl">Ses Salines Beach</p>
-        <span class="replace-badge">Replace me</span>
       </div>
     </div>
 
@@ -988,10 +1025,10 @@
     <div class="city-top">
       <div style="opacity: 0.72">
         <div class="city-bar"></div>
-        <p class="city-tag">Days 15 – 17</p>
+        <p class="city-tag">Days 15 – 16</p>
         <h2 class="city-name">Madrid</h2>
         <p class="city-nights">1 night &nbsp;·&nbsp; July 25 – 26, 2026</p>
-        <p class="city-desc">One final night in the Spanish capital before the long flight home. A gentle goodbye — decent sleep near Barajas, one last café con leche, and the runway waiting in the morning light.</p>
+        <p class="city-desc">One final night near Barajas before the long flight home. A gentle goodbye — decent sleep, one last café con leche, and the runway waiting in the morning light.</p>
       </div>
       <div class="hotel fade">
         <p class="hotel-label">Where we stay</p>
@@ -1017,17 +1054,101 @@
       <div class="day fade">
         <p class="day-n">Day 16 &nbsp;·&nbsp; Sunday</p>
         <p class="day-d">July 26</p>
-        <p class="day-ttl">Recovery near Barajas</p>
-        <p class="day-txt">A gentle final day. Maybe one last museum, one last plate of jamón. The countdown to departure begins.</p>
-      </div>
-      <div class="day fade">
-        <p class="day-n">Day 17 &nbsp;·&nbsp; Monday</p>
-        <p class="day-d">July 27</p>
         <p class="day-ttl">Madrid → México City ✈</p>
-        <p class="day-txt">Home. Full of memories, tanned, slightly tired, completely changed. Until the next one.</p>
+        <p class="day-txt">Home same day. Full of memories, tanned, slightly tired, completely changed. Until the next one.</p>
       </div>
     </div>
 
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     BUDGET
+══════════════════════════════════════ -->
+<section class="city-sec alt" id="budget">
+  <div class="wrap">
+    <p class="eyebrow fade">Trip Finances</p>
+    <h2 class="route-title fade" style="margin-bottom:2.5rem">What It Costs</h2>
+
+    <div class="budget-grid fade">
+
+      <div class="budget-row budget-row--header">
+        <span class="budget-cat">Expense</span>
+        <span class="budget-amt">Total (MXN)</span>
+      </div>
+
+      <div class="budget-row">
+        <div>
+          <p class="budget-item">Flights México ↔ Madrid</p>
+          <p class="budget-note">Both travelers · confirmed booking</p>
+        </div>
+        <span class="budget-amt">$59,624</span>
+      </div>
+      <div class="budget-row">
+        <div>
+          <p class="budget-item">Internal trains</p>
+          <p class="budget-note">Madrid–Sevilla · Sevilla–Córdoba–Sevilla · Sevilla–Granada · Granada–Madrid</p>
+        </div>
+        <span class="budget-amt">$8,700</span>
+      </div>
+      <div class="budget-row">
+        <div>
+          <p class="budget-item">Madrid ↔ Ibiza flights</p>
+          <p class="budget-note">Both legs · both travelers</p>
+        </div>
+        <span class="budget-amt">$7,000</span>
+      </div>
+      <div class="budget-row">
+        <div>
+          <p class="budget-item">Hotels — 13 nights</p>
+          <p class="budget-note">Madrid 3n · Sevilla 3n · Granada 2n · Ibiza 4n · Madrid return 1n</p>
+        </div>
+        <span class="budget-amt">$62,500</span>
+      </div>
+      <div class="budget-row">
+        <div>
+          <p class="budget-item">Food &amp; dining — mainland Spain</p>
+          <p class="budget-note">10 days · both travelers</p>
+        </div>
+        <span class="budget-amt">$20,900</span>
+      </div>
+      <div class="budget-row">
+        <div>
+          <p class="budget-item">Food, drinks &amp; nightlife — Ibiza</p>
+          <p class="budget-note">4 days · both travelers</p>
+        </div>
+        <span class="budget-amt">$12,500</span>
+      </div>
+      <div class="budget-row">
+        <div>
+          <p class="budget-item">Activities &amp; entry tickets</p>
+          <p class="budget-note">Alhambra · Mezquita · Alcázar · museums · misc</p>
+        </div>
+        <span class="budget-amt">$6,500</span>
+      </div>
+      <div class="budget-row">
+        <div>
+          <p class="budget-item">Amnesia / Glitterbox entry</p>
+          <p class="budget-note">Both tickets · Jul 24</p>
+        </div>
+        <span class="budget-amt">$2,900</span>
+      </div>
+      <div class="budget-row">
+        <div>
+          <p class="budget-item">Airport transfers, taxis &amp; misc</p>
+          <p class="budget-note">Local transport throughout the trip</p>
+        </div>
+        <span class="budget-amt">$4,350</span>
+      </div>
+
+      <div class="budget-row budget-row--total">
+        <span class="budget-total-lbl">Total</span>
+        <span class="budget-total-amt">$185,000 MXN</span>
+      </div>
+    </div>
+
+    <p class="budget-disclaimer fade">Excludes Jamiroquai tickets (already purchased) and discretionary shopping budget.</p>
   </div>
 </section>
 
